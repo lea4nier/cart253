@@ -24,23 +24,22 @@ createCanvas(500, 500);
 
 background(52, 235, 207);
 
-stroke(242, 165, 237);
-fill(255, 199, 216); 
+noStroke();
 
 ellipseMode(CORNER);
-fill(237, 0, 0);
+fill(237, 0, 0, 50);
 ellipse(250, 250, 100, 100);
 
-fill(255, 132, 0);
+fill(255, 132, 0, 50);
 ellipse(250, 250, 80, 80);
 
-fill(246, 255, 0);
+fill(246, 255, 0, 50);
 ellipse(250, 250, 60, 60); 
 
-fill(64, 255, 0);
+fill(64, 255, 0, 50);
 ellipse(250, 250, 40, 40);
 
-fill(255, 0, 225);
+fill(255, 201, 252, 50);
 ellipse(250, 250, 20, 20); 
 }
 
