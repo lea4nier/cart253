@@ -8,7 +8,7 @@
 
 
 /**
- * draw the background 
+// draw the background 
 */
 function setup() {
 createCanvas(640, 480); 
