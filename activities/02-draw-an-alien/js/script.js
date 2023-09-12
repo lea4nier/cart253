@@ -28,12 +28,19 @@ fill(15, 15, 15);
 ellipse(250, 240, 80, 250);
 ellipse(390, 240, 80, 250);
 
+//add pupils
+fill(222, 7, 250);
+ellipse(250, 240, 20, 180);
+ellipse(390, 240, 20, 180);
+
 //draw the nostrils
+fill(15, 15, 15);
 ellipse(300, 350, 10, 10);
 ellipse(340, 350, 10, 10);
 
 //draw the mouth
-stroke(255, 0, 0);
+fill(15, 15, 15);
+stroke(7, 250, 64);
 strokeWeight(4); 
 rectMode(CENTER); 
 rect(320, 390, 100, 25);
