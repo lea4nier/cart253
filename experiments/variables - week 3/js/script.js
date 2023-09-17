@@ -8,10 +8,11 @@
 
 let backgroundShade = 0;
 let circle = {
-    x: 250,
+    x: 0,
     y: 250,
     size: 100,
-    speed: 1
+    speed: 1, 
+    fill: 255, 
 
 }
 
@@ -30,7 +31,12 @@ createCanvas(500, 500);
 function draw() {
     background(backgroundShade);
 
-    circle.speed = random(-5, 5);
     circle.x = circle.x + circle.speed;
-  ellipse(circle.x, circle.y, circle.size);
+    circle.x = constrain(circle.x, 0, width); 
+
+    circle.size = map(mouseY, 0, height, 50, 500); 
+
+    circle.fill = map(mouseX, 0, width, 0, 255);
+    fill(circle.fill);
+    ellipse(circle.x, circle.y, circle.size);
 }
