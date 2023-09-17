@@ -7,17 +7,19 @@
  */
 
 let backgroundShade = 0;
-let circleX = 0;
-let circleY = 250;
-let circleSize = 100; 
-let speed = 1;
-let acceleration = 0.2;
+let circle = {
+    x: 250,
+    y: 250,
+    size: 100,
+    speed: 1
+
+}
 
 /**
  * Description of setup
 */
 function setup() {
-    createCanvas(500, 500);
+createCanvas(500, 500);
     
 }
 
@@ -27,7 +29,8 @@ function setup() {
 */
 function draw() {
     background(backgroundShade);
-    ellipse(circleX,circleY,circleSize);
-    circleX = circleX + speed;
-    speed = speed + acceleration;
+
+    circle.speed = random(-5, 5);
+    circle.x = circle.x + circle.speed;
+  ellipse(circle.x, circle.y, circle.size);
 }
