@@ -6,14 +6,10 @@
  * and this description to match your project!
  */
 
-"use strict";
-
-/**
- * Description of preload
-*/
-function preload() {
-
-}
+let backgroundShade = 0;
+let circleX = 250;
+let circleY = 250;
+let circleSize = 200; 
 
 
 /**
@@ -21,6 +17,7 @@ function preload() {
 */
 function setup() {
     createCanvas(500, 500);
+    
 }
 
 
@@ -28,7 +25,6 @@ function setup() {
  * Description of draw()
 */
 function draw() {
-background(255, 0, 0);
-rectMode(CENTER);
-rect(mouseX, mouseY, 100, 100); //follows mouse
+background(backgroundShade);
+ellipse(circleX, circleY,circleSize);
 }
