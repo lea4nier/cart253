@@ -1,47 +1,42 @@
 /**************************************************
-Template p5 project
-Pippin Barr
+"I Like To Move It" Exercise
 
-Here is a description of this template p5 project.
+Léa Fournier
+
+The Power of Love 
 **************************************************/
 
+//background
 let bg = {
-    r: 161,
-    g: 220,
-    b: 255
-  };
+  r: 0,
+  g: 0,
+  b: 0
+};
+
+//left circle
   let circle1 = {
     x: 0,
-    y: 400,
-    size: 100,
+    y: 300,
+    size: 300,
     growthRate: 1,
     speed: 1, 
     alpha: 200
   };
+
+  //right circle
   let circle2 = {
     x: 500,
-    y: 250,
+    y: 300,
     size: 75,
     sizeRatio: 0.5,
     speed: -1,
     fill: 255,
     alpha: 200
   };
-  
-  let triangle1 = {
-    x1: 500,
-    y1: 275,
-    x2: 58,
-    y2: 20,
-    x3: 86,
-    y3: 75,
-    speed: 1,  
-    
-  }; 
 
   // setup()
   //
-  // Description of setup() goes here.
+  // creating canvas
   function setup() {
     createCanvas(500,500);
     noStroke();
@@ -49,30 +44,35 @@ let bg = {
   
   // draw()
   //
-  // Description of draw() goes here.
+  // drawing heart and circles
   function draw() {
+  
+//change heart color   
+  fill(random(255), random(255), random(255));
+    frameRate(100);
 
-    // Background
-    background(bg.r,bg.g,bg.b);
-    bg.r = map(circle1.size,100,width,0,255);
+//canvas background
+  background(bg.r,bg.g,bg.b);
+ bg.r = map(circle1.size,100,width,0,255);
 
-    ellipseMode(CENTER);
-    ellipse(mouseX,mouseY,10,10);
-    circle1.size = map(mouseY,height,0,100,400);
+ //add text 
+ text("THIS IS HOW MUCH I LOVE YOU", 155, 100)
+
     
-    triangle1.x1 = triangle1.x1 + triangle1.speed; 
-    triangle1.x2 = triangle1.x2 + triangle1.speed;
-    triangle1.x3 = triangle1.x3 + triangle1.speed;
-    triangle1.y1 = triangle1.y1 + triangle1.speed;
-    triangle1.y2 = triangle1.y2 + triangle1.speed;
-    triangle1.y3 = triangle1.y3 + triangle1.speed;
-   
-    // Left circle
+//circle to follow mouse
+ellipseMode(CENTER);
+ellipse(mouseX,mouseY,10,10);
+
+//left circle gets bigger with mouse
+circle1.size = map(mouseY,height,0,100,800);
+    
+// Left circle moves in
     circle1.x = circle1.x + circle1.speed;
     circle1.x = constrain(circle1.x,0,width/2);
-   //change color
-    circle1.fill = color(random(255), random(255), random(255)); // Get a random fill for our circle!
-  fill(circle1.fill); // Apply our circle's random fill
+
+    //change color
+    circle1.fill = color(random(255), random(255), random(255)); // random fill for circle
+  fill(circle1.fill); // Applly circle's random fill
    
   ellipse(circle1.x, circle1.y, circle1.size);
     
@@ -82,12 +82,29 @@ let bg = {
   
     // Right circle
     circle2.x = circle2.x + circle2.speed;
-    circle2.x = constrain(circle2.x,width/2,width);
+    circle2.x = constrain(circle2.x,width/1.96,width);
    //change color
-    circle2.fill = color(random(255), random(255), random(255)); // Get a random fill for our circle!
-  fill(circle2.fill); // Apply our circle's random fill
+    circle2.fill = color(random(255), random(255), random(255)); // random fill for circle
+  fill(circle2.fill); // Apply circle's random fill
   ellipse(circle2.x, circle2.y, circle2.size);
+  ellipse(circle2.x,circle2.y,circle2.size);
+  
+//draw heart
+rect(335, 255, 5, 40)
+rect(325, 250, 10, 60);
+rect(320, 250, 15, 60);
+rect(310, 245, 15, 80);
+rect(295, 240, 15, 95);
+rect(280, 240, 15, 100);
+rect(265, 245, 15, 105);
+rect(250, 250, 15, 105);
+rect(235, 245, 15, 105); 
+rect(220, 240, 15, 100);
+rect(205, 240, 15, 95);
+rect(190, 245, 15, 80);
+rect(185, 250, 5, 60); 
+rect(180, 250, 5, 60);
+rect(175, 255, 5, 40);
 
-    
-    ellipse(circle2.x,circle2.y,circle2.size);
-  }
+
+}

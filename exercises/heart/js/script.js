@@ -14,8 +14,30 @@
 function preload() {
 
 }
+let circle1 = {
+    x: 0,
+    y: 400,
+    size: 100,
+    growthRate: 1,
+    speed: 1, 
+    alpha: 200
+  };
 
+let circle2 = {
+    x: 500,
+    y: 250,
+    size: 75,
+    sizeRatio: 0.5,
+    speed: -1,
+    fill: 255,
+    alpha: 200
+  };
 
+//let speedX = 1;
+//let speedY = 1;
+//let speedX = 1; 
+//let x = 1;
+//let speed = 1;
 /**
  * Description of setup
 */
@@ -28,7 +50,34 @@ createCanvas (500,500)
  * Description of draw()
 */
 function draw() {
+  // Left circle
+  circle1.x = circle1.x + circle1.speed;
+  circle1.x = constrain(circle1.x,0,width/2);
+  circle1.size = circle1.size + circle1.growthRate;
+  circle1.size = constrain(circle1.size,0,width);
+  fill(circle1.fill,circle1.alpha);
+  ellipse(circle1.x,circle1.y,circle1.size);
 
+  // Right circle
+  circle2.x = circle2.x + circle2.speed;
+  circle2.x = constrain(circle2.x,width/2,width);
+  circle2.size = circle1.size * circle2.sizeRatio;
+  fill(circle2.fill,circle2.alpha);
+  ellipse(circle2.x,circle2.y,circle2.size);
+   
+    // x += speed;
+   // if(x < 0 || x > width){
+   //    speed *= -1;
+    }
+ 
+   // line(-250, 160, 250, height); 
+//line(250 + speedX, 55 + speedY, 250 + speedX, 50 + speedY,);
+//speedX++;
+//speedY += 0;
+//triangle(100 + speedX, 55 + speedY, 28 + speedX, 0 + speedY, 56 + speedX, 55 + speedY);
+    //speedX++;
+   // speedY += 0;
+    
 //make it red 
     fill(random(255), random(255), random(255));
     frameRate(1);
