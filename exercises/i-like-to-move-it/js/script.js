@@ -58,7 +58,7 @@ let circle2 = {
 ellipseMode(CENTER);
 ellipse(mouseX,mouseY,10,10);
 
-//left circle gets changes size based on mouse
+//left circle changes size based on mouse
 circle1.size = map(mouseY,height,0,100,800);
     
 // left circle moves in
