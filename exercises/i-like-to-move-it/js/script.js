@@ -3,7 +3,7 @@
 
 Léa Fournier
 
-The Power of Love 
+♡ ♡ Valentine's Day Card ♡ ♡
 **************************************************/
 
 //background
@@ -47,13 +47,15 @@ let bg = {
   // drawing heart and circles
   function draw() {
   
-//change heart color   
+    //canvas background
+  background(bg.r,bg.g,bg.b);
+ bg.r = map(circle1.size,100,width,0,255);
+
+ //change heart color   
   fill(random(255), random(255), random(255));
     frameRate(100);
 
-//canvas background
-  background(bg.r,bg.g,bg.b);
- bg.r = map(circle1.size,100,width,0,255);
+
 
  //add text 
  text("THIS IS HOW MUCH I LOVE YOU", 155, 100)
