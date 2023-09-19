@@ -7,7 +7,12 @@
  */
 
 "use strict";
-
+let me = {
+    x: 0,
+    y: 200,
+    h: 500, 
+    speed: 2,
+}
 /**
  * Description of preload
 */
@@ -20,7 +25,8 @@ function preload() {
  * Description of setup
 */
 function setup() {
-
+    createCanvas(500, 500); 
+    colorMode(HSL);
 }
 
 
@@ -28,5 +34,10 @@ function setup() {
  * Description of draw()
 */
 function draw() {
+Map()
+stroke(0);
+line(me.x, me.y, me.x, me.y - me.h); 
+me.x = me.x + me.speed; 
+
 
 }
