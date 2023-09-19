@@ -14,24 +14,24 @@ let bg = {
 };
 
 //left circle
-  let circle1 = {
-    x: 0,
-    y: 300,
-    size: 300,
-    growthRate: 1,
-    speed: 1, 
-    alpha: 200
-  };
+let circle1 = {
+  x: 0,
+  y: 300,
+  size: 300,
+  growthRate: 1,
+  speed: 1, 
+  alpha: 200
+};
 
-  //right circle
-  let circle2 = {
-    x: 500,
-    y: 300,
-    size: 75,
-    sizeRatio: 0.5,
-    speed: -1,
-    fill: 255,
-    alpha: 200
+//right circle
+let circle2 = {
+  x: 500,
+  y: 300,
+  size: 75,
+  sizeRatio: 0.5,
+  speed: -1,
+  fill: 255,
+  alpha: 200
   };
 
   // setup()
@@ -44,24 +44,24 @@ let bg = {
   
   // draw()
   //
-  // drawing heart and circles and text
+// drawing heart + circles + text
   function draw() {
   
-  //canvas background
+//canvas background
   background(bg.r,bg.g,bg.b);
   bg.r = map(circle1.size,100,width,0,255);
 
- //add text 
+//add text 
  text("THIS IS HOW MUCH I LOVE YOU", 155, 100)
 
 //circle to follow mouse
 ellipseMode(CENTER);
 ellipse(mouseX,mouseY,10,10);
 
-//left circle gets bigger with mouse
+//left circle gets changes size based on mouse
 circle1.size = map(mouseY,height,0,100,800);
     
-  // left circle moves in
+// left circle moves in
     circle1.x = circle1.x + circle1.speed;
     ellipse(circle1.x, circle1.y, circle1.size); 
     circle1.x = constrain(circle1.x,0,width/2); // circle stops in the center of heart
@@ -70,19 +70,15 @@ circle1.size = map(mouseY,height,0,100,800);
     circle1.fill = color(random(255), random(255), random(255)); // random fill for circle
     fill(circle1.fill); // Applly circle's random fill
    
-    
-    
-  
-  // right circle moves in 
+// right circle moves in 
     circle2.x = circle2.x + circle2.speed;
+    ellipse(circle2.x, circle2.y, circle2.size);
     circle2.x = constrain(circle2.x,width/1.96,width); //circle stops inside heart
    
     //change color
     circle2.fill = color(random(255), random(255), random(255)); // random fill for circle
-  fill(circle2.fill); // Apply circle's random fill
-  ellipse(circle2.x, circle2.y, circle2.size);
-  ellipse(circle2.x,circle2.y,circle2.size);
-  
+    fill(circle2.fill); // Apply circle's random fill
+    
 //draw heart
 rect(335, 255, 5, 40)
 rect(325, 250, 10, 60);
@@ -99,6 +95,5 @@ rect(190, 245, 15, 80);
 rect(185, 250, 5, 60); 
 rect(180, 250, 5, 60);
 rect(175, 255, 5, 40);
-
 
 }
