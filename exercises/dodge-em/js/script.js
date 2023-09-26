@@ -24,7 +24,7 @@ function preload () {
 
 // create canvas
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1000, 1000);
 }
 
 
@@ -33,7 +33,7 @@ function draw() {
 
   //display text 
   textSize(20); 
-  text("WHO WILL WIN MISS UNIVERSE??", 255, 100);
+  text("WHO WILL WIN MISS UNIVERSE??", 350, 200);
   fill(255);
 
   // display crown and pageants queens 
@@ -41,11 +41,11 @@ function draw() {
 
   image(queen1,X,Y, size1, size1+20);
 
-  image(queen2, 200, 400 - Y, size2, size2+20); 
+  image(queen2, 200, 800 - Y, size2, size2+20); 
 
 
   // pageant queens move 
-  if (X > width || Y > height) {
+  if (X > 1000 || Y > 1000) {
     X = 0
     Y = 0
     size1 = 200
@@ -61,5 +61,8 @@ function draw() {
 }
 
 function mousePressed(){
-  
+  noLoop();
+}
+function mouseReleased() {
+  loop();
 }
