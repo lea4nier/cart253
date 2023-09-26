@@ -16,9 +16,9 @@ let Y = 0;
 
 // loading images
 function preload () {
-  crown = loadImage ("assets/images/crown.png")     
-  queen1 = loadImage("assets/images/queen1.PNG");
-  queen2 = loadImage("assets/images/queen2.PNG"); 
+  crown = loadImage ("../assets/images/crown.png")     
+  queen1 = loadImage("../assets/images/queen1.PNG");
+  queen2 = loadImage("../assets/images/queen2.PNG"); 
 }
 
 // create canvas
