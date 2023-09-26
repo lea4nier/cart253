@@ -32,7 +32,9 @@ function setup() {
 function draw() {
   background(245, 2, 140);
 
+  textSize(20);
   text("WHO WILL WIN MISS UNIVERSE??", 155, 100);
+  fill(255);
 
   image(crown, mouseX, mouseY, 50, 50);
 
