@@ -33,14 +33,19 @@ let numStatic = 1000;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  covid19.y = random(0, height);
-  covid19.vx = covid19.speed;
+  //covid19.y = random(0, height);
+  //covid19.vx = covid19.speed;
 
-  noCursor();
+  //noCursor();
+}
+
+function preload () {
+    queen1 = loadImage("assets/images/queen1.PNG");
 }
 
 function draw() {
-  background(245, 2, 140);
+    background(245, 2, 140);
+  image(queen1,0,0);
 
   // Display static
   for (let i = 0; i < numStatic; i++) {
