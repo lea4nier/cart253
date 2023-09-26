@@ -5,7 +5,7 @@
  * Miss Universe 2023
  */
 
-
+// adding variables
 let crown; 
 let queen1; 
 let queen2;
@@ -31,7 +31,7 @@ function draw() {
   background(245, 2, 140);   //set background to pink
 
   if (!color){
-    background(66, 245, 239);   //color changes to cyan
+    background(66, 245, 239);   //background changes to cyan
   }
 
   //display text 
