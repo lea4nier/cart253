@@ -41,10 +41,10 @@ function draw() {
 
   image(queen1,X,Y, size1, size1+20);
 
-  image(queen2, 200, 800 - Y, size2, size2+20); 
+  image(queen2, 200, 1000 - Y, size2, size2+20); 
 
 
-  // pageant queens move 
+  // pageant queens move and change size
   if (X > 1000 || Y > 1000) {
     X = 0
     Y = 0
@@ -54,12 +54,13 @@ function draw() {
   } else {
     X += 3
     Y += 3
-    size1 += 0.25
-    size2 -= 0.25
+    size1 += 0.1
+    size2 -= 0.1
   }
 
 }
 
+// queens stop when mouse is pressed
 function mousePressed(){
   noLoop();
 }
