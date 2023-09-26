@@ -1,73 +1,70 @@
-/**
- * Title of Project
- * Author Name
- * 
- * This is a template. You must fill in the title, author, 
- * and this description to match your project!
- */
-
-"use strict";
-let circle = {
+let covid19 = {
+    x: 0,
+    y: 250,
+    size: 100,
+    vx: 0,
+    vy: 0,
+    speed: 5,
+    fill: {
+      r: 255,
+      g: 0,
+      b: 0
+    }
+  };
+  
+  let user = {
     x: 250,
     y: 250,
-    size: 50,
-    // Because it changes size, let's set a minimum and maximum size
-    minSize: 50,
-    maxSize: 400,
-    fill: 0,
-    // We need to keep track of whether the circle is being dragged or not
-    // so we know whether to move it with the mouse position
-    dragging: false
-  }
+    size: 100,
+    fill: 255
+  };
+  
+  let numStatic = 5000;
   
   function setup() {
-    createCanvas(500, 500);
+    createCanvas(windowWidth, windowHeight);
+  
+    covid19.y = random(0, height);
+    covid19.vx = covid19.speed;
+  
+    noCursor();
   }
   
   function draw() {
-    background(127);
-    fill(circle.fill);
-    ellipse(circle.x, circle.y, circle.size);
-  }
+    background(0);
   
-  // mousePressed() is called at the moment the user presses down a mouse button
-  function mousePressed() {
-    // Calculate the distance between the mouse position and the circle position
-    let d = dist(mouseX, mouseY, circle.x, circle.y);
-    // If the distance is less that the circle's radius, we know the mouse was
-    // inside the circle when pressed
-    if (d < circle.size / 2) {
-      // So we can now drag the circle
-      circle.dragging = true;
+    // Display static
+    for (let i = 0; i < numStatic; i++) {
+      let x = random(0, width);
+      let y = random(0, height);
+      stroke(255);
+      point(x, y);
     }
-  }
   
-  // mouseReleased() is called at the moment the user releases a mouse button
-  function mouseReleased() {
-    // If the mouse is released, we should stop dragging the circle
-    circle.dragging = false;
-  }
+    // Covid 19 movement
+    covid19.x = covid19.x + covid19.vx;
+    covid19.y = covid19.y + covid19.vy;
   
-  // mouseDragged() is called every frame that the user is moving the mouse
-  // with a button held down
-  function mouseDragged() {
-    // When the mouse is dragged (with the mouse button down), we check if the circle
-    // is being dragged
-    if (circle.dragging) {
-      // If it is, we move it to the mouse position
-      circle.x = mouseX;
-      circle.y = mouseY;
+    if (covid19.x > width) {
+      covid19.x = 0;
+      covid19.y = random(0, height);
     }
-  }
   
-  // mouseWheel() is called every frame that the user is scrolling with the scroll wheel on
-  // a mouse or using their touchpad
-  function mouseWheel(event) {
-    // When the mouse wheel (or touchpad) is scrolled
-    // event.delta contains the distance (in pixels) it scrolled
-    // So we can add this to the size of the circle
-    circle.size += event.delta;
-    // And constrain the size to stay within the minimum and maximum
-    circle.size = constrain(circle.size, circle.minSize, circle.maxSize);
-  }
+    // User movement
+    user.x = mouseX;
+    user.y = mouseY;
   
+    // Check for catching covid19
+    let d = dist(user.x, user.y, covid19.x, covid19.y);
+    if (d < covid19.size / 2 + user.size / 2) {
+      noLoop();
+    }
+  
+    // Display covid 19
+    fill(covid19.fill.r, covid19.fill.g, covid19.fill.b);
+    ellipse(covid19.x, covid19.y, covid19.size);
+  
+    // Display user
+    fill(user.fill);
+    ellipse(user.x, user.y, user.size);
+  }
