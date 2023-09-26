@@ -32,8 +32,8 @@ function draw() {
   background(245, 2, 140);
 
   //display text 
-  textSize(20);
-  text("WHO WILL WIN MISS UNIVERSE??", 155, 100);
+  textSize(20); 
+  text("WHO WILL WIN MISS UNIVERSE??", 255, 100);
   fill(255);
 
   // display crown and pageants queens 
