@@ -9,6 +9,7 @@
 let crown; 
 let queen1; 
 let queen2;
+let color = true; 
 
 let X = 0; 
 let Y = 0; 
@@ -28,6 +29,10 @@ function setup() {
 
 function draw() {
   background(245, 2, 140);
+
+  if (!color){
+    background(66, 245, 239);
+  }
 
   //display text 
   textSize(20); 
@@ -58,7 +63,10 @@ function draw() {
 // queens stop when mouse is pressed
 function mousePressed(){
   noLoop();
+  color = !color;
 }
+
 function mouseReleased() {
   loop();
+  color = !color;
 }
