@@ -11,8 +11,11 @@
 /**
  * Description of preload
 */
-function preload() {
 
+let queen1; 
+
+function preload() {
+queen1 = loadImage("assets/images/queen1.png");
 }
 
 
@@ -20,7 +23,7 @@ function preload() {
  * Description of setup
 */
 function setup() {
-
+createCanvas(windowWidth, windowHeight);
 }
 
 
@@ -28,5 +31,8 @@ function setup() {
  * Description of draw()
 */
 function draw() {
+background(0);
 
+image(queen1,5,5);
+queen1.resize(100,200);
 }
