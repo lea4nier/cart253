@@ -28,10 +28,10 @@ function setup() {
 
 
 function draw() {
-  background(245, 2, 140);
+  background(245, 2, 140);   //set background to pink
 
   if (!color){
-    background(66, 245, 239);
+    background(66, 245, 239);   //color changes to cyan
   }
 
   //display text 
@@ -63,10 +63,10 @@ function draw() {
 // queens stop when mouse is pressed
 function mousePressed(){
   noLoop();
-  color = !color;
+  color = !color;     //change background color 
 }
 
 function mouseReleased() {
   loop();
-  color = !color;
+  color = !color;     //background goes back to pink 
 }
