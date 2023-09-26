@@ -12,8 +12,6 @@ let queen2;
 
 let X = 0; 
 let Y = 0; 
-let size1 = 100; 
-let size2 = 200; 
 
 // loading images
 function preload () {
@@ -39,23 +37,20 @@ function draw() {
   // display crown and pageants queens 
   image(crown, mouseX, mouseY, 70, 70);
 
-  image(queen1,X,Y, size1, size1+20);
+  image(queen1,X,Y, 200, 400);
 
-  image(queen2, 200, 1000 - Y, size2, size2+20); 
+  image(queen2, 200, 1000 - Y, 200, 400); 
 
 
-  // pageant queens move and change size
+  // pageant queens move 
   if (X > 1000 || Y > 1000) {
     X = 0
     Y = 0
-    size1 = 200
-    size2 = 200
 
   } else {
     X += 3
     Y += 3
-    size1 += 0.1
-    size2 -= 0.1
+   
   }
 
 }
