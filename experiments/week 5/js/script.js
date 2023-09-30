@@ -12,21 +12,19 @@ function setup() {
 
 function draw() {
   background(0);
-  parallels(100, 200);
-  parallels(200, 100);
-  parallels(200, 300);
+
+  parallels(0, 200, 100, 1, 100, 4);
+  parallels(0, 300, 20, 10, 50, 12);
+  parallels(0, 350, 80, 5, 5, 6);
 }
 
-// Defining the function
-function parallels(x,y) {
-  // We don't need to declare x and y now because they are provided as parameters
-  for (let i = 0; i < 20; i++) {
+function parallels(x, y, numLines, lineThickness, lineHeight, lineSpacing) {
+  for (let i = 0; i < numLines; i++) {
     noStroke();
-    fill(255);
+    let lineFill = map(i, 0, numLines, 0, 255);
+    fill(lineFill);
     rectMode(CENTER);
-    // We can still use x and y as variables
-    rect(x, y, 2, 50);
-    // Including changing x inside our loop
-    x = x + 5;
+    rect(x, y, lineThickness, lineHeight);
+    x = x + lineSpacing;
   }
 }
