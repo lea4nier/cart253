@@ -19,18 +19,46 @@ let player = {
     dragging: false
   }
   
-  function setup() {
+let state = "title"
+
+function setup() {
     createCanvas(500, 500);
   }
   
-  function draw() {
-    background(127);
+function draw() {
+    background(255,0,0);
+  
+    if (state === `title`) {
+        title();
+      }
+      else if (state === `simulation`) {
+        simulation();
+    }
+}
+
+function title() {
+        push();
+        textSize(64);
+        fill(255,255,255);
+        textAlign(CENTER,CENTER);
+        text(`LOVE?`,width/2,height/2);
+        pop();
+      }
+
+function simulation() {
+    display();
+}
+
+function display() {
     fill(player.fill);
     ellipse(player.x, player.y, player.size);
-  }
-  
+}
+
   // mousePressed() is called at the moment the user presses down a mouse button
   function mousePressed() {
+    if (state === `title`) {
+        state = `simulation`;
+      }
     // Calculate the distance between the mouse position and the circle position
     let d = dist(mouseX, mouseY, player.x, player.y);
     // If the distance is less that the circle's radius, we know the mouse was
@@ -43,6 +71,9 @@ let player = {
   
   // mouseReleased() is called at the moment the user releases a mouse button
   function mouseReleased() {
+    if (state === `title`) {
+        state = `simulation`;
+      }
     // If the mouse is released, we should stop dragging the circle
     player.dragging = false;
   }
@@ -50,6 +81,9 @@ let player = {
   // mouseDragged() is called every frame that the user is moving the mouse
   // with a button held down
   function mouseDragged() {
+    if (state === `title`) {
+        state = `simulation`;
+      }
     // When the mouse is dragged (with the mouse button down), we check if the circle
     // is being dragged
     if (player.dragging) {
@@ -62,6 +96,9 @@ let player = {
   // mouseWheel() is called every frame that the user is scrolling with the scroll wheel on
   // a mouse or using their touchpad
   function mouseWheel(event) {
+    if (state === `title`) {
+        state = `simulation`;
+      }
     // When the mouse wheel (or touchpad) is scrolled
     // event.delta contains the distance (in pixels) it scrolled
     // So we can add this to the size of the circle
