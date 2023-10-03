@@ -2,23 +2,21 @@
  * Love, Actually
  * Léa
  * 
- * This is a template. You must fill in the title, author, 
- * and this description to match your project!
+ * Find your soulmate!
  */
 
+//circle that user controls
 let player = {
     x: 250,
     y: 250,
     size: 50,
-    // Because it changes size, let's set a minimum and maximum size
     minSize: 50,
     maxSize: 700,
     fill: 0,
-    // We need to keep track of whether the circle is being dragged or not
-    // so we know whether to move it with the mouse position
     dragging: false
   };
 
+//other circle represents other soul
 let circle = {
     x: undefined,
     y: 250,
@@ -28,20 +26,22 @@ let circle = {
     speed: 3
 };
   
-let state = "title"
+let state = "title"   //starts at title screen 
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     setupCircles();
   }
 
+//position circle and start movement in random direction 
 function setupCircles () {
     circle.x = width/4;
 
     circle.vx = random(-circle.speed,circle.speed);
     circle.vy = random(-circle.speed,circle.speed);
 }
-  
+
+//different states 
 function draw() {
     background(255,0,0);
   
@@ -66,7 +66,7 @@ function draw() {
         surprise();
 }
 }
-
+//title screen
 function title() {
         push();
         textSize(44);
@@ -81,12 +81,10 @@ function title() {
         textAlign(CENTER,CENTER);
         text(`press "enter" to start`,width/2,height/2 + 80);
         pop();
-
       }
 
-
+// instructions screen
 function instructions(){
-        
         push();
         textSize(44);
         fill(255,255,255);
@@ -142,6 +140,7 @@ function love() {
     pop();
   }
 
+//easter egg
   function surprise(){
     push();
     textSize(64);
@@ -158,12 +157,15 @@ function love() {
     text(`A soulmate is a person with whom one has a feeling of deep or natural affinity.\n This may involve similarity, love, romance, platonic relationships, \n comfort, intimacy, sexuality, sexual activity, spirituality, \n compatibility and trust.`,width/2, height/4 +150);
     pop();
   }
+
+//circle moves 
 function move() {
     circle.x = circle.x + circle.vx;
     circle.y = circle.y + circle.vy;
 }
+
+// Check if the circles have gone offscreen
 function checkOffscreen() {
-    // Check if the circles have gone offscreen
     if (isOffscreen(player) || isOffscreen(circle)) {
       state = `sadness`;
     }
@@ -178,41 +180,43 @@ function checkOffscreen() {
     }
   }
   
+  // Check if the circles overlap
   function checkOverlap() {
-    // Check if the circles overlap
     let d = dist(player.x,player.y,circle.x,circle.y);
     if (d < player.size/2 + circle.size/2) {
       state = `love`;
     }
   }
 
+// checker if user's circle grows too big to reveal easter egg
 function bigSoul(){
     if (player.size > 500)
     state = 'surprise';
 }
 
+//display both souls
 function display() {
     fill(player.fill);
     ellipse(player.x, player.y, player.size);
     ellipse(circle.x,circle.y,circle.size);
 }
 
+//start instruction page
 function keyPressed() {
     if (keyCode === 13)
     state = 'instructions'; 
 }
 
-  // mousePressed() is called at the moment the user presses down a mouse button
+// mousePressed() is called at the moment the user presses down a mouse button
 function mousePressed() {
     if (state === `instructions`) {
         state = `simulation`;
       }
     // Calculate the distance between the mouse position and the circle position
     let d = dist(mouseX, mouseY, player.x, player.y);
-    // If the distance is less that the circle's radius, we know the mouse was
-    // inside the circle when pressed
+
     if (d < player.size / 2) {
-      // So we can now drag the circle
+      // drag the circle
       player.dragging = true;
     }
   }
@@ -235,7 +239,6 @@ function mousePressed() {
     // When the mouse is dragged (with the mouse button down), we check if the circle
     // is being dragged
     if (player.dragging) {
-      // If it is, we move it to the mouse position
       player.x = mouseX;
       player.y = mouseY;
     }
@@ -247,10 +250,8 @@ function mousePressed() {
     if (state === `title`) {
         state = `simulation`;
       }
-    // When the mouse wheel (or touchpad) is scrolled
-    // event.delta contains the distance (in pixels) it scrolled
-    // So we can add this to the size of the circle
+    
+    //user's circle size changes
     player.size += event.delta;
-    // And constrain the size to stay within the minimum and maximum
     player.size = constrain(player.size, player.minSize, player.maxSize);
   }
