@@ -1,6 +1,6 @@
 /**
- * Title of Project
- * Author Name
+ * Love, Actually
+ * Léa
  * 
  * This is a template. You must fill in the title, author, 
  * and this description to match your project!
@@ -12,18 +12,35 @@ let player = {
     size: 50,
     // Because it changes size, let's set a minimum and maximum size
     minSize: 50,
-    maxSize: 400,
+    maxSize: 700,
     fill: 0,
     // We need to keep track of whether the circle is being dragged or not
     // so we know whether to move it with the mouse position
     dragging: false
-  }
+  };
+
+let circle = {
+    x: undefined,
+    y: 250,
+    size: 100,
+    vx: 0,
+    vy: 0,
+    speed: 3
+};
   
 let state = "title"
 
 function setup() {
     createCanvas(500, 500);
+    setupCircles();
   }
+
+function setupCircles () {
+    circle.x = width/3;
+
+    circle.vx = random(-circle.speed,circle.speed);
+    circle.vy = random(-circle.speed,circle.speed);
+}
   
 function draw() {
     background(255,0,0);
@@ -60,6 +77,14 @@ function title() {
 
 
 function instructions(){
+        
+        push();
+        textSize(44);
+        fill(255,255,255);
+        textAlign(CENTER,CENTER);
+        text(`INSTRUCTIONS`,width/2,height/4);
+        pop();
+
         push();
         textSize(24);
         fill(255,255,255);
@@ -83,12 +108,19 @@ function instructions(){
 }
 
 function simulation() {
+    move();
     display();
+}
+
+function move() {
+    circle.x = circle.x + circle.vx;
+    circle.y = circle.y + circle.vy;
 }
 
 function display() {
     fill(player.fill);
     ellipse(player.x, player.y, player.size);
+    ellipse(circle.x,circle.y,circle.size);
 }
 
 function keyPressed() {
