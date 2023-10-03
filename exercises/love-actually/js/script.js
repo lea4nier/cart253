@@ -25,13 +25,13 @@ let circle = {
     size: 100,
     vx: 0,
     vy: 0,
-    speed: 1
+    speed: 3
 };
   
 let state = "title"
 
 function setup() {
-    createCanvas(500, 500);
+    createCanvas(windowWidth, windowHeight);
     setupCircles();
   }
 
@@ -136,7 +136,7 @@ function love() {
   function sadness() {
     push();
     textSize(64);
-    fill(150,150,255);
+    fill(255,255,255);
     textAlign(CENTER,CENTER);
     text(`not the one :(`,width/2,height/2);
     pop();
@@ -151,11 +151,11 @@ function love() {
     pop();
 
     push();
-    textSize(17);
+    textSize(34);
     textWrap(WORD);
     fill(255, 166, 248);
     textAlign(CENTER,CENTER);
-    text(`A soulmate is a person with whom one has a feeling of deep or natural affinity. This may involve similarity, love, romance, platonic relationships, comfort, intimacy, sexuality, sexual activity, spirituality, compatibility and trust.`,135, 300, height/2);
+    text(`A soulmate is a person with whom one has a feeling of deep or natural affinity.\n This may involve similarity, love, romance, platonic relationships, \n comfort, intimacy, sexuality, sexual activity, spirituality, \n compatibility and trust.`,width/2, height/4 +150);
     pop();
   }
 function move() {

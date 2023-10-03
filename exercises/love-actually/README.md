@@ -1,3 +1,3 @@
-# Template p5 project
+# LOVE-ACTUALLY
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+Find your soulmate! Drag the circle (your soul) to find your match. Use the touchpad to change the size of your circle. If the circle gets too big you will find the surprise ending! 
