@@ -25,7 +25,7 @@ let circle = {
     size: 100,
     vx: 0,
     vy: 0,
-    speed: 3
+    speed: 1
 };
   
 let state = "title"
@@ -55,6 +55,12 @@ function draw() {
 
       else if (state === `simulation`) {
         simulation();
+    }
+      else if (state === `love`) {
+            love();
+    }
+      else if (state === `sadness`) {
+            sadness();
     }
 }
 
@@ -109,14 +115,56 @@ function instructions(){
 
 function simulation() {
     move();
+    checkOffscreen();
+    checkOverlap();
     display();
 }
+
+function love() {
+    push();
+    textSize(34);
+    fill(255,150,150);
+    textAlign(CENTER,CENTER);
+    text(`you found your soulmate!`,width/2,height/2);
+    pop();
+  }
+  
+  function sadness() {
+    push();
+    textSize(64);
+    fill(150,150,255);
+    textAlign(CENTER,CENTER);
+    text(`not the one :(`,width/2,height/2);
+    pop();
+  }
 
 function move() {
     circle.x = circle.x + circle.vx;
     circle.y = circle.y + circle.vy;
 }
-
+function checkOffscreen() {
+    // Check if the circles have gone offscreen
+    if (isOffscreen(player) || isOffscreen(circle)) {
+      state = `sadness`;
+    }
+  }
+  
+  function isOffscreen(circle) {
+    if (circle.x < 0 || circle.x > width || circle.y < 0 || circle.y > height) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+  
+  function checkOverlap() {
+    // Check if the circles overlap
+    let d = dist(player.x,player.y,circle.x,circle.y);
+    if (d < player.size/2 + circle.size/2) {
+      state = `love`;
+    }
+  }
 function display() {
     fill(player.fill);
     ellipse(player.x, player.y, player.size);
