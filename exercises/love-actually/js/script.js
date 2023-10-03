@@ -31,6 +31,11 @@ function draw() {
     if (state === `title`) {
         title();
       }
+
+      else if (state === 'instructions') {
+        instructions();
+      }
+
       else if (state === `simulation`) {
         simulation();
     }
@@ -38,12 +43,44 @@ function draw() {
 
 function title() {
         push();
-        textSize(64);
+        textSize(44);
         fill(255,255,255);
         textAlign(CENTER,CENTER);
-        text(`LOVE?`,width/2,height/2);
+        text(`FIND YOUR SOULMATE`,width/2,height/2);
         pop();
+
+        push();
+        textSize(24);
+        fill(255,255,255);
+        textAlign(CENTER,CENTER);
+        text(`press "enter" to start`,width/2,height/2 + 80);
+        pop();
+
       }
+
+
+function instructions(){
+        push();
+        textSize(24);
+        fill(255,255,255);
+        textAlign(CENTER,CENTER);
+        text(`drag the circle (your soul) to find love`,width/2,height/2);
+        pop();
+
+        push();
+        textSize(14);
+        fill(255, 166, 248);
+        textAlign(CENTER,CENTER);
+        text(`use the touchpad to change your soul's size for a surprise...`,width/2,height/2 +80);
+        pop();
+
+        push();
+        textSize(24);
+        fill(255,255,255);
+        textAlign(CENTER,CENTER);
+        text(`click your mouse to begin`,width/2,height/2 + 120);
+        pop();
+}
 
 function simulation() {
     display();
@@ -54,9 +91,14 @@ function display() {
     ellipse(player.x, player.y, player.size);
 }
 
+function keyPressed() {
+    if (keyCode === 13)
+    state = 'instructions'; 
+}
+
   // mousePressed() is called at the moment the user presses down a mouse button
-  function mousePressed() {
-    if (state === `title`) {
+function mousePressed() {
+    if (state === `instructions`) {
         state = `simulation`;
       }
     // Calculate the distance between the mouse position and the circle position
