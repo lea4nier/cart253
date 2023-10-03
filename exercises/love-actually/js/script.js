@@ -36,7 +36,7 @@ function setup() {
   }
 
 function setupCircles () {
-    circle.x = width/3;
+    circle.x = width/4;
 
     circle.vx = random(-circle.speed,circle.speed);
     circle.vy = random(-circle.speed,circle.speed);
@@ -62,6 +62,9 @@ function draw() {
       else if (state === `sadness`) {
             sadness();
     }
+      else if (state === `surprise`) {
+        surprise();
+}
 }
 
 function title() {
@@ -117,13 +120,14 @@ function simulation() {
     move();
     checkOffscreen();
     checkOverlap();
+    bigSoul();
     display();
 }
 
 function love() {
     push();
     textSize(34);
-    fill(255,150,150);
+    fill(255,255,255);
     textAlign(CENTER,CENTER);
     text(`you found your soulmate!`,width/2,height/2);
     pop();
@@ -138,6 +142,22 @@ function love() {
     pop();
   }
 
+  function surprise(){
+    push();
+    textSize(64);
+    fill(255, 166, 248);
+    textAlign(CENTER,CENTER);
+    text(`definition`,width/2,height/4);
+    pop();
+
+    push();
+    textSize(17);
+    textWrap(WORD);
+    fill(255, 166, 248);
+    textAlign(CENTER,CENTER);
+    text(`A soulmate is a person with whom one has a feeling of deep or natural affinity. This may involve similarity, love, romance, platonic relationships, comfort, intimacy, sexuality, sexual activity, spirituality, compatibility and trust.`,135, 300, height/2);
+    pop();
+  }
 function move() {
     circle.x = circle.x + circle.vx;
     circle.y = circle.y + circle.vy;
@@ -165,6 +185,12 @@ function checkOffscreen() {
       state = `love`;
     }
   }
+
+function bigSoul(){
+    if (player.size > 500)
+    state = 'surprise';
+}
+
 function display() {
     fill(player.fill);
     ellipse(player.x, player.y, player.size);
