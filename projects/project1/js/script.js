@@ -1,6 +1,6 @@
 /**
- * Title of Project
- * Author Name
+ * Jack-O-Lantern Builder!
+ * Léa Fournier
  * 
  * This is a template. You must fill in the title, author, 
  * and this description to match your project!
@@ -13,6 +13,8 @@ let banner;
 let banner2; 
 let instructions1;
 
+let pumpkin; 
+
 let state = "title"
 
 /**
@@ -23,6 +25,7 @@ function preload() {
     banner = loadImage('assets/images/banner.png');
     banner2 = loadImage('assets/images/banner2.png');
     instructions1 = loadImage('assets/images/instructions.png');
+    pumpkin = loadImage('assets/images/pumpkin.png');
 }
 
 
@@ -47,6 +50,10 @@ background(161, 13, 224);
     else if (state === 'instructions') {
         instructions();
       }
+    
+      else if (state === 'game') {
+        game();
+      }
 }
 
 function title(){
@@ -62,4 +69,13 @@ function keyPressed() {
 
 function instructions(){
     image(instructions1, 0, 0, 500, 500); 
+}
+
+function mousePressed() {
+    if (state === `instructions`) 
+        state = `game`;
+}
+
+function game(){
+    image(pumpkin, 60, 80, 400, 250);
 }
