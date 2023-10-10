@@ -8,13 +8,19 @@
 
 "use strict";
 
+let cat2; 
+let banner;
+let banner2; 
+
 let state = "title"
 
 /**
  * Description of preload
 */
 function preload() {
-    cat = loadImage(assets/images/cat.png);
+    cat2 = loadImage('assets/images/cat2.png');
+    banner = loadImage('assets/images/banner.png');
+    banner2 = loadImage('assets/images/banner2.png');
 }
 
 
@@ -38,5 +44,7 @@ background(161, 13, 224);
 }
 
 function title(){
-    image(cat, 0, 0, width, height, 0, 0, cat.width, cat.height, CONTAIN, LEFT);
+    image(cat2, 80, 120, 400, 300);
+    image(banner, 100, 50, 300, 300);
+    image(banner2, 100, 320, 300, 300);
 }
