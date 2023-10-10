@@ -8,11 +8,13 @@
 
 "use strict";
 
+let state = "title"
+
 /**
  * Description of preload
 */
 function preload() {
-
+    cat = loadImage(assets/images/cat.png);
 }
 
 
@@ -20,7 +22,7 @@ function preload() {
  * Description of setup
 */
 function setup() {
-
+createCanvas(500,500); 
 }
 
 
@@ -28,5 +30,13 @@ function setup() {
  * Description of draw()
 */
 function draw() {
+background(161, 13, 224);
+  
+    if (state === `title`) {
+        title();
+      }
+}
 
+function title(){
+    image(cat, 0, 0, width, height, 0, 0, cat.width, cat.height, CONTAIN, LEFT);
 }
