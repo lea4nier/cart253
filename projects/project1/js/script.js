@@ -11,6 +11,7 @@
 let cat2; 
 let banner;
 let banner2; 
+let instructions1;
 
 let state = "title"
 
@@ -21,6 +22,7 @@ function preload() {
     cat2 = loadImage('assets/images/cat2.png');
     banner = loadImage('assets/images/banner.png');
     banner2 = loadImage('assets/images/banner2.png');
+    instructions1 = loadImage('assets/images/instructions.png');
 }
 
 
@@ -41,10 +43,23 @@ background(161, 13, 224);
     if (state === `title`) {
         title();
       }
+
+    else if (state === 'instructions') {
+        instructions();
+      }
 }
 
 function title(){
-    image(cat2, 80, 120, 400, 300);
+    image(cat2, 80, 80, 420, 370);
     image(banner, 100, 50, 300, 300);
     image(banner2, 100, 320, 300, 300);
+}
+
+function keyPressed() {
+    if (keyCode === 13)
+    state = 'instructions'; 
+}
+
+function instructions(){
+    image(instructions1, 0, 0, 500, 500); 
 }
