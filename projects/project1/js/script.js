@@ -147,7 +147,7 @@ function game(){
     if(objisbeingdragged===true){
     if (mouseX > objBeingDragged.x && mouseX < objBeingDragged.x + objBeingDragged.w && mouseY > objBeingDragged.y && mouseY < objBeingDragged.y + objBeingDragged.h) {
        rollover = true;
-       console.log("over a")
+      
     }
 
      else {
