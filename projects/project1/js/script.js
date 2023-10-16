@@ -14,23 +14,28 @@ let banner2;
 let instructions1;
 let pumpkin;
 
+let eyetitle;
+let mouthtitle;
+let nosetitle; 
+
 let eyea;
 let eyeb; 
+
 
 
 // to check if any obj is being dragged
 let objisbeingdragged =false;
 
 let eyea_obj = {
-    x:0,
-    y:0,
+    x:1,
+    y:70,
     w:100,
     h:50
 };
 
 let eyeb_obj = {
-    x: 0,
-    y: 100, 
+    x: 1,
+    y: 140, 
     w: 100, 
     h: 50
 }
@@ -61,6 +66,9 @@ function preload() {
     pumpkin = loadImage('assets/images/pumpkin.png');
     eyea = loadImage('assets/images/eyea.png');
     eyeb = loadImage('assets/images/eyeb.png');
+    eyetitle = loadImage ('assets/images/eyetitle.png');
+    mouthtitle = loadImage ('assets/images/mouthtitle.png');
+    nosetitle = loadImage ('assets/images/nosetitle.png');
 }
 
 
@@ -137,7 +145,10 @@ if(state ===`game`){
 
 function game(){
     image(pumpkin, 60, 80, 400, 250);
-    
+    image(eyetitle, 10, 10, 100, 50);
+    image(mouthtitle, 200, 310, 100, 50);
+    image(nosetitle, 387, 10, 100, 50);
+
     if(objisbeingdragged===true){
     if (mouseX > objBeingDragged.x && mouseX < objBeingDragged.x + objBeingDragged.w && mouseY > objBeingDragged.y && mouseY < objBeingDragged.y + objBeingDragged.h) {
        rollover = true;
