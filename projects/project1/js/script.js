@@ -2,8 +2,8 @@
  * Jack-O-Lantern Builder!
  * Léa Fournier
  * 
- * This is a template. You must fill in the title, author, 
- * and this description to match your project!
+ * A game to decorate your own Jack-O-Lantern! 
+ * All of the decorations (eyes, noses, and mouths) were drawn by me. :)
  */
 
 "use strict";
@@ -43,7 +43,7 @@ let objBeingDragged = {
 }
 
 var dragging = false; // Is the object being dragged?
-var rollover = false; // Is the mouse over the ellipse?
+var rollover = false; // Is the mouse over the object?
 
 var x, y, w, h; // Location and size
 var offsetX, offsetY; // Mouseclick offset
@@ -65,17 +65,11 @@ function preload() {
 
 
 /**
- * Description 
+ * creating canvas
+ * I made it small to resemble kids games I used to play :) 
 */
 function setup() {
 createCanvas(500,500); 
-
-
-// x = 0;
-// y = 0; 
-
-// w = 100;
-// h = 50;
 }
 
 
