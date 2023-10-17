@@ -20,6 +20,7 @@ let nosetitle;
 
 let eyea;
 let eyeb; 
+let eyec;
 
 
 
@@ -39,6 +40,14 @@ let eyeb_obj = {
     w: 100, 
     h: 50
 }
+
+let eyec_obj = {
+    x: 1,
+    y: 210, 
+    w: 100, 
+    h: 50
+}
+
 
 let objBeingDragged = {
     x:0,
@@ -66,6 +75,7 @@ function preload() {
     pumpkin = loadImage('assets/images/pumpkin.png');
     eyea = loadImage('assets/images/eyea.png');
     eyeb = loadImage('assets/images/eyeb.png');
+    eyec = loadImage('assets/images/eyec.png');
     eyetitle = loadImage ('assets/images/eyetitle.png');
     mouthtitle = loadImage ('assets/images/mouthtitle.png');
     nosetitle = loadImage ('assets/images/nosetitle.png');
@@ -119,6 +129,7 @@ function mousePressed() {
     if (state === `instructions`) {
         state = `game`;
     }
+
 if(state ===`game`){
     if(objisbeingdragged ===false){
     if (mouseX > eyea_obj.x && mouseX < eyea_obj.x + eyea_obj.w && mouseY > eyea_obj.y && mouseY < eyea_obj.y + eyea_obj.h) {
@@ -137,6 +148,14 @@ if(state ===`game`){
           // assign the properties of eye_b to objBeingDragged
          objBeingDragged = eyeb_obj;
          console.log(objBeingDragged)
+      
+        } else if(mouseX > eyec_obj.x && mouseX < eyec_obj.x + eyec_obj.w && mouseY > eyec_obj.y && mouseY < eyec_obj.y + eyec_obj.h) {
+        dragging = true;
+        objisbeingdragged =true;
+        console.log("over c")
+          // assign the properties of eye_b to objBeingDragged
+        objBeingDragged = eyec_obj;
+        console.log(objBeingDragged)
       }
     }
 }
@@ -171,9 +190,7 @@ function game(){
     stroke(0);
     image(eyea, eyea_obj.x, eyea_obj.y, eyea_obj.w, eyea_obj.h);
     image(eyeb, eyeb_obj.x, eyeb_obj.y, eyeb_obj.w, eyeb_obj.h); 
- 
-
-        
+    image(eyec, eyec_obj.x, eyec_obj.y, eyec_obj.w, eyec_obj.h); 
 
 }
 
@@ -181,4 +198,4 @@ function mouseReleased() {
     // Quit dragging
     dragging = false;
     objisbeingdragged =false;
-  }
+}
