@@ -31,6 +31,8 @@ let nose1;
 let nose2;
 let nose3; 
 
+let done; 
+
 
 
 // to check if any obj is being dragged
@@ -143,6 +145,7 @@ function preload() {
     nose1 = loadImage ('assets/images/nose1.png');
     nose2 = loadImage ('assets/images/nose2.png');
     nose3 = loadImage ('assets/images/nose3.png');
+    done = loadImage ('assets/images/done.png');
 }
 
 
@@ -267,6 +270,7 @@ function game(){
     image(eyetitle, 10, 10, 100, 50);
     image(mouthtitle, 200, 310, 100, 50);
     image(nosetitle, 387, 10, 100, 50);
+    image(done, 200, 10, 100, 50);
 
     if(objisbeingdragged===true){
     if (mouseX > objBeingDragged.x && mouseX < objBeingDragged.x + objBeingDragged.w && mouseY > objBeingDragged.y && mouseY < objBeingDragged.y + objBeingDragged.h) {
