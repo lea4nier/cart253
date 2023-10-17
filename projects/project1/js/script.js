@@ -34,6 +34,7 @@ let nose3;
 let done;
 let ending;  
 
+let sound; 
 
 
 // to check if any obj is being dragged
@@ -156,6 +157,8 @@ function preload() {
     nose3 = loadImage ('assets/images/nose3.png');
     done = loadImage ('assets/images/done.png');
     ending = loadImage('assets/images/ending.png');
+
+    sound = loadSound('assets/sounds/sound.mp3');
 }
 
 
@@ -165,6 +168,8 @@ function preload() {
 */
 function setup() {
 let c = createCanvas(500,500); //naming variable so that image can be saved later
+sound.play();
+sound.loop();
 }
 
 
