@@ -35,6 +35,7 @@ let done;
 let ending;  
 
 let sound; 
+let c; 
 
 
 // to check if any obj is being dragged
