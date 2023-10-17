@@ -169,8 +169,8 @@ function preload() {
 */
 function setup() {
 createCanvas(500,500); //naming variable so that image can be saved later
-sound.play();   //play sound 
-sound.loop();      //loop sound
+//sound.play();   //play sound 
+//sound.loop();      //loop sound
 }
 
 
@@ -206,6 +206,8 @@ function title(){         //title screen with cat
 function keyPressed() {     //user presses "enter" to continue to next state
     if (keyCode === 13)
     state = 'instructions'; 
+    sound.play();   //play sound 
+    sound.loop();
 }
 
 function instructions(){        //instructions state, I drew the image myself
@@ -332,6 +334,7 @@ function end(){
     image(ending, 0, 0, 500, 500); //image appears that clears objects and shows final pumpkin
     console.log("print ending");  //image of user's pumpkin saves to their computer
     saveCanvas('myPumpkin', 'jpg');
+    noLoop();  
    // saveCanvas(c, 'myPumpkin', 'jpg'); 
 }
 
