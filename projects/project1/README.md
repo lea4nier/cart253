@@ -1,3 +1,2 @@
-# Template p5 project
-
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+# Project 1
+Halloween has always been my favorite holiday and I wanted to create a game for spooky season. "Jack-O-Lantern Builder!" is a game where the user drags and drops decorations (eyes, mouth, and nose) to decorate their own Jack-O-Lantern. I made this game to resemble the flash player games I grew up playing as a child. I made aesthetic choices to be similar to games from the early 2000's. I drew all of the eyes, mouths, noses, buttons, and titles myself. The images of the cat and pumpkin are from clipart.com.     
