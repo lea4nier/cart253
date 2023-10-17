@@ -59,7 +59,14 @@ let eyec_obj = {
 
 let nose1_obj = {
     x:420,
-    y:70,
+    y:100,
+    w:30,
+    h:15
+};
+
+let nose2_obj = {
+    x:420,
+    y:170,
     w:30,
     h:15
 };
@@ -127,6 +134,7 @@ function preload() {
     mouth4 = loadImage ('assets/images/mouth4.png');
     nosetitle = loadImage ('assets/images/nosetitle.png');
     nose1 = loadImage ('assets/images/nose1.png');
+    nose2 = loadImage ('assets/images/nose2.png');
 }
 
 
@@ -198,31 +206,43 @@ if(state ===`game`){
         objisbeingdragged =true;
          // assign the properties of eye_c to objBeingDragged
         objBeingDragged = eyec_obj;
+
       } else if(mouseX > mouth1_obj.x && mouseX < mouth1_obj.x + mouth1_obj.w && mouseY > mouth1_obj.y && mouseY < mouth1_obj.y + mouth1_obj.h) {
         dragging = true;    //mouth1 can be dragged
         objisbeingdragged =true;
          // assign the properties of mouth1 to objBeingDragged
         objBeingDragged = mouth1_obj;
+
       }else if(mouseX > mouth2_obj.x && mouseX < mouth2_obj.x + mouth2_obj.w && mouseY > mouth2_obj.y && mouseY < mouth2_obj.y + mouth2_obj.h) {
         dragging = true;    //mouth2 can be dragged
         objisbeingdragged =true;
          // assign the properties of mouth2 to objBeingDragged
         objBeingDragged = mouth2_obj;
+
       }else if(mouseX > mouth3_obj.x && mouseX < mouth3_obj.x + mouth3_obj.w && mouseY > mouth3_obj.y && mouseY < mouth3_obj.y + mouth3_obj.h) {
         dragging = true;    //mouth3 can be dragged
         objisbeingdragged =true;
          // assign the properties of mouth3 to objBeingDragged
         objBeingDragged = mouth3_obj;
+
       }else if(mouseX > mouth4_obj.x && mouseX < mouth4_obj.x + mouth4_obj.w && mouseY > mouth4_obj.y && mouseY < mouth4_obj.y + mouth4_obj.h) {
         dragging = true;    //mouth4 can be dragged
         objisbeingdragged =true;
          // assign the properties of mouth4 to objBeingDragged
         objBeingDragged = mouth4_obj;
+
       }else if(mouseX > nose1_obj.x && mouseX < nose1_obj.x + nose1_obj.w && mouseY > nose1_obj.y && mouseY < nose1_obj.y + nose1_obj.h) {
         dragging = true;    //nose1 can be dragged
         objisbeingdragged =true;
          // assign the properties of mouth1 to objBeingDragged
         objBeingDragged = nose1_obj;
+      }
+
+      else if(mouseX > nose2_obj.x && mouseX < nose2_obj.x + nose2_obj.w && mouseY > nose2_obj.y && mouseY < nose2_obj.y + nose2_obj.h) {
+        dragging = true;    //nose2 can be dragged
+        objisbeingdragged =true;
+         // assign the properties of mouth2 to objBeingDragged
+        objBeingDragged = nose2_obj;
       }
     }
 }
@@ -263,7 +283,7 @@ function game(){
     image(mouth3, mouth3_obj.x, mouth3_obj.y, mouth3_obj.w, mouth3_obj.h); 
     image(mouth4, mouth4_obj.x, mouth4_obj.y, mouth4_obj.w, mouth4_obj.h);
     image(nose1, nose1_obj.x, nose1_obj.y, nose1_obj.w, nose1_obj.h);  
-
+    image(nose2, nose2_obj.x, nose2_obj.y, nose2_obj.w, nose2_obj.h);  
 }
 
 function mouseReleased() {
