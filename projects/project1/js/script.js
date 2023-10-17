@@ -168,7 +168,7 @@ function preload() {
  * I made it small to resemble kids games I used to play :) 
 */
 function setup() {
-let c = createCanvas(500,500); //naming variable so that image can be saved later
+createCanvas(500,500); //naming variable so that image can be saved later
 sound.play();   //play sound 
 sound.loop();      //loop sound
 }
@@ -332,7 +332,7 @@ function end(){
     image(ending, 0, 0, 500, 500); //image appears that clears objects and shows final pumpkin
     console.log("print ending");  //image of user's pumpkin saves to their computer
     saveCanvas('myPumpkin', 'jpg');
-    saveCanvas(c, 'myPumpkin', 'jpg'); 
+   // saveCanvas(c, 'myPumpkin', 'jpg'); 
 }
 
 function mouseReleased() {
