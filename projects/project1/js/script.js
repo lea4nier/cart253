@@ -2,7 +2,7 @@
  * Jack-O-Lantern Builder!
  * Léa Fournier
  * 
- * A game to decorate your own Jack-O-Lantern! 
+ * Happy Halloween! This is a game to decorate your own Jack-O-Lantern! 
  * All of the decorations (eyes, noses, and mouths) were drawn by me. :)
  */
 
@@ -163,7 +163,7 @@ function preload() {
  * I made it small to resemble kids games I used to play :) 
 */
 function setup() {
-createCanvas(500,500); 
+let c = createCanvas(500,500); 
 }
 
 
@@ -323,7 +323,9 @@ function game(){
 
 function end(){
     image(ending, 0, 0, 500, 500);
-    console.log("print ending");   
+    console.log("print ending");  
+    saveCanvas('myPumpkin', 'jpg');
+    saveCanvas(c, 'myPumpkin', 'jpg'); 
 }
 
 function mouseReleased() {
