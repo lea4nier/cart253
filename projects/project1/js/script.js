@@ -23,6 +23,7 @@ let eyeb;
 let eyec;
 
 let mouth1; 
+let mouth2;
 
 
 
@@ -52,6 +53,13 @@ let eyec_obj = {
 
 let mouth1_obj = {
     x: 1,
+    y: 410, 
+    w: 100, 
+    h: 50
+}
+
+let mouth2_obj = {
+    x: 130,
     y: 410, 
     w: 100, 
     h: 50
@@ -87,6 +95,7 @@ function preload() {
     eyetitle = loadImage ('assets/images/eyetitle.png');
     mouthtitle = loadImage ('assets/images/mouthtitle.png');
     mouth1 = loadImage ('assets/images/mouth1.png');
+    mouth2 = loadImage ('assets/images/mouth2.png');
     nosetitle = loadImage ('assets/images/nosetitle.png');
 }
 
@@ -101,7 +110,7 @@ createCanvas(500,500);
 
 
 /**
- * Description of draw()
+ * setting up purple background and different states
 */
 function draw() {
 background(161, 13, 224);
@@ -119,22 +128,22 @@ background(161, 13, 224);
       }
 }
 
-function title(){
+function title(){         //title screen with cat 
     image(cat2, 80, 80, 420, 370);
     image(banner, 100, 50, 300, 300);
     image(banner2, 100, 320, 300, 300);
 }
 
-function keyPressed() {
+function keyPressed() {     //user presses "enter" to continue to next state
     if (keyCode === 13)
     state = 'instructions'; 
 }
 
-function instructions(){
+function instructions(){        //instructions state, I drew the image myself
     image(instructions1, 0, 0, 500, 500); 
 }
 
-function mousePressed() {
+function mousePressed() {       //state changes to game when user presses mouse
     if (state === `instructions`) {
         state = `game`;
     }
@@ -164,6 +173,11 @@ if(state ===`game`){
         objisbeingdragged =true;
          // assign the properties of mouth1 to objBeingDragged
         objBeingDragged = mouth1_obj;
+      }else if(mouseX > mouth2_obj.x && mouseX < mouth2_obj.x + mouth2_obj.w && mouseY > mouth2_obj.y && mouseY < mouth2_obj.y + mouth2_obj.h) {
+        dragging = true;    //mouth2 can be dragged
+        objisbeingdragged =true;
+         // assign the properties of mouth2 to objBeingDragged
+        objBeingDragged = mouth2_obj;
       }
     }
 }
@@ -200,6 +214,7 @@ function game(){
     image(eyeb, eyeb_obj.x, eyeb_obj.y, eyeb_obj.w, eyeb_obj.h); 
     image(eyec, eyec_obj.x, eyec_obj.y, eyec_obj.w, eyec_obj.h); 
     image(mouth1, mouth1_obj.x, mouth1_obj.y, mouth1_obj.w, mouth1_obj.h); 
+    image(mouth2, mouth2_obj.x, mouth2_obj.y, mouth2_obj.w, mouth2_obj.h); 
 
 }
 
