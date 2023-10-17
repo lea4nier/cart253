@@ -117,6 +117,7 @@ function preload() {
     mouth1 = loadImage ('assets/images/mouth1.png');
     mouth2 = loadImage ('assets/images/mouth2.png');
     mouth3 = loadImage ('assets/images/mouth3.png');
+    mouth4 = loadImage ('assets/images/mouth4.png');
     nosetitle = loadImage ('assets/images/nosetitle.png');
 }
 
@@ -204,6 +205,11 @@ if(state ===`game`){
         objisbeingdragged =true;
          // assign the properties of mouth3 to objBeingDragged
         objBeingDragged = mouth3_obj;
+      }else if(mouseX > mouth4_obj.x && mouseX < mouth4_obj.x + mouth4_obj.w && mouseY > mouth4_obj.y && mouseY < mouth4_obj.y + mouth4_obj.h) {
+        dragging = true;    //mouth4 can be dragged
+        objisbeingdragged =true;
+         // assign the properties of mouth4 to objBeingDragged
+        objBeingDragged = mouth4_obj;
       }
     }
 }
@@ -242,6 +248,7 @@ function game(){
     image(mouth1, mouth1_obj.x, mouth1_obj.y, mouth1_obj.w, mouth1_obj.h); 
     image(mouth2, mouth2_obj.x, mouth2_obj.y, mouth2_obj.w, mouth2_obj.h); 
     image(mouth3, mouth3_obj.x, mouth3_obj.y, mouth3_obj.w, mouth3_obj.h); 
+    image(mouth4, mouth4_obj.x, mouth4_obj.y, mouth4_obj.w, mouth4_obj.h); 
 
 }
 
