@@ -7,7 +7,7 @@
  */
 
 "use strict";
-
+//declare variables
 let cat2; 
 let banner;
 let banner2; 
@@ -39,6 +39,7 @@ let ending;
 // to check if any obj is being dragged
 let objisbeingdragged =false;
 
+//declare objects
 let eyea_obj = {
     x:3,
     y:70,
@@ -163,7 +164,7 @@ function preload() {
  * I made it small to resemble kids games I used to play :) 
 */
 function setup() {
-let c = createCanvas(500,500); 
+let c = createCanvas(500,500); //naming variable so that image can be saved later
 }
 
 
@@ -275,7 +276,7 @@ if(state ===`game`){
      }else if(mouseX > done_obj.x && mouseX < done_obj.x + done_obj.w && mouseY > done_obj.y && mouseY < done_obj.y + done_obj.h) {
         dragging = true;
         objisbeingdragged =true;
-        objBeingDragged = done_obj;
+        objBeingDragged = done_obj;  //if obj done is pressed, state changes to "end"
         state = 'end';
      }
     }
@@ -284,30 +285,30 @@ if(state ===`game`){
 }
 
 function game(){
-    image(pumpkin, 60, 80, 400, 250);
+    image(pumpkin, 60, 80, 400, 250);   //images of pumpkin and titles appear
     image(eyetitle, 10, 10, 100, 50);
     image(mouthtitle, 200, 310, 100, 50);
     image(nosetitle, 387, 10, 100, 50);
 
-    if(objisbeingdragged===true){
+    if(objisbeingdragged===true){       //objects can be dragged 
     if (mouseX > objBeingDragged.x && mouseX < objBeingDragged.x + objBeingDragged.w && mouseY > objBeingDragged.y && mouseY < objBeingDragged.y + objBeingDragged.h) {
        rollover = true;
       
     }
 
      else {
-        rollover = false;
+        rollover = false;    //images can only be dragged once mouse is rolling over them
      }
     }
 
     
       if (dragging) {
-       objBeingDragged.x = mouseX-objBeingDragged.w/2;
+       objBeingDragged.x = mouseX-objBeingDragged.w/2; //objects dragged in middle of mouse
        objBeingDragged.y = mouseY-objBeingDragged.h/2;
 
         }
     
-    stroke(0);
+    stroke(0);                        //images of decorations appear in "game" state
     image(eyea, eyea_obj.x, eyea_obj.y, eyea_obj.w, eyea_obj.h);
     image(eyeb, eyeb_obj.x, eyeb_obj.y, eyeb_obj.w, eyeb_obj.h); 
     image(eyec, eyec_obj.x, eyec_obj.y, eyec_obj.w, eyec_obj.h); 
@@ -322,8 +323,8 @@ function game(){
 }
 
 function end(){
-    image(ending, 0, 0, 500, 500);
-    console.log("print ending");  
+    image(ending, 0, 0, 500, 500); //image appears that clears objects and shows final pumpkin
+    console.log("print ending");  //image of user's pumpkin saves to their computer
     saveCanvas('myPumpkin', 'jpg');
     saveCanvas(c, 'myPumpkin', 'jpg'); 
 }
