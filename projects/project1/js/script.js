@@ -135,27 +135,21 @@ if(state ===`game`){
     if (mouseX > eyea_obj.x && mouseX < eyea_obj.x + eyea_obj.w && mouseY > eyea_obj.y && mouseY < eyea_obj.y + eyea_obj.h) {
         dragging = true;
         objisbeingdragged =true;
-        console.log("over a")
         // assign the properties of eye_a to objBeingDragged
         objBeingDragged = eyea_obj;
-
 
         console.log(objBeingDragged)
       } else if(mouseX > eyeb_obj.x && mouseX < eyeb_obj.x + eyeb_obj.w && mouseY > eyeb_obj.y && mouseY < eyeb_obj.y + eyeb_obj.h) {
          dragging = true;
          objisbeingdragged =true;
-         console.log("over b")
           // assign the properties of eye_b to objBeingDragged
          objBeingDragged = eyeb_obj;
-         console.log(objBeingDragged)
       
         } else if(mouseX > eyec_obj.x && mouseX < eyec_obj.x + eyec_obj.w && mouseY > eyec_obj.y && mouseY < eyec_obj.y + eyec_obj.h) {
         dragging = true;
         objisbeingdragged =true;
-        console.log("over c")
-          // assign the properties of eye_b to objBeingDragged
+         // assign the properties of eye_c to objBeingDragged
         objBeingDragged = eyec_obj;
-        console.log(objBeingDragged)
       }
     }
 }
