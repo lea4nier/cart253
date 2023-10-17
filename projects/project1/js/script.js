@@ -168,8 +168,8 @@ function preload() {
 */
 function setup() {
 let c = createCanvas(500,500); //naming variable so that image can be saved later
-sound.play();
-sound.loop();
+sound.play();   //play sound 
+sound.loop();      //loop sound
 }
 
 
