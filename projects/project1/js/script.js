@@ -31,7 +31,8 @@ let nose1;
 let nose2;
 let nose3; 
 
-let done; 
+let done;
+let ending;  
 
 
 
@@ -108,6 +109,13 @@ let mouth4_obj = {
     h: 50
 }
 
+let done_obj = {
+   x:200, 
+   y:10, 
+   w:100, 
+   h:50
+}
+
 let objBeingDragged = {
     x:0,
     y:0,
@@ -146,6 +154,7 @@ function preload() {
     nose2 = loadImage ('assets/images/nose2.png');
     nose3 = loadImage ('assets/images/nose3.png');
     done = loadImage ('assets/images/done.png');
+    ending = loadImage('assets/images/ending.png');
 }
 
 
@@ -174,6 +183,10 @@ background(161, 13, 224);
     
       else if (state === 'game') {
         game();
+      }
+      else if (state === 'end') {
+        game();
+        end(); 
       }
 }
 
@@ -259,6 +272,11 @@ if(state ===`game`){
         objisbeingdragged =true;
          // assign the properties of mouth2 to objBeingDragged
         objBeingDragged = nose3_obj;
+     }else if(mouseX > done_obj.x && mouseX < done_obj.x + done_obj.w && mouseY > done_obj.y && mouseY < done_obj.y + done_obj.h) {
+        dragging = true;
+        objisbeingdragged =true;
+        objBeingDragged = done_obj;
+        state = 'end';
      }
     }
  }
@@ -270,7 +288,6 @@ function game(){
     image(eyetitle, 10, 10, 100, 50);
     image(mouthtitle, 200, 310, 100, 50);
     image(nosetitle, 387, 10, 100, 50);
-    image(done, 200, 10, 100, 50);
 
     if(objisbeingdragged===true){
     if (mouseX > objBeingDragged.x && mouseX < objBeingDragged.x + objBeingDragged.w && mouseY > objBeingDragged.y && mouseY < objBeingDragged.y + objBeingDragged.h) {
@@ -280,7 +297,6 @@ function game(){
 
      else {
         rollover = false;
-        console.log("no rollover")
      }
     }
 
@@ -301,7 +317,13 @@ function game(){
     image(mouth4, mouth4_obj.x, mouth4_obj.y, mouth4_obj.w, mouth4_obj.h);
     image(nose1, nose1_obj.x, nose1_obj.y, nose1_obj.w, nose1_obj.h);  
     image(nose2, nose2_obj.x, nose2_obj.y, nose2_obj.w, nose2_obj.h);  
-    image(nose3, nose3_obj.x, nose3_obj.y, nose3_obj.w, nose3_obj.h);  
+    image(nose3, nose3_obj.x, nose3_obj.y, nose3_obj.w, nose3_obj.h);
+    image(done, done_obj.x, done_obj.y, done_obj.w, done_obj.h);  
+}
+
+function end(){
+    image(ending, 0, 0, 500, 500);
+    console.log("print ending");   
 }
 
 function mouseReleased() {
