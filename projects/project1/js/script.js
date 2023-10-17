@@ -22,6 +22,8 @@ let eyea;
 let eyeb; 
 let eyec;
 
+let mouth1; 
+
 
 
 // to check if any obj is being dragged
@@ -48,6 +50,12 @@ let eyec_obj = {
     h: 50
 }
 
+let mouth1_obj = {
+    x: 1,
+    y: 410, 
+    w: 100, 
+    h: 50
+}
 
 let objBeingDragged = {
     x:0,
@@ -78,6 +86,7 @@ function preload() {
     eyec = loadImage('assets/images/eyec.png');
     eyetitle = loadImage ('assets/images/eyetitle.png');
     mouthtitle = loadImage ('assets/images/mouthtitle.png');
+    mouth1 = loadImage ('assets/images/mouth1.png');
     nosetitle = loadImage ('assets/images/nosetitle.png');
 }
 
@@ -133,23 +142,28 @@ function mousePressed() {
 if(state ===`game`){
     if(objisbeingdragged ===false){
     if (mouseX > eyea_obj.x && mouseX < eyea_obj.x + eyea_obj.w && mouseY > eyea_obj.y && mouseY < eyea_obj.y + eyea_obj.h) {
-        dragging = true;
+        dragging = true;   //eyea can be dragged
         objisbeingdragged =true;
         // assign the properties of eye_a to objBeingDragged
         objBeingDragged = eyea_obj;
 
         console.log(objBeingDragged)
       } else if(mouseX > eyeb_obj.x && mouseX < eyeb_obj.x + eyeb_obj.w && mouseY > eyeb_obj.y && mouseY < eyeb_obj.y + eyeb_obj.h) {
-         dragging = true;
+         dragging = true;   //eyeb can be dragged
          objisbeingdragged =true;
           // assign the properties of eye_b to objBeingDragged
          objBeingDragged = eyeb_obj;
       
         } else if(mouseX > eyec_obj.x && mouseX < eyec_obj.x + eyec_obj.w && mouseY > eyec_obj.y && mouseY < eyec_obj.y + eyec_obj.h) {
-        dragging = true;
+        dragging = true;    //eyec can be dragged
         objisbeingdragged =true;
          // assign the properties of eye_c to objBeingDragged
         objBeingDragged = eyec_obj;
+      } else if(mouseX > mouth1_obj.x && mouseX < mouth1_obj.x + mouth1_obj.w && mouseY > mouth1_obj.y && mouseY < mouth1_obj.y + mouth1_obj.h) {
+        dragging = true;    //mouth1 can be dragged
+        objisbeingdragged =true;
+         // assign the properties of mouth1 to objBeingDragged
+        objBeingDragged = mouth1_obj;
       }
     }
 }
@@ -185,6 +199,7 @@ function game(){
     image(eyea, eyea_obj.x, eyea_obj.y, eyea_obj.w, eyea_obj.h);
     image(eyeb, eyeb_obj.x, eyeb_obj.y, eyeb_obj.w, eyeb_obj.h); 
     image(eyec, eyec_obj.x, eyec_obj.y, eyec_obj.w, eyec_obj.h); 
+    image(mouth1, mouth1_obj.x, mouth1_obj.y, mouth1_obj.w, mouth1_obj.h); 
 
 }
 
