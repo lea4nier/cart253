@@ -37,49 +37,56 @@ let nose3;
 let objisbeingdragged =false;
 
 let eyea_obj = {
-    x:1,
+    x:3,
     y:70,
     w:100,
     h:50
 };
 
 let eyeb_obj = {
-    x: 1,
+    x: 3,
     y: 140, 
     w: 100, 
     h: 50
 }
 
 let eyec_obj = {
-    x: 1,
+    x: 3,
     y: 210, 
     w: 100, 
     h: 50
 }
 
+let nose1_obj = {
+    x:420,
+    y:70,
+    w:30,
+    h:15
+};
+
 let mouth1_obj = {
-    x: 1,
+    x: 10,
     y: 410, 
     w: 100, 
     h: 50
 }
 
 let mouth2_obj = {
-    x: 130,
+    x: 140,
     y: 410, 
     w: 100, 
     h: 50
 }
 
 let mouth3_obj = {
-    x: 250,
+    x: 260,
     y: 410, 
     w: 100, 
     h: 50
 }
 
 let mouth4_obj = {
-    x: 370,
+    x: 380,
     y: 410, 
     w: 100, 
     h: 50
@@ -109,16 +116,17 @@ function preload() {
     banner2 = loadImage('assets/images/banner2.png');
     instructions1 = loadImage('assets/images/instructions.png');
     pumpkin = loadImage('assets/images/pumpkin.png');
+    eyetitle = loadImage ('assets/images/eyetitle.png');
     eyea = loadImage('assets/images/eyea.png');
     eyeb = loadImage('assets/images/eyeb.png');
     eyec = loadImage('assets/images/eyec.png');
-    eyetitle = loadImage ('assets/images/eyetitle.png');
     mouthtitle = loadImage ('assets/images/mouthtitle.png');
     mouth1 = loadImage ('assets/images/mouth1.png');
     mouth2 = loadImage ('assets/images/mouth2.png');
     mouth3 = loadImage ('assets/images/mouth3.png');
     mouth4 = loadImage ('assets/images/mouth4.png');
     nosetitle = loadImage ('assets/images/nosetitle.png');
+    nose1 = loadImage ('assets/images/nose1.png');
 }
 
 
@@ -210,6 +218,11 @@ if(state ===`game`){
         objisbeingdragged =true;
          // assign the properties of mouth4 to objBeingDragged
         objBeingDragged = mouth4_obj;
+      }else if(mouseX > nose1_obj.x && mouseX < nose1_obj.x + nose1_obj.w && mouseY > nose1_obj.y && mouseY < nose1_obj.y + nose1_obj.h) {
+        dragging = true;    //nose1 can be dragged
+        objisbeingdragged =true;
+         // assign the properties of mouth1 to objBeingDragged
+        objBeingDragged = nose1_obj;
       }
     }
 }
@@ -248,7 +261,8 @@ function game(){
     image(mouth1, mouth1_obj.x, mouth1_obj.y, mouth1_obj.w, mouth1_obj.h); 
     image(mouth2, mouth2_obj.x, mouth2_obj.y, mouth2_obj.w, mouth2_obj.h); 
     image(mouth3, mouth3_obj.x, mouth3_obj.y, mouth3_obj.w, mouth3_obj.h); 
-    image(mouth4, mouth4_obj.x, mouth4_obj.y, mouth4_obj.w, mouth4_obj.h); 
+    image(mouth4, mouth4_obj.x, mouth4_obj.y, mouth4_obj.w, mouth4_obj.h);
+    image(nose1, nose1_obj.x, nose1_obj.y, nose1_obj.w, nose1_obj.h);  
 
 }
 
