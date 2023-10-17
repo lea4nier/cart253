@@ -39,7 +39,7 @@ let c;
 
 
 // to check if any obj is being dragged
-let objisbeingdragged =false;
+let objIsBeingDragged =false;
 
 //declare objects
 let eyea_obj = {
@@ -169,8 +169,6 @@ function preload() {
 */
 function setup() {
 createCanvas(500,500); //naming variable so that image can be saved later
-//sound.play();   //play sound 
-//sound.loop();      //loop sound
 }
 
 
@@ -204,10 +202,10 @@ function title(){         //title screen with cat
 }
 
 function keyPressed() {     //user presses "enter" to continue to next state
-    if (keyCode === 13)
+    if (keyCode === 13){
     state = 'instructions'; 
-    sound.play();   //play sound 
-    sound.loop();
+    sound.loop();   //loop sound
+    }
 }
 
 function instructions(){        //instructions state, I drew the image myself
@@ -220,70 +218,70 @@ function mousePressed() {       //state changes to game when user presses mouse
     }
 
 if(state ===`game`){
-    if(objisbeingdragged ===false){
+    if(objIsBeingDragged ===false){
     if (mouseX > eyea_obj.x && mouseX < eyea_obj.x + eyea_obj.w && mouseY > eyea_obj.y && mouseY < eyea_obj.y + eyea_obj.h) {
         dragging = true;   //eyea can be dragged
-        objisbeingdragged =true;
+        objIsBeingDragged =true;
         // assign the properties of eye_a to objBeingDragged
         objBeingDragged = eyea_obj;
 
         console.log(objBeingDragged)
       } else if(mouseX > eyeb_obj.x && mouseX < eyeb_obj.x + eyeb_obj.w && mouseY > eyeb_obj.y && mouseY < eyeb_obj.y + eyeb_obj.h) {
          dragging = true;   //eyeb can be dragged
-         objisbeingdragged =true;
+         objIsBeingDragged =true;
           // assign the properties of eye_b to objBeingDragged
          objBeingDragged = eyeb_obj;
       
         } else if(mouseX > eyec_obj.x && mouseX < eyec_obj.x + eyec_obj.w && mouseY > eyec_obj.y && mouseY < eyec_obj.y + eyec_obj.h) {
         dragging = true;    //eyec can be dragged
-        objisbeingdragged =true;
+        objIsBeingDragged =true;
          // assign the properties of eye_c to objBeingDragged
         objBeingDragged = eyec_obj;
 
       } else if(mouseX > mouth1_obj.x && mouseX < mouth1_obj.x + mouth1_obj.w && mouseY > mouth1_obj.y && mouseY < mouth1_obj.y + mouth1_obj.h) {
         dragging = true;    //mouth1 can be dragged
-        objisbeingdragged =true;
+        objIsBeingDragged =true;
          // assign the properties of mouth1 to objBeingDragged
         objBeingDragged = mouth1_obj;
 
       }else if(mouseX > mouth2_obj.x && mouseX < mouth2_obj.x + mouth2_obj.w && mouseY > mouth2_obj.y && mouseY < mouth2_obj.y + mouth2_obj.h) {
         dragging = true;    //mouth2 can be dragged
-        objisbeingdragged =true;
+        objIsBeingDragged =true;
          // assign the properties of mouth2 to objBeingDragged
         objBeingDragged = mouth2_obj;
 
       }else if(mouseX > mouth3_obj.x && mouseX < mouth3_obj.x + mouth3_obj.w && mouseY > mouth3_obj.y && mouseY < mouth3_obj.y + mouth3_obj.h) {
         dragging = true;    //mouth3 can be dragged
-        objisbeingdragged =true;
+        objIsBeingDragged =true;
          // assign the properties of mouth3 to objBeingDragged
         objBeingDragged = mouth3_obj;
 
       }else if(mouseX > mouth4_obj.x && mouseX < mouth4_obj.x + mouth4_obj.w && mouseY > mouth4_obj.y && mouseY < mouth4_obj.y + mouth4_obj.h) {
         dragging = true;    //mouth4 can be dragged
-        objisbeingdragged =true;
+        objIsBeingDragged =true;
          // assign the properties of mouth4 to objBeingDragged
         objBeingDragged = mouth4_obj;
 
       }else if(mouseX > nose1_obj.x && mouseX < nose1_obj.x + nose1_obj.w && mouseY > nose1_obj.y && mouseY < nose1_obj.y + nose1_obj.h) {
         dragging = true;    //nose1 can be dragged
-        objisbeingdragged =true;
+        objIsBeingDragged =true;
          // assign the properties of mouth1 to objBeingDragged
         objBeingDragged = nose1_obj;
      
      }else if(mouseX > nose2_obj.x && mouseX < nose2_obj.x + nose2_obj.w && mouseY > nose2_obj.y && mouseY < nose2_obj.y + nose2_obj.h) {
         dragging = true;    //nose2 can be dragged
-        objisbeingdragged =true;
+        objIsBeingDragged =true;
          // assign the properties of mouth2 to objBeingDragged
         objBeingDragged = nose2_obj;
      
      }else if(mouseX > nose3_obj.x && mouseX < nose3_obj.x + nose3_obj.w && mouseY > nose3_obj.y && mouseY < nose3_obj.y + nose3_obj.h) {
         dragging = true;    //nose2 can be dragged
-        objisbeingdragged =true;
+        objIsBeingDragged =true;
          // assign the properties of mouth2 to objBeingDragged
         objBeingDragged = nose3_obj;
      }else if(mouseX > done_obj.x && mouseX < done_obj.x + done_obj.w && mouseY > done_obj.y && mouseY < done_obj.y + done_obj.h) {
         dragging = true;
-        objisbeingdragged =true;
+        objIsBeingDragged =true;
         objBeingDragged = done_obj;  //if obj done is pressed, state changes to "end"
         state = 'end';
      }
@@ -298,7 +296,7 @@ function game(){
     image(mouthtitle, 200, 310, 100, 50);
     image(nosetitle, 387, 10, 100, 50);
 
-    if(objisbeingdragged===true){       //objects can be dragged 
+    if(objIsBeingDragged===true){       //objects can be dragged 
     if (mouseX > objBeingDragged.x && mouseX < objBeingDragged.x + objBeingDragged.w && mouseY > objBeingDragged.y && mouseY < objBeingDragged.y + objBeingDragged.h) {
        rollover = true;
       
@@ -332,14 +330,12 @@ function game(){
 
 function end(){
     image(ending, 0, 0, 500, 500); //image appears that clears objects and shows final pumpkin
-    console.log("print ending");  //image of user's pumpkin saves to their computer
-    saveCanvas('myPumpkin', 'jpg');
-    noLoop();  
-   // saveCanvas(c, 'myPumpkin', 'jpg'); 
+    saveCanvas('myPumpkin', 'jpg'); //image of user's pumpkin saves to their computer
+    noLoop();   
 }
 
 function mouseReleased() {
     // Quit dragging
     dragging = false;
-    objisbeingdragged =false;
+    objIsBeingDragged =false;
 }
