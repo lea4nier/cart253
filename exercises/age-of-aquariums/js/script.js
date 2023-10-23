@@ -8,11 +8,14 @@
 
 "use strict";
 
+
+
 /**
  * Description of preload
 */
 function preload() {
-
+fish = loadImage("assets/images/fish.png");
+shark = loadImage("assets/images/shark.png");
 }
 
 
@@ -20,7 +23,7 @@ function preload() {
  * Description of setup
 */
 function setup() {
-
+createCanvas(600,600);
 }
 
 
@@ -28,5 +31,5 @@ function setup() {
  * Description of draw()
 */
 function draw() {
-
+    background(2, 170, 247);
 }
