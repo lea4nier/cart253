@@ -1,3 +1,3 @@
-# Template p5 project
+# Age of Aquariums Exercise
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+The user controls the red circle (fish) and they have 10 seconds to avaid the grey cicrcles (sharks). If they succesfully move their mouse in a way that the sharks do not overlap with their fish, they win! If the sharks get the fish, they lose!

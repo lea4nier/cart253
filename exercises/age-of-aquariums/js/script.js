@@ -18,7 +18,7 @@ let user = {
 };
 
 let school = [];
-let schoolSize = 2;
+let schoolSize = 3;
 let home;
 let died;
 let alive; 
@@ -55,7 +55,7 @@ function createFish(x, y) {
         size: 100,
         vx: 0,
         vy: 0,
-        speed: 2,
+        speed: 3,
         active: false
     };
     return fish;
