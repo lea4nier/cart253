@@ -17,7 +17,8 @@ let user = {
 let school = [];
 let schoolSize = 2;
 let home;
-
+let died;
+ 
 let moveDistance = 0;
 let fishThreshold = 1000;
 
@@ -29,6 +30,7 @@ let state = "title";
 
 function preload() {
     home = loadImage("assets/images/title.png");
+    died = loadImage("assets/images/fail.png");
 }
 
 function setup() {
@@ -143,5 +145,5 @@ function displayFish(fish) {
 }
 
 function fail() {
-    image(home, 0, 0, 600, 600);
+    image(died, 0, 0, 600, 600);
 }
