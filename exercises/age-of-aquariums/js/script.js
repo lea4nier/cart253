@@ -7,6 +7,9 @@
  */
 
 "use strict";
+let startTime = undefined;
+let duration = 5000;
+
 let user = {
     x: 0,
     y: 0,
@@ -18,6 +21,7 @@ let school = [];
 let schoolSize = 2;
 let home;
 let died;
+let alive; 
  
 let moveDistance = 0;
 let fishThreshold = 1000;
@@ -31,6 +35,7 @@ let state = "title";
 function preload() {
     home = loadImage("assets/images/title.png");
     died = loadImage("assets/images/fail.png");
+    alive = loadImage("assets/images/alive.png");
 }
 
 function setup() {
@@ -81,9 +86,13 @@ function title() {
 function keyPressed() {
     if (keyCode === 32)
         state = 'game';
+        startTime = millis();
 }
 function game() {
-
+    let elapsed = millis() - startTime;
+    if (elapsed > duration) {
+        state = 'win';
+      }
     for (let i = 0; i < school.length; i++) {
         moveFish(school[i]);
         displayFish(school[i]);
@@ -146,4 +155,8 @@ function displayFish(fish) {
 
 function fail() {
     image(died, 0, 0, 600, 600);
+}
+
+function win() {
+    image(alive, 0, 0, 600, 600);
 }
