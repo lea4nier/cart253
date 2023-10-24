@@ -1,14 +1,14 @@
 /**
- * Title of Project
- * Author Name
+ * SHARK ESCAPE!
+ * Léa Fournier
  * 
- * This is a template. You must fill in the title, author, 
- * and this description to match your project!
+ * You have 10 seconds to swim away from the sharks! Don't let the grey circles (sharks) touch you and you will be saved. 
+ * If they touch you: game over!
  */
 
 "use strict";
 let startTime = undefined;
-let duration = 5000;
+let duration = 10000; 
 
 let user = {
     x: 0,
@@ -55,7 +55,7 @@ function createFish(x, y) {
         size: 100,
         vx: 0,
         vy: 0,
-        speed: 3,
+        speed: 7,
         active: false
     };
     return fish;
@@ -116,11 +116,6 @@ function game() {
     fill(255, 0, 0);
     ellipse(user.x, user.y, user.size);
     pop();
-    for (let fish of school) {
-        //if (fish.active) {
-        //ellipse(fish.x, fish.y, fish.size);
-
-    }
 }
 
 
