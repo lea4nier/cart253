@@ -8,20 +8,18 @@
 
 "use strict";
 
+let school =[]; 
+let schoolSize = 10; 
+
 // Our fish
-let fish1;
-let fish2;
-let fish3;
-let fish4;
+
 
 function setup() {
   createCanvas(600, 600);
 
-  // Create four fish, positioned randomly
-  fish1 = createFish(random(0, width), random(0, height));
-  fish2 = createFish(random(0, width), random(0, height));
-  fish3 = createFish(random(0, width), random(0, height));
-  fish4 = createFish(random(0, width), random(0, height));
+  for (let i = 0; i < schoolSize; i++){
+    school[i] = createFish(random(0, width), random(0, height));
+  }
 }
 
 // createFish(x,y)
@@ -33,26 +31,22 @@ function createFish(x, y) {
     size: 50,
     vx: 0,
     vy: 0,
-    speed: 2
+    speed: 5
   };
   return fish;
 }
 
 // draw()
 // Moves and displays our fish
+
 function draw() {
-  background(0);
-
-  moveFish(fish1);
-  moveFish(fish2);
-  moveFish(fish3);
-  moveFish(fish4);
-
-  displayFish(fish1);
-  displayFish(fish2);
-  displayFish(fish3);
-  displayFish(fish4);
-}
+    background(0);
+  
+    for (let i = 0; i < school.length; i++) {
+      moveFish(school[i]);
+      displayFish(school[i]);
+    }
+  }
 
 // moveFish(fish)
 // Chooses whether the provided fish changes direction and moves it
