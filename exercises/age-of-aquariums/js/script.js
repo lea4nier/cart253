@@ -7,13 +7,17 @@
  */
 
 "use strict";
+let fish;
+let shark;
+let home;
 
 
-
+let state = "title"
 /**
  * Description of preload
 */
 function preload() {
+home = loadImage("assets/images/title.png");
 fish = loadImage("assets/images/fish.png");
 shark = loadImage("assets/images/shark.png");
 }
@@ -32,4 +36,19 @@ createCanvas(600,600);
 */
 function draw() {
     background(2, 170, 247);
+    if (state === "title") {
+        title();
+    }
+    else if (state === "game") {
+        game();
+    }
+}
+
+function title(){
+    image(home, 0, 0, 600, 600);
+}
+
+function keyPressed() {
+    if (keyCode === 32)
+    state = 'game'; 
 }
