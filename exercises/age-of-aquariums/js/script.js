@@ -7,6 +7,12 @@
  */
 
 "use strict";
+let user = {
+    x: 0,
+    y: 0,
+    size: 50,
+    trail: [] // Note that we are creating an EMPTY TRAIL ARRAY as a PROPERTY of the circle
+  };
 
 let school =[]; 
 let schoolSize = 10; 
@@ -71,7 +77,23 @@ function game() {
       moveFish(school[i]);
       displayFish(school[i]);
     }
-  }
+    for (let i = 0; i < user.trail.length; i++) {
+        // Get the element at the index indicated by i (0, then 1, then 2, etc.)
+        let element = user.trail[i];
+        // Draw an ellipse the same size as the circle at that position
+        ellipse(element.x, element.y, user.size);
+      }
+    
+      // Move the circle to the mouse position
+      user.x = mouseX;
+      user.y = mouseY;
+    
+      // Draw the circle
+      push();
+      fill(255,0,0);
+      ellipse(user.x, user.y, user.size);
+      pop();  
+}
 
 // moveFish(fish)
 // Chooses whether the provided fish changes direction and moves it
