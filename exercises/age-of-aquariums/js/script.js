@@ -7,29 +7,27 @@
  */
 
 "use strict";
-let startTime = undefined;
-let duration = 10000; 
+let startTime = undefined; 
+let duration = 10000; //time limit of 10 seconds during game 
 
-let user = {
+let user = {  //define user's circle 
     x: 0,
     y: 0,
     size: 50,
-    trail: [] // Note that we are creating an EMPTY TRAIL ARRAY as a PROPERTY of the circle
+    trail: [] 
 };
 
-let school = [];
+let school = [];  //create for loop
 let schoolSize = 3;
-let home;
+
+let home; //give variable names to iamges for the beginning and end states 
 let died;
 let alive; 
- 
-let moveDistance = 0;
-let fishThreshold = 1000;
 
-let state = "title";
+let state = "title"; //game starts in title state
 
 /**
- * Description of preload
+ * preload images 
 */
 
 function preload() {
@@ -39,16 +37,14 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(600, 600);
-
+    createCanvas(600, 600); //set canvas 
+        
     for (let i = 0; i < schoolSize; i++) {
-        school[i] = createFish(random(0, width), random(0, height));
+        school[i] = createFish(random(0, width), random(0, height)); //"fish" (sharks) will be positioned randomly
     }
 }
 
-// createFish(x,y)
-// Creates a new JavaScript Object describing a fish and returns it
-function createFish(x, y) {
+function createFish(x, y) { // Creates a new JavaScript Object describing a fish and returns it
     let fish = {
         x: x,
         y: y,
@@ -61,10 +57,9 @@ function createFish(x, y) {
     return fish;
 }
 
-// draw()
-// Moves and displays our fish
-function draw() {
-    background(99, 182, 255);
+
+function draw() {    //draw states of code
+    background(99, 182, 255); 
     if (state === "title") {
         title();
     }
@@ -79,25 +74,25 @@ function draw() {
     }
 }
 
-function title() {
+function title() {  //title screen is an image I drew on my ipad 
     image(home, 0, 0, 600, 600);
 }
 
-function keyPressed() {
+function keyPressed() { //if the user presses the space bar the state changes to game 
     if (keyCode === 32)
         state = 'game';
         startTime = millis();
 }
 function game() {
-    let elapsed = millis() - startTime;
+    let elapsed = millis() - startTime; //when the state changes to game the 10 second countdown begins 
     if (elapsed > duration) {
-        state = 'win';
+        state = 'win';  //if 10 seconds pass the state changes to "win"
       }
     for (let i = 0; i < school.length; i++) {
         moveFish(school[i]);
         displayFish(school[i]);
-        if (dist(school[i].x, school[i].y, user.x, user.y) < user.size / 2 + school[i].size / 2) {
-            state = 'fail';
+        if (dist(school[i].x, school[i].y, user.x, user.y) < user.size / 2 + school[i].size / 2) { 
+            state = 'fail';  //if the sharks ('fish' variable) overlaps with the user then the state changes to fail
         }
     }
     for (let i = 0; i < user.trail.length; i++) {
@@ -113,7 +108,7 @@ function game() {
 
     // Draw the circle
     push();
-    fill(255, 0, 0);
+    fill(255, 0, 0); //I changed fish color to red 
     ellipse(user.x, user.y, user.size);
     pop();
 }
@@ -142,16 +137,16 @@ function moveFish(fish) {
 // Displays the provided fish on the canvas
 function displayFish(fish) {
     push();
-    fill(183, 188, 189);
+    fill(183, 188, 189); //I changed the shark color to be grey 
     noStroke();
     ellipse(fish.x, fish.y, fish.size);
     pop();
 }
 
 function fail() {
-    image(died, 0, 0, 600, 600);
+    image(died, 0, 0, 600, 600);  //image appears for fail ending 
 }
 
 function win() {
-    image(alive, 0, 0, 600, 600);
+    image(alive, 0, 0, 600, 600); //image appears for win ending 
 }
