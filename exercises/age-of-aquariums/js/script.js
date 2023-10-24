@@ -11,22 +11,31 @@ let circle = {
     x: 0,
     y: 0,
     size: 50,
+    fill: (255, 0, 0) , 
     trail: [] // Note that we are creating an EMPTY TRAIL ARRAY as a PROPERTY of the circle
-  }
+  };
 
-let fish;
-let shark;
+let shark = {
+    x: 100,
+    y: 100,
+    size: 100,
+    active: false
+};
+
 let home;
+let school = [];
 
+let moveDistance = 0;
+let sharkThreshold = 1000;
 
 let state = "title"
+
 /**
  * Description of preload
 */
+
 function preload() {
 home = loadImage("assets/images/title.png");
-fish = loadImage("assets/images/fish.png");
-shark = loadImage("assets/images/shark.png");
 }
 
 
@@ -48,6 +57,7 @@ function draw() {
     }
     else if (state === "game") {
         game();
+
     }
 }
 
@@ -74,5 +84,17 @@ function game(){
     
       // Draw the circle
       ellipse(circle.x, circle.y, circle.size);
-
+    
+    if (shark.active) {
+        ellipse(shark.x, shark.y, shark.size);
+    }
 }
+
+function mouseMoved() {
+    moveDistance += dist(pmouseX, pmouseY, mouseX, mouseY);
+    if (moveDistance >= sharkThreshold) {
+        shark.active = true;
+    }
+}
+    
+  
