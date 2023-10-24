@@ -10,10 +10,18 @@
 
 let school =[]; 
 let schoolSize = 10; 
+let home;
 
-// Our fish
+let state = "title"; 
 
+/**
+ * Description of preload
+*/
 
+function preload() {
+    home = loadImage("assets/images/title.png");
+    }
+    
 function setup() {
   createCanvas(600, 600);
 
@@ -38,9 +46,26 @@ function createFish(x, y) {
 
 // draw()
 // Moves and displays our fish
-
 function draw() {
-    background(0);
+    background(99, 182, 255);
+    if (state === "title") {
+        title();
+    }
+    else if (state === "game") {
+        game();
+
+    }
+}
+
+function title(){
+    image(home, 0, 0, 600, 600);
+}
+
+function keyPressed() {
+    if (keyCode === 32)
+    state = 'game'; 
+}
+function game() {
   
     for (let i = 0; i < school.length; i++) {
       moveFish(school[i]);
