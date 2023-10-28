@@ -29,7 +29,6 @@ let state = "title"; //game starts in title state
 /**
  * preload images 
 */
-
 function preload() {
     home = loadImage("assets/images/title.png");
     died = loadImage("assets/images/fail.png");
