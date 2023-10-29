@@ -8,6 +8,7 @@
 
 "use strict";
 // Our garden
+// Our garden
 let garden = {
     // An array to store the individual flowers
     flowers: [],
@@ -54,17 +55,11 @@ let garden = {
     // Loop through all the flowers in the array and display them
     for (let i = 0; i < garden.flowers.length; i++) {
       let flower = garden.flowers[i];
-      flower.display();
-    }
-  }
-  
-  // NEW! mousePressed() calls the equivalent mousePressed() method on every flower
-  function mousePressed() {
-    // Loop through every flower in the garden
-    for (let i = 0; i < garden.flowers.length; i++) {
-      // Get the current flower in the loop
-      let flower = garden.flowers[i];
-      // Call the flower's mousePressed() method
-      flower.mousePressed();
+      // NEW! Check if this flower is alive before updating it
+      if (flower.alive) {
+        // Update the flower by shrinking it and displaying it
+        flower.shrink(); // NEW! Shrink living flowers every frame
+        flower.display();
+      }
     }
   }
