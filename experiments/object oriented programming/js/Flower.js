@@ -24,7 +24,7 @@ class Flower {
   
     // display()
     // Displays the flower on the canvas
-    display() {
+display() {
       push();
       // Set the stroke weight for the petals and the stem
       strokeWeight(this.stemThickness);
@@ -38,4 +38,18 @@ class Flower {
       ellipse(this.x, this.y, this.size);
       pop();
     }
+  
+
+  mousePressed() {
+    // Calculate the distance between this flower and the mouse
+    let d = dist(this.x,this.y,mouseX,mouseY);
+    // Check if the distance is less than the head of the flower
+    if (d < this.size/2 + this.petalThickness) {
+      // If it is, this flower was clicked, so increase its stem length
+      this.stemLength = this.stemLength + 5;
+      // And also change its y position so it grows upward! (If we didn't do this
+      // the then stem would grow downward, which would look weird.)
+      this.y = this.y - 5;
+    }
   }
+}
