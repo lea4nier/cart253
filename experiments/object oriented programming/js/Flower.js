@@ -6,9 +6,11 @@ class Flower {
       this.x = x;
       this.y = y;
       this.size = size;
+      this.maxSize = size; // NEW! To limit growth
       this.stemLength = stemLength;
       this.stemThickness = 10;
       this.petalThickness = 10;
+      this.maxPetalThickness = 10; // NEW! To limit growth
       // Color information
       this.stemColor = {
         r: 50,
@@ -21,10 +23,10 @@ class Flower {
         g: 0,
         b: 0
       };
-      this.alive = true; // NEW! Track whether this flower is alive
+      this.alive = true;
     }
   
-    // NEW! shrink()
+    // shrink()
     // Shrinks the flower
     shrink() {
       // Choose a random amount to shrink
@@ -38,6 +40,20 @@ class Flower {
       if (this.petalThickness <= 0 || this.size <= 0) {
         this.alive = false;
       }
+    }
+  
+    // NEW! pollinate() handles the flower being pollinated (it grows)
+    pollinate() {
+      // Choose a random amount to grow
+      let growth = random(0, 0.5);
+      // Increase the petal thickness (divide by 10 to make it less rapid)
+      this.petalThickness = this.petalThickness + growth / 10;
+      // Increase the centre of the flower
+      this.size = this.size + growth;
+  
+      // Constrain the elements
+      this.petalThickness = constrain(this.petalThickness, 0, this.maxPetalThickness);
+      this.size = constrain(this.size, 0, this.maxSize);
     }
   
     // display()

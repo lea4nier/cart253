@@ -60,7 +60,6 @@ let garden = {
   
   }
   
-  
   // draw()
   // Displays our flowers
   function draw() {
@@ -81,12 +80,23 @@ let garden = {
     // Loop through all the bees in the array and display them
     for (let i = 0; i < garden.bees.length; i++) {
       let bee = garden.bees[i];
-      // Check if this bee is alive
+      // Check if this flower is alive
       if (bee.alive) {
-        // Update the bee by shrinking, moving and displaying it
+        // Shrink and move the bee
         bee.shrink();
         bee.move();
+  
+        // NEW! Go through the entire flower array and try to pollinate the flowers!
+        // Note that we use j in our for-loop here because we're already inside
+        // a for-loop using i!
+        for (let j = 0; j < garden.flowers.length; j++) {
+          let flower = garden.flowers[j];
+          bee.tryToPollinate(flower);
+        }
+  
+        // Display the bee
         bee.display();
       }
     }
+  
   }

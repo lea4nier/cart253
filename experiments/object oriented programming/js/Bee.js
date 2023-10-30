@@ -1,14 +1,15 @@
 class Bee {
 
-    // constructor() sets up our starting properties
     constructor(x, y) {
       this.x = x;
       this.y = y;
       this.size = 40;
       this.minSize = 10; // If we get smaller than this minimum we're dead
+      this.maxSize = 40; // We can't get bigger than this
       this.vx = 0;
       this.vy = 0;
       this.speed = 5;
+      this.growRate = 0.1; // How much the bee grows if it pollinates
       this.shrinkRate = 0.05; // How much smaller we get each frame
       this.jitteriness = 0.1; // How likely the bee is to change direction
       this.alive = true; // The Bee starts out alive!
@@ -23,6 +24,31 @@ class Bee {
         // If so, we're dead
         this.alive = false;
       }
+    }
+  
+    // tryToPollinate() attempts to pollinate the flower provided as a parameter
+    // If pollination succeeds (the two overlap) then both grow
+    tryToPollinate(flower) {
+      // Calculate the distance between the bee and the flower
+      let d = dist(this.x, this.y, flower.x, flower.y);
+      // If they overlap...
+      if (d < this.size / 2 + flower.size / 2) {
+        // The bee should grow
+        // Notice how we can call OTHER METHODS of the Bee by using "this"
+        // So this.grow() calls the grow() method for THIS bee
+        this.grow();
+        // The flower should react to being pollinated so we call its method
+        // that handles that!
+        flower.pollinate();
+      }
+    }
+  
+    // grow() causes the bee to get bigger up to a maximum (called by tryToPollinate())
+    grow() {
+      // Grow by increasing the size by a set amount
+      this.size = this.size + this.growRate;
+      // Constrain the growth to a maximum
+      this.size = constrain(this.size, 0, this.maxSize);
     }
   
     // move() moves the bee by potentially changing direction
