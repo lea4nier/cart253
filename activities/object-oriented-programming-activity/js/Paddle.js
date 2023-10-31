@@ -10,4 +10,13 @@ class Paddle {
     move(){
         this.x = mouseX;
     }
+
+    display(){
+        push();
+        fill(255);
+        noStroke();
+        rectMode(CENTER);
+        rect(this.x,this.y,this.width, this.height);
+        pop();
+    }
 }
