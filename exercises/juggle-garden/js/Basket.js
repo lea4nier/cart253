@@ -5,9 +5,13 @@ class Basket{
         this.image = basketImage;
       }
     
+      move(){
+        this.x = mouseX;
+    }
+
       display() {
         push();
         imageMode(CENTER);
-        image(this.image, this.x, this.y);
+        image(this.image, this.x, this.y, 400, 400);
       }
 }

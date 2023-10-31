@@ -7,12 +7,14 @@
  */
 
 "use strict";
+let basket;
+let basketAsset;
 
 /**
  * Description of preload
 */
 function preload() {
-
+    basketAsset = loadImage('assets/images/catch.png');
 }
 
 
@@ -21,6 +23,7 @@ function preload() {
 */
 function setup() {
     createCanvas(windowWidth, windowHeight); 
+    basket = new Basket(300, 650, basketAsset);
 }
 
 
@@ -29,4 +32,7 @@ function setup() {
 */
 function draw() {
     background(143, 232, 247); 
+
+    basket.move();
+    basket.display();
 }
