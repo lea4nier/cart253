@@ -12,7 +12,7 @@ let gravityForce = 0.0025;
 let paddle;
 
 let balls = [];
-let numBalls = 3;
+let numBalls = 5;
 /**
  * Description of preload
 */
