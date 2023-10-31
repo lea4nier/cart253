@@ -36,3 +36,11 @@ function draw() {
     basket.move();
     basket.display();
 }
+
+function keyPressed() {
+    basket.keyPressed(keyCode);
+}
+
+function keyReleased() {
+    basket.keyReleased(keyCode);
+}
