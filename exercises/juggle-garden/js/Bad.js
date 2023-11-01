@@ -1,5 +1,5 @@
-class Apple{
-    constructor(x,y, isBad, appleImage){
+class Bad{
+    constructor(x,y, badImage){
         this.x = x; 
         this.y = y;
         this.vx = 0;  //velocity
@@ -11,8 +11,7 @@ class Apple{
         this.w = 70; 
         this.h = 70;
         this.active = true; 
-        this.image = appleImage; 
-        this.isBad = isBad;
+        this.image = badImage; 
     }
 
     gravity(force){
