@@ -14,13 +14,18 @@ let basket;
 let basketAsset;
 
 let badAsset;
-// let bads = [];
+
 let numBads = 1;
 
 let appleAsset;
 let apples = [];
 let numApples = 1;
 
+let home;
+let sorry;
+let yay;
+
+let state = "title"; //game starts in title state
 
 /**
  * Description of preload
@@ -29,6 +34,9 @@ function preload() {
     basketAsset = loadImage('assets/images/catch.png');
     appleAsset = loadImage('assets/images/red.png');
     badAsset = loadImage('assets/images/evil.png');
+    home = loadImage('assets/images/home.png');
+    sorry = loadImage('assets/images/sorry.png');
+    yay = loadImage('assets/images/yay.png');
 }
 
 
@@ -60,10 +68,31 @@ function setup() {
 */
 function draw() {
     background(143, 232, 247);
+    if (state === "title") {
+        title();
+    }
+    else if (state === "game") {
+        game();
+        basket.move();
+        basket.display();
+    }
+    else if (state === "fail") {
+        fail();
+    }
+    else if (state === "win") {
+        win();
+    }
+}
 
-    basket.move();
-    basket.display();
+function keyPressed() {
+    if (keyCode === 32)
+        state = 'game';
+    else {
+        basket.keyPressed(keyCode);
+    }
+}
 
+function game() {
     for (let i = 0; i < apples.length; i++) {
 
         if (apples[i].active) { //red apples are dropped 
@@ -74,26 +103,10 @@ function draw() {
         }
     }
 
-
-    // for (let i = 0; i < bads.length; i++) {
-
-    //     if (bads[i].active) {     //bad apples are dropped 
-    //         bads[i].gravity(gravityForce);
-    //         bads[i].move();
-    //         bads[i].display();
-    //     }
-
-
-    // }
-
     text(countApple, windowWidth / 2, windowHeight / 2);
     fill(255);
     textSize(80);
     textAlign(TOP, CENTER);
-}
-
-function keyPressed() {
-    basket.keyPressed(keyCode);
 }
 
 function keyReleased() {
@@ -106,13 +119,12 @@ function catchApple(apple) {
         apple.x > basket.x - basket.size / 2) {
         if (apple.isBad) {
             // Switch to Bad Apple State
-            // state = `lose`;
-            console.log(`Oh no! Caught a bad apple!`);
+            state = `fail`;
         }
         else {
             countApple = countApple + 1;
             if (countApple === 13) {
-                // Win!
+                state = 'win';
             }
             apple.x = random(0, width);          //if a red apple falls into the basket, a new apple is dropped 
             apple.y = random(-400, -100);
@@ -123,16 +135,18 @@ function catchApple(apple) {
     else if (apple.y >= height) {           //if the apple falls outside the basket, a new apple is dropped
         apple.x = random(0, width);
         apple.y = random(-400, -100);
+        state = 'game';
     }
+}
 
-    // if (countApple == 2){
-    //     bads[i].active = true;
-    //     apple.x = random(0, width);         
-    //     apple.y = random(-400, -100);
-    //     countApple = countApple + 1; 
-    //     bad.x = random(0, width);          
-    //     bad.y = random(-400, -100);
-    //}
+function title() {
+    image(home, 0, 0, windowWidth, windowHeight);
+}
 
+function fail() {
+    image(sorry, 0, 0, windowWidth, windowHeight);
+}
 
+function win() {
+    image(yay, 0, 0, windowWidth, windowHeight);
 }
