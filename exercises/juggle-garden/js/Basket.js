@@ -4,7 +4,7 @@ class Basket{
         this.y = y;
         this.image = basketImage;
         this.size = 400; 
-        this.speed = 5;
+        this.speed = 6.5;
         this.vx = 0;
         this.vy = 0;
       }
@@ -27,13 +27,6 @@ class Basket{
         else if (keyCode === 39) {
             this.vx = this.speed;
         }
-
-        if (keyCode === 38) {
-            this.vy = -this.speed;
-        }
-        else if (keyCode === 40) {
-            this.vy = this.speed;
-        }
     }
 
     keyReleased(keyCode) {
@@ -42,13 +35,6 @@ class Basket{
         }
         else if (keyCode === 39) {
             this.vx = 0;
-        }
-
-        if (keyCode === 38) {
-            this.vy = 0;
-        }
-        else if (keyCode === 40) {
-            this.vy = 0;
         }
     }
 }
