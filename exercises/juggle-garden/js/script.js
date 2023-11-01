@@ -144,9 +144,9 @@ function title() {
 }
 
 function fail() {
-    image(sorry, 0, 0, windowWidth, windowHeight);
+    image(sorry, windowWidth / 2, windowHeight / 2, windowWidth, windowHeight);
 }
 
 function win() {
-    image(yay, 0, 0, windowWidth, windowHeight);
+    image(yay, windowWidth / 2, windowHeight / 2, windowWidth, windowHeight);
 }
