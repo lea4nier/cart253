@@ -6,7 +6,7 @@ class Apple{
         this.vy = 0;
         this.ax = 0;  //acceleration
         this.ay = 0; 
-        this.maxSpeed = 10;
+        this.maxSpeed = 5;
         this.size = 10;
         this.w = 70; 
         this.h = 70;

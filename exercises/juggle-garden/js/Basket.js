@@ -3,7 +3,7 @@ class Basket{
         this.x = x;
         this.y = y;
         this.image = basketImage;
-
+        this.size = 400; 
         this.speed = 5;
         this.vx = 0;
         this.vy = 0;
@@ -17,7 +17,7 @@ class Basket{
       display() {
         push();
         imageMode(CENTER);
-        image(this.image, this.x, this.y, 400, 400);
+        image(this.image, this.x, this.y, this.size, this.size);
       }
 
       keyPressed(keyCode) {
