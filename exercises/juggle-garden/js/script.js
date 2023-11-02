@@ -1,9 +1,9 @@
 /**
- * Title of Project
- * Author Name
+ * Juggle Garden Exercise
+ * Léa Fournier
  * 
- * This is a template. You must fill in the title, author, 
- * and this description to match your project!
+ * Use your left and right arrow keys to catch the apples! If you can catch 13 red apples, you win! 
+ * But beware of the bad apples, if you catch one, game over!
  */
 
 "use strict";
@@ -15,11 +15,11 @@ let basketAsset;
 
 let badAsset;
 
-let numBads = 1;
+let numBads = 1;    //the same bad apple is drawn over and over again
 
 let appleAsset;
-let apples = [];
-let numApples = 1;
+let apples = [];   //create an array for the apples
+let numApples = 1;   //the same good apple is drawn over and over again
 
 let home;
 let sorry;
@@ -28,7 +28,7 @@ let yay;
 let state = "title"; //game starts in title state
 
 /**
- * Description of preload
+ * preload images
 */
 function preload() {
     basketAsset = loadImage('assets/images/catch.png');
@@ -41,21 +41,21 @@ function preload() {
 
 
 /**
- * Description of setup
+ * setup canvas, basket, and apples
 */
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    basket = new Basket(255, 650, basketAsset);
+    basket = new Basket(255, 650, basketAsset);   //place basket on canvas
 
     for (let i = 0; i < numApples; i++) {
-        let x = random(0, width);
+        let x = random(0, width);      //good apples fall at a random x and y
         let y = random(-400, -100);
         let apple = new Apple(x, y, false, appleAsset);
         apples.push(apple);
     }
 
     for (let i = 0; i < numBads; i++) {
-        let x = random(0, width);
+        let x = random(0, width);          //bad apples fall at a random x and y
         let y = random(-400, -100);
         let bad = new Apple(x, y, true, badAsset);
         apples.push(bad);
@@ -64,7 +64,7 @@ function setup() {
 
 
 /**
- * Description of draw()
+ * draw states of the program 
 */
 function draw() {
     background(143, 232, 247);
@@ -85,17 +85,17 @@ function draw() {
 }
 
 function keyPressed() {
-    if (keyCode === 32)
+    if (keyCode === 32)       //if the user presses the space bar the state changes to game 
         state = 'game';
     else {
-        basket.keyPressed(keyCode);
+        basket.keyPressed(keyCode);   //basket is controlled by left and right arrow keys
     }
 }
 
 function game() {
     for (let i = 0; i < apples.length; i++) {
 
-        if (apples[i].active) { //red apples are dropped 
+        if (apples[i].active) { //calls the functions in the apple class that drops the apples
             apples[i].gravity(gravityForce);
             apples[i].move();
             catchApple(apples[i]);
@@ -103,7 +103,7 @@ function game() {
         }
     }
 
-    text(countApple, windowWidth / 2, windowHeight / 2);
+    text(countApple, windowWidth / 2, windowHeight / 2);   //text displays number of good apples caught in the basket
     fill(255);
     textSize(80);
     textAlign(TOP, CENTER);
@@ -123,7 +123,7 @@ function catchApple(apple) {
         }
         else {
             countApple = countApple + 1;
-            if (countApple === 13) {
+            if (countApple === 13) {   //Switches to winning state if user catches 13 apples
                 state = 'win';
             }
             apple.x = random(0, width);          //if a red apple falls into the basket, a new apple is dropped 
@@ -139,14 +139,14 @@ function catchApple(apple) {
     }
 }
 
-function title() {
+function title() {    //displays title screen image
     image(home, 0, 0, windowWidth, windowHeight);
 }
 
-function fail() {
+function fail() {    //displays fail screen image
     image(sorry, windowWidth / 2, windowHeight / 2, windowWidth, windowHeight);
 }
 
-function win() {
+function win() {    //displays winning screen image
     image(yay, windowWidth / 2, windowHeight / 2, windowWidth, windowHeight);
 }

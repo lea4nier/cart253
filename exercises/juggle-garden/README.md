@@ -1,3 +1,4 @@
-# Template p5 project
+# Juggle Garden
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+The user controls the basket using their left and right arrow keys to catch the apples! If they catch 13 red apples, they win. 
+If they catch a bad apple, they lose automatically. 
