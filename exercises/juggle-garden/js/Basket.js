@@ -1,26 +1,26 @@
-class Basket{
+class Basket {
     constructor(x, y, basketImage) {
         this.x = x;
         this.y = y;
         this.image = basketImage;
-        this.size = 400; 
+        this.size = 400;
         this.speed = 6.5;
         this.vx = 0;
         this.vy = 0;
-      }
-    
-      move(){
+    }
+
+    move() {
         this.x += this.vx;
         this.y += this.vy;
     }
 
-      display() {
+    display() {
         push();
         imageMode(CENTER);
         image(this.image, this.x, this.y, this.size, this.size);
-      }
+    }
 
-      keyPressed(keyCode) {
+    keyPressed(keyCode) {
         if (keyCode === 37) {
             this.vx = -this.speed;
         }
