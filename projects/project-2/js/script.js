@@ -34,7 +34,7 @@ function setup() {
  * Description of draw()
 */
 function draw() {
-    background(138, 141, 145);
+    background(123, 65, 140);
     image(house, 0, 0, windowWidth, windowHeight);
     lightning.update();
     lightning.show();
