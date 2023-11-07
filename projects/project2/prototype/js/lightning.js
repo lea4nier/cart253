@@ -4,10 +4,10 @@ class Lightning {
         this.y = y;
         this.alpha = 255;
         this.alpha2 = 255;
-        this.history = [];
+        this.strike = [];
 
     }
-    update() {
+    bright() {
 
         this.x = this.x + random(-15, 15) * 3;
         this.y = this.y + random(5);
@@ -15,9 +15,9 @@ class Lightning {
         let v = createVector(this.x, this.y * 15);
 
         if (this.y > 55) {
-            this.history.splice(0, 1);
-            this.history.y = -5;
-            this.history.x = random(width);
+            this.strike.splice(0, 1);
+            this.strike.y = -5;
+            this.strike.x = random(width);
             this.alpha2 = 255;
         }
         else {
@@ -25,21 +25,21 @@ class Lightning {
             fill(255, this.alpha2);
             rect(0, 0, 1000, 1000);
 
-            this.history.push(v);
+            this.strike.push(v);
         }
 
         if (this.y > 300) {
             this.alpha = 0;
-            this.y = this.history.y;
-            this.x = this.history.x;
+            this.y = this.strike.y;
+            this.x = this.strike.x;
         }
 
     }
-    show() {
+    display() {
         stroke(255, 244, 80, this.alpha);
         beginShape();
-        for (let i = 0; i < this.history.length; i++) {
-            let pos = this.history[i];
+        for (let i = 0; i < this.strike.length; i++) {
+            let pos = this.strike[i];
             noFill();
             vertex(pos.x, pos.y);
 
