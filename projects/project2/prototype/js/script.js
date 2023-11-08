@@ -41,7 +41,7 @@ function preload() {
     basketAsset = loadImage('assets/images/catch.png');
     appleAsset = loadImage('assets/images/red.png');
     badAsset = loadImage('assets/images/evil.png');
-    home = loadImage('assets/images/home.png');
+    home = loadImage('assets/images/home2.png');
     sorry = loadImage('assets/images/sorry.png');
     yay = loadImage('assets/images/yay.png');
     pomme = loadImage('assets/images/pomme.png');
