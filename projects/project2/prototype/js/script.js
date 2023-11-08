@@ -124,6 +124,7 @@ function mousePressed() {
 
 
 function game() {
+    background(159, 43, 0);
     for (let i = 0; i < apples.length; i++) {
 
         if (apples[i].active) { //calls the functions in the apple class that drops the apples
