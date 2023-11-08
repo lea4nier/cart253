@@ -23,7 +23,7 @@ class Lightning {
         else {
             this.alpha2 = 20;
             fill(255, this.alpha2);
-            rect(0, 0, 1000, 1000);
+            rect(0, 0, windowWidth, windowHeight);
 
             this.strike.push(v);
         }
