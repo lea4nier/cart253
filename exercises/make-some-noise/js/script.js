@@ -11,11 +11,16 @@ let frames = [];
 let currentFrame = 0;
 
 let fr = 1;
+let drinkme;
+
+let state = "bottle"
 
 /**
  * Description of preload
 */
 function preload() {
+    drinkme = loadImage('assets/images/drinkme.png');
+
     for (let i = 1; i <= 9; i++) {
         let frame = loadImage('assets/images/bottle' + i + '.png');
         frames.push(frame);
@@ -45,6 +50,25 @@ function setup() {
 */
 function draw() {
     background(0, 0, 0);
+    if (state === "bottle") {
+        bottle();
+    }
+    else if (state === "drink") {
+        drink();
+    }
+}
+
+function mousePressed() {
+    if (state === "bottle") {
+        state = "drink";
+    }
+}
+
+function bottle() {
+    image(drinkme, windowWidth / 3, windowHeight / 4, 400, 400);
+}
+
+function drink() {
     frameRate(fr);
     image(frames[currentFrame], windowWidth / 3, windowHeight / 4, 400, 400);
     // Advance to the next frame (and loop back to 0 if you reach the end)
