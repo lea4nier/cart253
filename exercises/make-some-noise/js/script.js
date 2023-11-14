@@ -16,7 +16,7 @@ let currentFrame = 0;
 let fr = 1;
 let drinkme;
 
-let state = "table"
+let state = "bottle"
 
 /**
  * Description of preload
@@ -48,22 +48,13 @@ function setup() {
 */
 function draw() {
     background(0, 0, 0);
-    if (state === "table") {
-        table()
-    }
-    else if (state === "bottle") {
+    if (state === "bottle") {
         bottle();
     }
     else if (state === "drink") {
         drink();
     }
 }
-
-// function mousePressed() {
-//     if (state === "bottle") {
-//         state = "drink";
-//     }
-// }
 
 function bottle() {
     image(drinkme, windowWidth / 3, windowHeight / 4, 400, 400);
