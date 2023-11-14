@@ -7,6 +7,9 @@
  */
 
 "use strict";
+let mic;
+let volume = 0.1;
+
 let frames = [];
 let currentFrame = 0;
 
@@ -25,15 +28,6 @@ function preload() {
         let frame = loadImage('assets/images/bottle' + i + '.png');
         frames.push(frame);
     }
-    // drink[0] = loadImage('assets/images/bottle1.png');
-    // drink[1] = loadImage('assets/images/bottle2.png');
-    // drink[2] = loadImage('assets/images/bottle3.png');
-    // drink[3] = loadImage('assets/images/bottle4.png');
-    // drink[4] = loadImage('assets/images/bottle5.png');
-    // drink[5] = loadImage('assets/images/bottle6.png');
-    // drink[6] = loadImage('assets/images/bottle7.png');
-    // drink[7] = loadImage('assets/images/bottle8.png');
-    // drink[8] = loadImage('assets/images/bottle9.png');
 }
 
 
@@ -42,6 +36,10 @@ function preload() {
 */
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    // Create our AudioIn object
+    mic = new p5.AudioIn();
+    // Try to connect to the user's microphone
+    mic.start();
 }
 
 
@@ -58,14 +56,20 @@ function draw() {
     }
 }
 
-function mousePressed() {
-    if (state === "bottle") {
-        state = "drink";
-    }
-}
+// function mousePressed() {
+//     if (state === "bottle") {
+//         state = "drink";
+//     }
+// }
 
 function bottle() {
     image(drinkme, windowWidth / 3, windowHeight / 4, 400, 400);
+    let level = mic.getLevel();
+
+    // Check if the ghost gets scared
+    if (level > volume) {
+        state = "drink";
+    }
 }
 
 function drink() {
