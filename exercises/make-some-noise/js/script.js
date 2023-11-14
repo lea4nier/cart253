@@ -64,8 +64,11 @@ function draw() {
 
 function bottle() {
     image(drinkme, windowWidth / 3, windowHeight / 4, 400, 400);
+    text('say: "drink me"', windowWidth / 3, windowHeight / 8);
+    fill(221, 88, 245);
+    textSize(60);
     let level = mic.getLevel();
-
+    console.log(level);
     // Check if the ghost gets scared
     if (level > volume) {
         state = "drink";

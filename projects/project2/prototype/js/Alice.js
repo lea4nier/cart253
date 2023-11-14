@@ -1,5 +1,5 @@
 class Alice {
-    comstructor(x, y, aliceAsset) {
+    constructor(x, y, aliceAsset) {
         this.x = x;
         this.y = y;
         this.vx = 0;  //velocity
@@ -12,12 +12,14 @@ class Alice {
         this.h = 200;
         this.active = true;
         this.image = aliceAsset; //good (red) apples
+        console.log("i exist");
     }
     gravity(force) {
         this.ay = this.ay + force;  //acceleration increases 
     }
 
     move() {
+        console.log(this.x, this.y, this.vx, this.vy, this.ax, this.ay);
         this.vx = this.vx + this.ax;   //Add the acceleration to the velocity for both x and y axes
         this.vy = this.vy + this.ay;
 
@@ -27,8 +29,10 @@ class Alice {
         this.x = this.x + this.vx;   //Add the velocity to the position to move the ball
         this.y = this.y + this.vy;
 
-        if (this.y - this.size / 2 > windowheight / 2) {    //apple stops moving when it falls below the canvas 
+        if (this.y - this.size / 2 > windowHeight / 2) {    //apple stops moving when it falls below the canvas 
             this.active = false;
+
+            this.y = windowHeight / 2;
         }
     }
 

@@ -22,7 +22,7 @@ let state = "title";
 */
 function preload() {
     hole = loadImage('assets/images/hole.png');
-    aliceAsset = ('assets/images/fallAl.png');
+    aliceAsset = loadImage('assets/images/fallAl.png');
 }
 
 
@@ -31,12 +31,12 @@ function preload() {
 */
 function setup() {
     createCanvas(windowWidth, windowHeight);
-
     for (let i = 0; i < numAlices; i++) {
         let x = windowWidth / 2;      //good apples fall at a random x and y
         let y = -400;
         let alice = new Alice(x, y, aliceAsset);
         alices.push(alice);
+        console.log("created alice");
     }
 
 }
