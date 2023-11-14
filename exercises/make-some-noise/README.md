@@ -1,3 +1,3 @@
-# Template p5 project
+# Make Some Noise
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+Over the weekend, I changed my Project 2 idea to Alice in Wonderland. I wanted to challenged myself to user intreractivity with the user's audio in the game. This will happen near the beginning of the game after Alice discovers the "drink me" vial on the table. 
