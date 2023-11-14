@@ -14,7 +14,7 @@ let currentFrame = 0;
 let fr = 1;
 let drinkme;
 
-let state = "bottle"        ``
+let state = "bottle";
 
 let mySpeechRec = new p5.SpeechRec(); // speech recognition object (will prompt for mic access)
 mySpeechRec.onResult = showResult; // bind callback function to trcwhen speech is recognized
