@@ -7,6 +7,8 @@
  */
 
 "use strict";
+let aliceAsset;
+
 let hole;
 
 let state = "title";
@@ -16,6 +18,7 @@ let state = "title";
 */
 function preload() {
     hole = loadImage('assets/images/hole.png');
+    aliceAsset = ('assets/images/fallAl.png');
 }
 
 
