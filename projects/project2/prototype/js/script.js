@@ -8,6 +8,10 @@
 
 "use strict";
 let aliceAsset;
+let gravityForce = 0.0025;
+
+let alices = [];   //create an array for the apples
+let numAlices = 1;
 
 let hole;
 
@@ -28,6 +32,12 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
+    for (let i = 0; i < numAlices; i++) {
+        let x = windowWidth / 2;      //good apples fall at a random x and y
+        let y = -400;
+        let alice = new Alice(x, y, aliceAsset);
+        alices.push(alice);
+    }
 
 }
 
@@ -60,14 +70,12 @@ function game() {
     background(0, 0, 0);
     image(hole, windowWidth / 18, windowHeight / 120, windowWidth, windowHeight);
 
-    // for (let i = 0; i < apples.length; i++) {
+    for (let i = 0; i < alices.length; i++) {
 
-    //     if (apples[i].active) { //calls the functions in the apple class that drops the apples
-    //         apples[i].gravity(gravityForce);
-    //         apples[i].move();
-    //         catchApple(apples[i]);
-    //         apples[i].display();
-    //     }
-    // }
+        if (alices[i].active) { //calls the functions in the apple class that drops the apples
+            alices[i].gravity(gravityForce);
+            alices[i].move();
+            alices[i].display();
+        }
+    }
 }
-
