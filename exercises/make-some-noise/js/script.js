@@ -16,7 +16,7 @@ let currentFrame = 0;
 let fr = 1;
 let drinkme;
 
-let state = "bottle"
+let state = "table"
 
 /**
  * Description of preload
@@ -48,7 +48,10 @@ function setup() {
 */
 function draw() {
     background(0, 0, 0);
-    if (state === "bottle") {
+    if (state === "table") {
+        table()
+    }
+    else if (state === "bottle") {
         bottle();
     }
     else if (state === "drink") {

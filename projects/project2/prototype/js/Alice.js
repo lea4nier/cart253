@@ -30,9 +30,10 @@ class Alice {
         this.y = this.y + this.vy;
 
         if (this.y - this.size / 2 > windowHeight / 2) {    //apple stops moving when it falls below the canvas 
-            this.active = false;
-
-            this.y = windowHeight / 2;
+            this.vy = 0;
+            this.vx = 0;
+            this.ax = 0;  //acceleration
+            this.ay = 0;
         }
     }
 
