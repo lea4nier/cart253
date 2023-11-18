@@ -7,6 +7,8 @@
  */
 
 "use strict";
+let typewriter;
+
 let aliceAsset;
 let gravityForce = 0.0025;
 
@@ -15,7 +17,7 @@ let numAlices = 1;
 
 let hole;
 
-let state = "title";
+let state = "one";
 
 /**
  * Description of preload
@@ -31,16 +33,16 @@ function preload() {
 */
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    typewriter = new Typewriter();
+
     for (let i = 0; i < numAlices; i++) {
         let x = windowWidth / 2;      //good apples fall at a random x and y
         let y = -400;
         let alice = new Alice(x, y, aliceAsset);
         alices.push(alice);
-        console.log("created alice");
     }
 
 }
-
 
 
 /**
@@ -48,20 +50,11 @@ function setup() {
 */
 function draw() {
     if (state === "title") {
-        start();
-    }
-    else if (state === "falling") {
         game();
     }
-}
-
-function start() {
-    background(0, 0, 0);
-}
-
-function keyPressed() {
-    if (keyCode === 32)       //if the user presses the space bar the state changes to game 
-        state = 'falling';
+    else if (state === "one") {
+        one();
+    }
 }
 
 
@@ -69,6 +62,7 @@ function keyPressed() {
 function game() {
     background(0, 0, 0);
     image(hole, windowWidth / 18, windowHeight / 120, windowWidth, windowHeight);
+    typewriter.display();
 
     for (let i = 0; i < alices.length; i++) {
 
@@ -77,5 +71,23 @@ function game() {
             alices[i].move();
             alices[i].display();
         }
+
     }
 }
+
+function keyPressed() {
+    typewriter.typewrite(`Alice in Wonderland`, windowWidth / 18, windowHeight / 2);
+}
+
+function one() {
+    background(0, 0, 0);
+    image(hole, windowWidth / 18, windowHeight / 120, windowWidth, windowHeight);
+    for (let i = 0; i < alices.length; i++) {
+
+        if (alices[i].active) { //calls the functions in the apple class that drops the apples
+            alices[i].follow();
+        }
+
+    }
+}
+

@@ -12,14 +12,12 @@ class Alice {
         this.h = 200;
         this.active = true;
         this.image = aliceAsset; //good (red) apples
-        console.log("i exist");
     }
     gravity(force) {
         this.ay = this.ay + force;  //acceleration increases 
     }
 
     move() {
-        console.log(this.x, this.y, this.vx, this.vy, this.ax, this.ay);
         this.vx = this.vx + this.ax;   //Add the acceleration to the velocity for both x and y axes
         this.vy = this.vy + this.ay;
 
@@ -38,6 +36,14 @@ class Alice {
     }
 
     display() {     //displays apples
+        push();
+        image(this.image, this.x, this.y, this.w, this.h);
+        pop();
+    }
+
+    follow() {
+        this.x = mouseX;
+        this.y = mouseY;
         push();
         image(this.image, this.x, this.y, this.w, this.h);
         pop();
