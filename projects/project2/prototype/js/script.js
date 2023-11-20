@@ -86,6 +86,7 @@ function one() {
 
         if (alices[i].active) { //calls the functions in the apple class that drops the apples
             alices[i].follow();
+            alices[i].display();
         }
 
     }

@@ -42,10 +42,18 @@ class Alice {
     }
 
     follow() {
-        this.x = mouseX;
-        this.y = mouseY;
+        this.x = constrain(pmouseX, windowWidth / 3, windowWidth / 1.9);
+        this.y = constrain(pmouseY, -windowHeight, windowHeight);
+
+        this.vx = (this.vx / 3 + this.ax);   //Add the acceleration to the velocity for both x and y axes
+        this.vy = (this.vy / 3 + this.ay);
+
+        this.vx = constrain(this.vx, -this.maxSpeed, 1);   //the apple cannot fall faster than the max speed 
+        this.vy = constrain(this.vy, -this.maxSpeed, 1);
+
         push();
         image(this.image, this.x, this.y, this.w, this.h);
         pop();
     }
+
 }

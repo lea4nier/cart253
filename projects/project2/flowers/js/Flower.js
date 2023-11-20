@@ -112,6 +112,7 @@ class Flower {
         let d = dist(this.x, this.y, mouseX, mouseY);
         // Check if the distance is less than the head of the flower
         if (d < this.size / 2 + this.petalThickness) {
+            console.log("pressed");
             // If it is, this flower was clicked, so increase its stem length
             this.stemLength = this.stemLength + 5;
             // And also change its y position so it grows upward! (If we didn't do this
