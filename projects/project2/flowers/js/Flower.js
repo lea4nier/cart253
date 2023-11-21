@@ -19,7 +19,11 @@ class Flower {
             g: 150,
             b: 50
         };
-        this.petalColor = petalColor;
+        this.petalColor = {
+            r: 255,
+            g: 255,
+            b: 255,
+        };
         this.centreColor = {
             r: 50,
             g: 0,
@@ -33,11 +37,11 @@ class Flower {
     // Shrinks the flower
     shrink() {
         // Choose a random amount to shrink
-        this.petalColor = {
-            r: 255,
-            g: 255,
-            b: 255,
-        }
+        // this.petalColor = {
+        //     r: 255,
+        //     g: 255,
+        //     b: 255,
+        // }
         let shrinkage = random(0, 0.1);
         // Reduce the petal thickness (divide by 10 to make it less rapid)
         this.petalThickness = this.petalThickness - shrinkage / 10;
