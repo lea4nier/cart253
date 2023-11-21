@@ -6,7 +6,7 @@ class Cup {
         this.vy = 0;
         this.ax = 0;  //acceleration
         this.ay = 0;
-        this.maxSpeed = 2;  //max speed that apple can fall at 
+        this.maxSpeed = 3;  //max speed that apple can fall at 
         this.size = 10;
         this.w = 90;     //dimensions of apple
         this.h = 90;

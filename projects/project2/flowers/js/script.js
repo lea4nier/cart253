@@ -72,7 +72,7 @@ function draw() {
             flower.shrink();
             flower.display();
             flower.pollinate();
-            flower.grow();
+            // flower.grow();
         }
 
     }

@@ -12,7 +12,7 @@ class Flower {
         this.petalThickness = 10;
         this.maxPetalThickness = 50; // NEW! To limit growth
         this.minPetalThickness = 0;
-        this.minSize = 10;
+        this.minSize = 5;
         // Color information
         this.stemColor = {
             r: 50,
