@@ -42,18 +42,33 @@ class Alice {
     }
 
     follow() {
-        this.x = constrain(pmouseX, windowWidth / 3, windowWidth / 1.9);
-        this.y = constrain(pmouseY, -windowHeight, windowHeight);
+        let distanceX = mouseX - this.x;
+        let distanceY = mouseY - this.y;
+        distanceX = distanceX / 10;
+        distanceY = distanceY / 10;
 
-        this.vx = (this.vx / 3 + this.ax);   //Add the acceleration to the velocity for both x and y axes
-        this.vy = (this.vy / 3 + this.ay);
+        this.x = this.x + distanceX;
+        this.y = this.y + distanceY;
+        this.x = constrain(this.x, windowWidth / 3, windowWidth / 1.9);
+        this.y = constrain(this.y, -windowHeight, windowHeight);
 
-        this.vx = constrain(this.vx, -this.maxSpeed, 1);   //the apple cannot fall faster than the max speed 
-        this.vy = constrain(this.vy, -this.maxSpeed, 1);
+        // this.vx = (this.vx / 3 + this.ax);   //Add the acceleration to the velocity for both x and y axes
+        // this.vy = (this.vy / 3 + this.ay);
 
-        push();
-        image(this.image, this.x, this.y, this.w, this.h);
-        pop();
+        // this.vx = constrain(this.vx, -this.maxSpeed, 1);   //the apple cannot fall faster than the max speed 
+        // this.vy = constrain(this.vy, -this.maxSpeed, 1);
+
+    }
+
+    fall() {
+        this.vx = this.vx + this.ax;   //Add the acceleration to the velocity for both x and y axes
+        this.vy = this.vy + this.ay;
+
+        this.vx = constrain(this.vx, -this.maxSpeed, this.maxSpeed);   //the apple cannot fall faster than the max speed 
+        this.vy = constrain(this.vy, -this.maxSpeed, this.maxSpeed);
+
+        this.x = this.x + this.vx;   //Add the velocity to the position to move the ball
+        this.y = this.y + this.vy;
     }
 
 }

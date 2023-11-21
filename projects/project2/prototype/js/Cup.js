@@ -6,16 +6,17 @@ class Cup {
         this.vy = 0;
         this.ax = 0;  //acceleration
         this.ay = 0;
-        this.maxSpeed = 5;  //max speed that apple can fall at 
+        this.maxSpeed = 2;  //max speed that apple can fall at 
         this.size = 10;
-        this.w = 70;     //dimensions of apple
-        this.h = 70;
+        this.w = 90;     //dimensions of apple
+        this.h = 90;
         this.active = true;
         this.image = cupImage; //good (red) apples
+        this.force = 0.0025;
     }
 
-    gravity(force) {
-        this.ay = this.ay + force;  //acceleration increases 
+    gravity() {
+        this.ay = this.ay - this.force;  //acceleration increases 
     }
 
     move() {
@@ -28,14 +29,15 @@ class Cup {
         this.x = this.x + this.vx;   //Add the velocity to the position to move the ball
         this.y = this.y + this.vy;
 
-        if (this.y - this.size / 2 > height) {    //apple stops moving when it falls below the canvas 
+        if (this.y < 0) {    //apple stops moving when it falls below the canvas 
             this.active = false;
         }
     }
 
-    display() {     //displays apples
+    display() {
+        //displays apples
         push();
-        image(this.image, this.x, this.y, this.w, this.h);
+        image(this.image, this.x, this.y, this.w, this.h); console.log(this.y);
         pop();
     }
 }
