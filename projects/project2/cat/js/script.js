@@ -8,7 +8,9 @@
 
 "use strict";
 let catimage;
-let 
+let choice1;
+let choice2;
+let choice3;
 let catSize = 50; // Initial size
 let growthRate = 0.5; // Rate of size increases
 let state = "appear"
@@ -62,5 +64,11 @@ function hello() {
 }
 
 function talkingcat() {
+    background(0, 0, 0);
     image(catimage, windowWidth / 3, windowHeight / 4, 500, 500);
+    image(choice1, (windowWidth / 3) + 400, windowHeight / 4, 400, 400);
+    image(choice2, (windowWidth / 3) + 400, (windowHeight / 4) + 300, 400, 400);
+    image(choice3, (windowWidth / 3) - 350, windowHeight / 4, 400, 400);
+
+
 }
