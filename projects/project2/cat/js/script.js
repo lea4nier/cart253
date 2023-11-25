@@ -12,6 +12,7 @@ let choice1;
 let choice2;
 let choice3;
 let size = 50; // Initial size
+let catSize = 50;
 let growthRate = 0.5; // Rate of size increases
 let strobeCat = "true";
 
@@ -50,21 +51,21 @@ function hello() {
     background(0, 0, 0);
 
     // Increases the cat size
-    size += growthRate;
+    catSize += growthRate;
 
     // Check if the size of the cat exceeds the limit
-    if (size > 500) {
-        size = 500; // Set size to the limit
+    if (catSize > 500) {
+        catSize = 500; // Set size to the limit
     }
 
     if (strobeCat) {
         // cat appears at growing size 
-        image(catimage, windowWidth / 3, windowHeight / 4, size, size);
+        image(catimage, windowWidth / 3, windowHeight / 4, catSize, catSize);
     }
 
     strobeCat = !strobeCat; //image of cat dissapears and reappears to give strobe effect
 
-    if (size === 500) {  //once cat is 500px the state switches to talking
+    if (catSize === 500) {  //once cat is 500px the state switches to talking
         state = "talking";
     }
 
