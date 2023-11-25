@@ -8,14 +8,18 @@
 
 "use strict";
 let catimage;
+let 
 let catSize = 50; // Initial size
-let growthRate = 0.5; // Rate of size increase
+let growthRate = 0.5; // Rate of size increases
 let state = "appear"
 /**
  * Description of preload
  */
 function preload() {
     catimage = loadImage('assets/images/cat1.png');
+    choice1 = loadImage('assets/images/choice1.png');
+    choice2 = loadImage('assets/images/choice2.png');
+    choice3 = loadImage('assets/images/choice3.png');
 }
 
 /**
