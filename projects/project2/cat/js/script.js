@@ -7,26 +7,38 @@
  */
 
 "use strict";
+let catimage;
+let catSize = 50; // Initial size
+let growthRate = 0.5; // Rate of size increase
 
 /**
  * Description of preload
-*/
+ */
 function preload() {
-
+    catimage = loadImage('assets/images/cat1.png');
 }
-
 
 /**
  * Description of setup
-*/
+ */
 function setup() {
-
+    createCanvas(windowWidth, windowHeight);
 }
-
 
 /**
  * Description of draw()
-*/
+ */
 function draw() {
+    background(0, 0, 0);
 
+    // Increase the cat size
+    catSize += growthRate;
+
+    // Check if the size exceeds the limit
+    if (catSize > 500) {
+        catSize = 500; // Set size to the limit
+    }
+
+    // Draw the cat image with the updated size
+    image(catimage, windowWidth / 3, windowHeight / 4, catSize, catSize);
 }
