@@ -8,21 +8,30 @@
 
 "use strict";
 let catimage;
+let cat2;
+let cat3;
+let cat4;
+
 let choice1;
 let choice2;
 let choice3;
-let size = 50; // Initial size
-let catSize = 50;
-let growthRate = 0.5; // Rate of size increases
-let strobeCat = "true";
 
-let state = "appear";
+let size = 50; // beginning size of other images
+let catSize = 50; //beginning size of cat
+let growthRate = 0.5; // growth rate for images
+let strobeCat = true; //boolean value for cat to strobe
+
+let state = "talking";
 /**
  * Description of preload
  */
 function preload() {
-    catimage = loadImage('assets/images/cat1.png');
-    choice1 = loadImage('assets/images/choice1.png');
+    catimage = loadImage('assets/images/cat1.png');  //main cheshire cat image
+    cat2 = loadImage('assets/images/cat2.png'); // load other cat images that he will change into later 
+    cat3 = loadImage('assets/images/cat3.png');
+    cat4 = loadImage('assets/images/cat4.png');
+
+    choice1 = loadImage('assets/images/choice1.png'); //load text bubbles
     choice2 = loadImage('assets/images/choice2.png');
     choice3 = loadImage('assets/images/choice3.png');
 }
@@ -86,5 +95,29 @@ function talkingcat() {
     image(choice2, (windowWidth / 3) + 400, (windowHeight / 4) + 300, size, size);
     image(choice3, (windowWidth / 3) - 350, windowHeight / 4, size, size);
 
+    // if (size === 400) {
+    //     state = "decision";
+    // }
 
+    if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + size) {
+        catimage = cat2; //if mouse hovers over choice 2 (paint white flowers...) then the cat image changes
+    }
+
+    else if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + size && mouseY > windowHeight / 4 + 300 && mouseY < windowHeight / 4 + 300 + size) {
+        catimage = cat3; //if mouse hovers over choice 2 (cry) then the cat image changes
+    }
+
+    else if (mouseX > windowWidth / 3 - 350 / 2 && mouseX < windowWidth / 3 - 350 / 2 + size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + size) {
+        catimage = cat4; //if mouse hovers over choice 3 (go home) then the cat image changes
+    }
+
+    else {
+        catimage = catimage;
+    }
 }
+
+// function choices() {
+//     if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + size) {
+//         catimage = cat2;
+//     }
+// }
