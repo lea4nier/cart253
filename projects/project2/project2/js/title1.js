@@ -4,12 +4,19 @@ class Title1 {
     // Acts as the setup() of the state, called when the
     // state is created. Sets the title of the program.
     constructor() {
-
+        this.aliceAsset = loadImage('assets/images/fallAl.png');
         this.typewriter = new Typewriter();
         this.gravityForce = 0.0025;
         this.alices = [];   //create an array for the apples
         this.numAlices = 1;
         this.typewriter.typewrite(`Alice in Wonderland`, windowWidth / 18, windowHeight / 2);
+
+        for (let i = 0; i < this.numAlices; i++) {
+            let x = windowWidth / 2;      //good apples fall at a random x and y
+            let y = -400;
+            let alice = new Alice(x, y, this.aliceAsset);
+            this.alices.push(alice);
+        }
     }
 
     // draw()

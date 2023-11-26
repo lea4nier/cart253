@@ -21,7 +21,7 @@ let catSize = 50; //beginning size of cat
 let growthRate = 0.5; // growth rate for images
 let strobeCat = true; //boolean value for cat to strobe
 
-let state = "talking";
+let state = "appear";
 /**
  * Description of preload
  */
@@ -95,9 +95,6 @@ function talkingcat() {
     image(choice2, (windowWidth / 3) + 400, (windowHeight / 4) + 300, size, size);
     image(choice3, (windowWidth / 3) - 350, windowHeight / 4, size, size);
 
-    // if (size === 400) {
-    //     state = "decision";
-    // }
 
     if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + size) {
         catimage = cat2; //if mouse hovers over choice 2 (paint white flowers...) then the cat image changes
@@ -116,8 +113,3 @@ function talkingcat() {
     }
 }
 
-// function choices() {
-//     if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + size) {
-//         catimage = cat2;
-//     }
-// }

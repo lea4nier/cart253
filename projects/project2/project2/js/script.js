@@ -12,10 +12,7 @@ let cupImages = [];
 function preload() {
     hole = loadImage('assets/images/down.png');
     aliceAsset = loadImage('assets/images/fallAl.png');
-    for (let i = 1; i <= 6; i++) {
 
-        cupImages.push(loadImage('assets/images/teacup' + i + '.png'));
-    }
 }
 
 function setup() {
