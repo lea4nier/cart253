@@ -1,17 +1,11 @@
 // A variable to store the currently active state object (starts empty)
 let currentState;
 
-let hole;
-let aliceAsset;
-let cupImages = [];
-
-
 // setup()
 // Create the canvas, start our program in the title state, set default text style
 
 function preload() {
-    hole = loadImage('assets/images/down.png');
-    aliceAsset = loadImage('assets/images/fallAl.png');
+
 
 }
 

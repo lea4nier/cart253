@@ -5,6 +5,7 @@ class Title1 {
     // state is created. Sets the title of the program.
     constructor() {
         this.aliceAsset = loadImage('assets/images/fallAl.png');
+        this.hole = loadImage('assets/images/down.png');
         this.typewriter = new Typewriter();
         this.gravityForce = 0.0025;
         this.alices = [];   //create an array for the apples
@@ -24,7 +25,7 @@ class Title1 {
     // state needs to do each frame, which is display the title.
     draw() {
         background(0, 0, 0);
-        image(hole, windowWidth / 18, windowHeight / 120, windowWidth, windowHeight);
+        image(this.hole, windowWidth / 18, windowHeight / 120, windowWidth, windowHeight);
         this.typewriter.display();
 
         for (let i = 0; i < this.alices.length; i++) {
