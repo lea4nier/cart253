@@ -55,6 +55,6 @@ class Title2 {
 
 
     mousePressed() {
-        currentState = new Title2();
+        currentState = new Title3();
     }
 }
