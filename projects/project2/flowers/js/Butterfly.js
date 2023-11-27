@@ -1,4 +1,4 @@
-class Bee {
+class Butterfly {
 
     constructor(x, y) {
         this.x = x;
@@ -15,16 +15,16 @@ class Bee {
         this.alive = true; // The Bee starts out alive!
     }
 
-    // shrink() causes the bee to get smaller over time
-    shrink() {
-        // Shrink by reducing the size by a set amount
-        this.size = this.size - this.shrinkRate;
-        // Check if we're smaller than the minimum size
-        if (this.size < this.minSize) {
-            // If so, we're dead
-            this.alive = false;
-        }
-    }
+    // // shrink() causes the bee to get smaller over time
+    // shrink() {
+    //     // Shrink by reducing the size by a set amount
+    //     this.size = this.size - this.shrinkRate;
+    //     // Check if we're smaller than the minimum size
+    //     if (this.size < this.minSize) {
+    //         // If so, we're dead
+    //         this.alive = false;
+    //     }
+    // }
 
     // tryToPollinate() attempts to pollinate the flower provided as a parameter
     // If pollination succeeds (the two overlap) then both grow
@@ -73,26 +73,14 @@ class Bee {
     // display() draws our bee onto the canvas
     display() {
         push();
-        // Wings on either side
-        fill(255, 255, 255);
-        noStroke();
-        ellipse(this.x - this.size / 2, this.y, this.size / 2);
-        ellipse(this.x + this.size / 2, this.y, this.size / 2);
-        pop();
-
-        // Body
-        push();
-        fill(225, 225, 50);
-        noStroke();
+        fill(0); // Set the fill color to black
         ellipse(this.x, this.y, this.size);
         pop();
 
-        // Eyes
         push();
-        fill(0, 0, 0);
-        noStroke();
-        ellipse(this.x - this.size / 10, this.y, this.size / 10);
-        ellipse(this.x + this.size / 10, this.y, this.size / 10);
+        fill(0, 0, 255); // Set the fill color to blue
+        ellipse(this.x - this.size / 4, this.y, this.size / 2, this.size);
+        ellipse(this.x + this.size / 4, this.y, this.size / 2, this.size);
         pop();
     }
 }

@@ -5,12 +5,14 @@ class Flower {
         // Position and size information
         this.x = x;
         this.y = y;
+        this.danceSpeed = 1;
+        this.maxDance = 10;
         this.size = size;
         this.maxSize = 40; // NEW! To limit growth
         this.stemLength = stemLength;
         this.stemThickness = 10;
         this.petalThickness = 10;
-        this.maxPetalThickness = 50; // NEW! To limit growth
+        this.maxPetalThickness = 30; // NEW! To limit growth
         this.minPetalThickness = 0;
         this.minSize = 5;
         // Color information
@@ -24,37 +26,49 @@ class Flower {
             g: 255,
             b: 255,
         };
-        this.centreColor = {
-            r: 50,
-            g: 0,
-            b: 0
-        };
+        // this.centreColor = {
+        //     r: 50,
+        //     g: 0,
+        //     b: 0
+        // };
         this.alive = true;
 
     }
 
     // shrink()
-    // Shrinks the flower
-    shrink() {
-        // Choose a random amount to shrink
-        // this.petalColor = {
-        //     r: 255,
-        //     g: 255,
-        //     b: 255,
-        // }
-        let shrinkage = random(0, 0.1);
-        // Reduce the petal thickness (divide by 10 to make it less rapid)
-        this.petalThickness = this.petalThickness - shrinkage / 10;
-        // Reduce the centre of the flower
-        this.size = this.size - shrinkage;
+    // // Shrinks the flower
+    // shrink() {
+    //     // Choose a random amount to shrink
+    //     // this.petalColor = {
+    //     //     r: 255,
+    //     //     g: 255,
+    //     //     b: 255,
+    //     // }
+    //     let shrinkage = random(0, 0.1);
+    //     // Reduce the petal thickness (divide by 10 to make it less rapid)
+    //     this.petalThickness = this.petalThickness - shrinkage / 10;
+    //     // Reduce the centre of the flower
+    //     this.size = this.size - shrinkage;
 
-        this.size = constrain(this.size, this.minSize, this.maxSize);
+    //     this.size = constrain(this.size, this.minSize, this.maxSize);
 
-        // If any of the key properties reach 0 or less, the flower is dead
-        // if (this.petalThickness <= 0 || this.size <= 0) {
-        //     this.alive = false;
-        // }
-    }
+    //     // If any of the key properties reach 0 or less, the flower is dead
+    //     // if (this.petalThickness <= 0 || this.size <= 0) {
+    //     //     this.alive = false;
+    //     // }
+    // }
+
+    // dance() {
+    //     this.x += this.danceSpeed;
+
+    //     if (this.x > this.maxDance) {
+    //         this.x = random(0, width);;
+    //     }
+
+    //     // if (this.x < this.maxDance) {
+    //     //     this.x = this.x + 1;
+    // }}
+
 
     // NEW! pollinate() handles the flower being pollinated (it grows)
     pollinate() {
@@ -100,7 +114,7 @@ class Flower {
         line(this.x, this.y, this.x, this.y + this.stemLength);
         // Draw a circle with a heavy outline for the flower
         strokeWeight(this.petalThickness);
-        fill(this.centreColor.r, this.centreColor.g, this.centreColor.b);
+        // fill(this.centreColor.r, this.centreColor.g, this.centreColor.b);
         stroke(this.petalColor.r, this.petalColor.g, this.petalColor.b);
         ellipse(this.x, this.y, this.size);
         // this.petalColor = {
@@ -108,6 +122,8 @@ class Flower {
         //     g: 255,
         //     b: 255,
         // }
+
+
         pop();
     }
 

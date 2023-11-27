@@ -14,9 +14,9 @@ let garden = {
     // How many flowers in the garden
     numFlowers: 50,
     // An array to our the bees
-    bees: [],
+    butterflies: [],
     // How many bees in the garden
-    numBees: 5,
+    numButterflies: 5,
     // The color of the grass (background)
     grassColor: {
         r: 0,
@@ -45,14 +45,14 @@ function setup() {
     }
 
     // Create our bees by counting up to the number of bees
-    for (let i = 0; i < garden.numBees; i++) {
+    for (let i = 0; i < garden.numButterflies; i++) {
         // Create variables for our arguments for clarity
         let x = random(0, width);
         let y = random(0, height);
         // Create a new bee using the arguments
-        let bee = new Bee(x, y);
+        let butterfly = new Butterfly(x, y);
         // Add the bee to the array of bees
-        garden.bees.push(bee);
+        garden.butterflies.push(butterfly);
     }
 
 }
@@ -69,7 +69,7 @@ function draw() {
         // Check if this flower is alive
         if (flower.alive) {
             // Update the flower by shrinking it and displaying it
-            flower.shrink();
+            // flower.dance();
             flower.display();
             flower.pollinate();
             // flower.grow();
@@ -78,24 +78,24 @@ function draw() {
     }
 
     // Loop through all the bees in the array and display them
-    for (let i = 0; i < garden.bees.length; i++) {
-        let bee = garden.bees[i];
+    for (let i = 0; i < garden.butterflies.length; i++) {
+        let butterfly = garden.butterflies[i];
         // Check if this flower is alive
-        if (bee.alive) {
+        if (butterfly.alive) {
             // Shrink and move the bee
-            bee.shrink();
-            bee.move();
+            // bee.shrink();
+            butterfly.move();
 
             // NEW! Go through the entire flower array and try to pollinate the flowers!
             // Note that we use j in our for-loop here because we're already inside
             // a for-loop using i!
             for (let j = 0; j < garden.flowers.length; j++) {
                 let flower = garden.flowers[j];
-                bee.tryToPollinate(flower);
+                butterfly.tryToPollinate(flower);
             }
 
             // Display the bee
-            bee.display();
+            butterfly.display();
         }
     }
 
