@@ -11,7 +11,10 @@
 let frames = [];
 let currentFrame = 0;
 
+let doorY = 0;
+
 let gif1;
+let gif2;
 
 let fr = 1;
 let drinkme;
@@ -56,6 +59,13 @@ function setup() {
     gif1.position(windowWidth / 3 + 30, windowHeight / 2);
     gif1.size(100, 100);
     gif1.hide();
+
+
+
+    gif2 = createImg('assets/images/door.gif');
+    gif2.position(windowWidth / 8, doorY);
+    gif2.size(400, 400);
+    gif2.hide();
 }
 
 function showResult() {
@@ -87,6 +97,9 @@ function draw() {
     else if (state === "door") {
         unlock();
     }
+    else if (state === "opening") {
+        open();
+    }
 }
 
 function mousePressed() {
@@ -94,6 +107,8 @@ function mousePressed() {
         state = "zoom";
     else if (state === "zoom")
         state = "bottle";
+    else if (state === "prize")
+        state = "door";
 }
 
 function desk() {
@@ -142,7 +157,9 @@ function sparkle() {
 }
 
 function unlock() {
-    image(door, windowWidth / 8, - (windowHeight) + 1600, 400, 400);
+    doorY = height - 400;
+    image(door, windowWidth / 8, doorY, 400, 400);
+
     image(shoes, 0, 0, windowWidth, windowHeight);
 
     let centerX = mouseX - 50;
@@ -150,4 +167,17 @@ function unlock() {
 
     image(key, centerX, centerY, 100, 100);
 
+    if (mouseX > windowWidth / 8 && mouseX < windowWidth / 8 + 400 && mouseY > doorY && mouseY < doorY + 400) {
+        if (mouseIsPressed) {
+            state = "opening";
+        }
+    }
+}
+
+function open() {
+    image(shoes, 0, 0, windowWidth, windowHeight);
+
+    doorY = height - 400;
+    gif2.position(windowWidth / 8, doorY);
+    gif2.show();
 }
