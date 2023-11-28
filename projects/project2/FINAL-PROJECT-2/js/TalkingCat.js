@@ -11,10 +11,13 @@ class TalkingCat {
 
         this.size = 50;
         this.growthRate = 1;
+        this.typewriter = new Typewriter();
+        this.typewriter.typewrite(`we're all mad here. I'm mad. You're mad`, windowWidth / 2.1, windowHeight / 4);
     }
 
     draw() {
         background(0, 0, 0);
+        this.typewriter.display();
         image(this.catimage, windowWidth / 3, windowHeight / 4, 500, 500);
         // Increases the text bubble sizes
         this.size += this.growthRate;

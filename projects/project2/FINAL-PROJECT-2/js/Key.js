@@ -7,10 +7,14 @@ class Key {
         this.gif1.size(100, 100);
         this.gif1.hide();
         this.empty = loadImage('assets/images/empty.png');
+        this.typewriter = new Typewriter();
+        this.typewriter.typewrite(`yay! I found a key!
+        \n maybe I can find a way out of here...`, windowWidth - 800, windowHeight / 1.5);
     }
 
     draw() {
         background(0, 0, 0);
+        this.typewriter.display();
         image(this.empty, windowWidth / 3, windowHeight / 4, 400, 400);
         this.gif1.show();
         this.currentFrame = (this.currentFrame + 1) % 7;

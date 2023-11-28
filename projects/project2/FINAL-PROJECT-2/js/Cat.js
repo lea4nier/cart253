@@ -5,10 +5,16 @@ class Cat {
         this.catSize = 50; //beginning size of cat
         this.growthRate = 0.5; // growth rate for images
         this.strobeCat = true; //boolean value for cat to strobe
+        this.typewriter = new Typewriter();
+        this.typewriter.typewrite(`Would you tell me, please, which way I out to go from here? 
+        \n ...That depends a great deal on where you want to get to
+        \n I don't much care where - 
+        \n ...Then it doesn't matter which way you go`, windowWidth - 700, windowHeight / 3);
     }
 
     draw() {
         background(0, 0, 0);
+        this.typewriter.display();
 
         // Increases the cat size
         this.catSize += this.growthRate;

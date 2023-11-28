@@ -1,7 +1,7 @@
 class Door {
     constructor() {
         this.doorY = height - 400;
-        // this.currentFrame = 0;
+        this.currentFrame = 60;
 
         this.door = loadImage('assets/images/door1.png');
         this.shoes = loadImage('assets/images/shoe.png');

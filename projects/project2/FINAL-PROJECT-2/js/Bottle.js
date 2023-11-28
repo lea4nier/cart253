@@ -6,6 +6,8 @@ class Bottle {
         this.mySpeechRec.continuous = true;
         this.mySpeechRec.interimResults = true;
         this.mySpeechRec.start(); // start listening
+        this.typewriter = new Typewriter();
+        this.typewriter.typewrite(`say: "drink me"`, windowWidth / 3, windowHeight / 4);
     }
 
     showResult() {
@@ -14,10 +16,11 @@ class Bottle {
 
     draw() {
         background(0, 0, 0);
+        this.typewriter.display();
         image(this.drinkme, windowWidth / 3, windowHeight / 4, 400, 400);
-        text('say: "drink me"', windowWidth / 3, windowHeight / 8);
-        fill(221, 88, 245);
-        textSize(60);
+        // text('say: "drink me"', windowWidth / 3, windowHeight / 8);
+        // fill(221, 88, 245);
+        // textSize(60);
 
         let lowerStr = "";
         if (this.mySpeechRec.resultString) {
