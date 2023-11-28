@@ -26,7 +26,7 @@ class Cat {
         this.strobeCat = !this.strobeCat; //image of cat dissapears and reappears to give strobe effect
 
         if (this.catSize === 500) {  //once cat is 500px the state switches to talking
-            state = "talking";
+            currentState = new TalkingCat();
         }
     }
 }
