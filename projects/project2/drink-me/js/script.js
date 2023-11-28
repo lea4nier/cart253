@@ -37,7 +37,7 @@ mySpeechRec.start(); // start listening
 */
 function preload() {
     drinkme = loadImage('assets/images/drinkme.png');
-    table = loadImage('assets/images/table.png')
+    table = loadImage('assets/images/table.png');
     empty = loadImage('assets/images/empty.png');
     shoes = loadImage('assets/images/shoe.png');
     door = loadImage('assets/images/door1.png');

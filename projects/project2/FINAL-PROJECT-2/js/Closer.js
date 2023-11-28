@@ -2,6 +2,7 @@ class Closer {
     constructor() {
         this.drinkme = loadImage('assets/images/drinkme.png');
         this.table = loadImage('assets/images/table.png');
+
     }
 
     draw() {
@@ -11,6 +12,6 @@ class Closer {
     }
 
     mousePressed() {
-        currentState = new Drink();
+        currentState = new Bottle();
     }
 }
