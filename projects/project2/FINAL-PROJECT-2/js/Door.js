@@ -20,10 +20,19 @@ class Door {
 
         image(this.key, centerX, centerY, 100, 100);
 
-        if (mouseX > windowWidth / 8 && mouseX < windowWidth / 8 + 400 && mouseY > doorY && mouseY < doorY + 400) {
+        if (mouseX > windowWidth / 8 && mouseX < windowWidth / 8 + 400 && mouseY > this.doorY && mouseY < this.doorY + 400) {
             if (mouseIsPressed) {
                 currentState = new Open;
             }
+        }
+        this.stopListening(); // Call the stopListening method when transitioning to the next state
+    }
+
+
+    stopListening() {
+        if (this.listening) {
+            this.mySpeechRec.stop();
+            this.listening = false;
         }
     }
 }

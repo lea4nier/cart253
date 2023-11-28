@@ -18,5 +18,6 @@ class Key {
 
     mousePressed() {
         currentState = new Door();
+        this.gif1.hide();
     }
 }
