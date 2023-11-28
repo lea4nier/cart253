@@ -12,6 +12,7 @@ class Alice {
         this.h = 200;
         this.active = true;
         this.image = aliceAsset; //good (red) apples
+        this.shrinkRate = 0.5;
     }
     gravity(force) {
         this.ay = this.ay + force;  //acceleration increases 
@@ -69,6 +70,25 @@ class Alice {
 
         this.x = this.x + this.vx;   //Add the velocity to the position to move the ball
         this.y = this.y + this.vy;
+    }
+
+    shrink() {
+        // Gradually decrease the size
+        this.size -= this.shrinkRate;
+
+        // Stop shrinking when the size is smaller than a certain threshold
+        if (this.size <= 0) {
+            this.size = 0;
+            this.active = false; // Deactivate the object when it's too small
+        }
+    }
+
+    home() {     //displays alice
+        push();
+        // background(0, 0, 0);
+        image(this.image, this.x, this.y, this.size, this.size);
+
+        pop();
     }
 
 }
