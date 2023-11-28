@@ -29,7 +29,7 @@ class TalkingCat {
 
 
         if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
-            this.catimage = this.cat2; //if mouse hovers over choice 2 (paint white flowers...) then the cat image changes
+            this.catimage = this.cat2; //if mouse hovers over choice 1 (paint white flowers...) then the cat image changes
         }
 
         else if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 + 300 && mouseY < windowHeight / 4 + 300 + this.size) {
@@ -42,6 +42,12 @@ class TalkingCat {
 
         else {
             this.catimage = this.catimage;
+        }
+    }
+
+    mousePressed() {
+        if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
+            currentState = new Garden(); //if mouse hovers over choice 1 (paint white flowers...) then the cat image changes
         }
     }
 }
