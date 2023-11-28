@@ -15,7 +15,7 @@ function setup() {
     // We can set the current state by creating a NEW object from the class
     // representing that state! This will call its constructor() which will work
     // like the `setup()` for that state.
-    currentState = new Title1();
+    currentState = new Table();
 
 
 }

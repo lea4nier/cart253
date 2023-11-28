@@ -38,6 +38,6 @@ class Title3 {
 
 
     mousePressed() {
-        currentState = new Title2();
+        currentState = new Table();
     }
 }
