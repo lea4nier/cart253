@@ -10,7 +10,7 @@ class TalkingCat {
         this.choice3 = loadImage('assets/images/choice3.png');
 
         this.size = 50;
-        this.growthRate = 0.5;
+        this.growthRate = 1;
     }
 
     draw() {
@@ -48,6 +48,14 @@ class TalkingCat {
     mousePressed() {
         if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
             currentState = new Garden(); //if mouse hovers over choice 1 (paint white flowers...) then the cat image changes
+        }
+
+        else if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 + 300 && mouseY < windowHeight / 4 + 300 + this.size) {
+            currentState = new Cry(); //if mouse hovers over choice 2 (cry) then the cat image changes
+        }
+
+        else if (mouseX > windowWidth / 3 - 350 / 2 && mouseX < windowWidth / 3 - 350 / 2 + this.size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
+            currentState = new Home(); //if mouse hovers over choice 3 (go home) then the cat image changes
         }
     }
 }
