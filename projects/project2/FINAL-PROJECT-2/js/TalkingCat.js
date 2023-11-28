@@ -30,18 +30,22 @@ class TalkingCat {
 
         if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
             this.catimage = this.cat2; //if mouse hovers over choice 1 (paint white flowers...) then the cat image changes
+            cursor(HAND);
         }
 
         else if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 + 300 && mouseY < windowHeight / 4 + 300 + this.size) {
             this.catimage = this.cat3; //if mouse hovers over choice 2 (cry) then the cat image changes
+            cursor(HAND);
         }
 
         else if (mouseX > windowWidth / 3 - 350 / 2 && mouseX < windowWidth / 3 - 350 / 2 + this.size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
             this.catimage = this.cat4; //if mouse hovers over choice 3 (go home) then the cat image changes
+            cursor(HAND);
         }
 
         else {
             this.catimage = this.catimage;
+            cursor(ARROW);
         }
     }
 
