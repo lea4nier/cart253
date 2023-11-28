@@ -32,5 +32,6 @@ class Bottle {
 
     mousePressed() {
         currentState = new DrinkMe();
+        this.mySpeechRec.stop();
     }
 }
