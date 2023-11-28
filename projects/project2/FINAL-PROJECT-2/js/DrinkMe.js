@@ -1,6 +1,6 @@
 class DrinkMe {
     constructor() {
-        background(0, 0, 0);
+
         this.frames = [];
         this.currentFrame = 0;
         this.fr = 1;
@@ -12,7 +12,7 @@ class DrinkMe {
 
     }
     draw() {
-        // background(0, 0, 0);
+        background(0, 0, 0);
         frameRate(this.fr);
         image(this.frames[this.currentFrame], windowWidth / 3, windowHeight / 4, 400, 400);  //displays the images in the array
         // Advance to the next frame (and loop back to 0 if you reach the end)
