@@ -78,9 +78,22 @@ class Butterfly {
         pop();
 
         push();
-        fill(0, 0, 255); // Set the fill color to blue
+        fill(168, 199, 247); // Set the fill color to blue
         ellipse(this.x - this.size / 4, this.y, this.size / 2, this.size);
         ellipse(this.x + this.size / 4, this.y, this.size / 2, this.size);
         pop();
+    }
+
+    mousePressed() {
+        push();
+        fill(0); // Set the fill color to black
+        ellipse(this.x, this.y, this.size);
+        pop();
+
+
+        fill(random(0, 255), random(0, 255), random(0, 255)); // Set the fill color to blue
+        ellipse(this.x - this.size / 4, this.y, this.size / 2, this.size);
+        ellipse(this.x + this.size / 4, this.y, this.size / 2, this.size);
+
     }
 }

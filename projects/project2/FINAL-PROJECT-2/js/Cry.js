@@ -10,7 +10,7 @@ class Cry {
         this.typewriter = new Typewriter();
         this.typewriter.typewrite(`Come, there's no use in crying like that!
         \n I advise you to leave off this minute!
-        \n ...she generally gave herself ver good advice 
+        \n ...she generally gave herself very good advice 
         \n...(though she very seldom followed it)`, windowWidth / 3, windowHeight / 4);
     }
 
