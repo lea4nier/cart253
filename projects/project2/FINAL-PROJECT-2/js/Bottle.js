@@ -3,7 +3,7 @@ class Bottle {
         this.drinkme = loadImage('assets/images/drinkme.png');
         this.mySpeechRec = new p5.SpeechRec(); // speech recognition object (will prompt for mic access)
         this.mySpeechRec.onResult = this.showResult.bind(this);  // bind callback function to trcwhen speech is recognized
-        this.mySpeechRec.continuous = true;
+        this.mySpeechRec.continuous = false;
         this.mySpeechRec.interimResults = true;
         this.mySpeechRec.start(); // start listening
         this.typewriter = new Typewriter();
