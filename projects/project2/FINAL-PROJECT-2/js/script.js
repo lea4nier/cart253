@@ -1,11 +1,12 @@
 // A variable to store the currently active state object (starts empty)
 let currentState;
+let music;
 
 // setup()
 // Create the canvas, start our program in the title state, set default text style
 
 function preload() {
-
+    music = loadSound(`assets/sounds/theme.mp3`);
 
 }
 
@@ -16,6 +17,7 @@ function setup() {
     // representing that state! This will call its constructor() which will work
     // like the `setup()` for that state.
     currentState = new Title1();
+    music.loop();
 
 
 }
@@ -27,10 +29,12 @@ function draw() {
     // If the current state is Animation this will call the Animation class draw()
     // if the current state is Ending this will call the Ending class draw()
     currentState.draw();
+
 }
 
 
 
 function mousePressed() {
     currentState.mousePressed();
+
 }
