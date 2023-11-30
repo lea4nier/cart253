@@ -33,11 +33,23 @@ class Cup {
             this.active = false;
         }
     }
+    bounce(Alice) {
+        let d = dist(this.x, this.y, Alice.x, Alice.y);
 
+        // Check if they overlap, considering Alice's size
+        if (d < this.size / 2 + Alice.size / 2) {
+            // Bounce
+            let dx = this.x - Alice.x;
+            this.vx += map(dx, -Alice.size / 2, Alice.size / 2, -2, 2);
+
+            this.vy = -this.vy;
+            this.ay = 0;
+        }
+    }
     display() {
         //displays apples
         push();
-        image(this.image, this.x, this.y, this.w, this.h); console.log(this.y);
+        image(this.image, this.x, this.y, this.w, this.h);
         pop();
     }
 }

@@ -50,6 +50,7 @@ class Title2 {
             this.cups[i].display();
             this.cups[i].gravity();
             this.cups[i].move();
+            this.cups[i].bounce(this.alices[0]);
         }
     }
 
