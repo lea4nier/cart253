@@ -17,7 +17,7 @@ function setup() {
     // representing that state! This will call its constructor() which will work
     // like the `setup()` for that state.
     currentState = new Title1();
-    music.loop();
+
 
 
 }
@@ -36,5 +36,7 @@ function draw() {
 
 function mousePressed() {
     currentState.mousePressed();
-
+    if (!music.isPlaying()) {
+        music.loop();
+    }
 }
