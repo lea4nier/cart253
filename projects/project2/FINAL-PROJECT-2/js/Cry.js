@@ -20,11 +20,11 @@ class Cry {
         this.gif3.show();
         this.currentFrame = (this.currentFrame + 1) % 7;
 
-        image(this.cat3, windowWidth / 8, windowHeight / 10, 150, 100);
+        image(this.cat3, windowWidth / 8, windowHeight / 10, 250, 200);
     }
 
     mousePressed() {
-        if (mouseX > windowWidth / 8 && mouseX < windowWidth / 8 + 150 && mouseY > windowHeight / 10 && mouseY < windowHeight / 10 + 100) {
+        if (mouseX > windowWidth / 8 && mouseX < windowWidth / 8 + 250 && mouseY > windowHeight / 10 && mouseY < windowHeight / 10 + 200) {
             currentState = new TalkingCat(); // Handle the mouse press action for cat2
             this.gif3.hide();
         }

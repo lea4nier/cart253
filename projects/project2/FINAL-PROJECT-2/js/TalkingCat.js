@@ -18,7 +18,7 @@ class TalkingCat {
     draw() {
         background(0, 0, 0);
         this.typewriter.display();
-        image(this.catimage, windowWidth / 3, windowHeight / 4, 500, 500);
+        image(this.catimage, windowWidth / 3, windowHeight / 4, 550, 500);
         // Increases the text bubble sizes
         this.size += this.growthRate;
 
@@ -26,42 +26,47 @@ class TalkingCat {
             this.size = 400; // Set size to the limit
         }
 
+
         image(this.choice1, (windowWidth / 3) + 400, windowHeight / 4, this.size, this.size);
-        image(this.choice2, (windowWidth / 3) + 400, (windowHeight / 4) + 300, this.size, this.size);
+        image(this.choice2, (windowWidth / 3) + 400, (windowHeight / 4) + 200, this.size, this.size);
         image(this.choice3, (windowWidth / 3) - 350, windowHeight / 4, this.size, this.size);
 
 
-        if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
+        if (mouseX > (windowWidth / 3) + 400 && mouseX < (windowWidth / 3) + 400 + this.size &&
+            mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
             this.catimage = this.cat2; //if mouse hovers over choice 1 (paint white flowers...) then the cat image changes
             cursor(HAND);
         }
 
-        else if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 + 300 && mouseY < windowHeight / 4 + 300 + this.size) {
+        else if (mouseX > (windowWidth / 3) + 400 && mouseX < (windowWidth / 3) + 400 + this.size &&
+            mouseY > (windowHeight / 4) + 200 && mouseY < (windowHeight / 4) + 200 + this.size) {
             this.catimage = this.cat3; //if mouse hovers over choice 2 (cry) then the cat image changes
             cursor(HAND);
         }
-
-        else if (mouseX > windowWidth / 3 - 350 / 2 && mouseX < windowWidth / 3 - 350 / 2 + this.size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
+        // Check if mouse is over choice 3
+        else if (mouseX > (windowWidth / 3) - 350 && mouseX < (windowWidth / 3) - 350 + this.size &&
+            mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
             this.catimage = this.cat4; //if mouse hovers over choice 3 (go home) then the cat image changes
             cursor(HAND);
-        }
-
-        else {
-            this.catimage = this.catimage;
+        } else {
+            this.catimage = this.catimage;  // if the mouse is anywhere else it is not clickable
             cursor(ARROW);
         }
     }
 
     mousePressed() {
-        if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
+        if (mouseX > (windowWidth / 3) + 400 && mouseX < (windowWidth / 3) + 400 + this.size &&
+            mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
             currentState = new Garden(); //if mouse hovers over choice 1 (paint white flowers...) then the cat image changes
         }
 
-        else if (mouseX > windowWidth / 3 + 400 / 2 && mouseX < windowWidth / 3 + 400 / 2 + this.size && mouseY > windowHeight / 4 + 300 && mouseY < windowHeight / 4 + 300 + this.size) {
+        else if (mouseX > (windowWidth / 3) + 400 && mouseX < (windowWidth / 3) + 400 + this.size &&
+            mouseY > (windowHeight / 4) + 200 && mouseY < (windowHeight / 4) + 200 + this.size) {
             currentState = new Cry(); //if mouse hovers over choice 2 (cry) then the cat image changes
         }
 
-        else if (mouseX > windowWidth / 3 - 350 / 2 && mouseX < windowWidth / 3 - 350 / 2 + this.size && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
+        else if (mouseX > (windowWidth / 3) - 350 && mouseX < (windowWidth / 3) - 350 + this.size &&
+            mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
             currentState = new Home(); //if mouse hovers over choice 3 (go home) then the cat image changes
         }
     }
