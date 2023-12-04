@@ -3,13 +3,14 @@ class Cat {
         this.catimage = loadImage('assets/images/cat1.png');  //main cheshire cat image
         this.size = 50; // beginning size of other images
         this.catSize = 50; //beginning size of cat
-        this.growthRate = 0.5; // growth rate for images
+        this.growthRate = 0.45; // growth rate for images
         this.strobeCat = true; //boolean value for cat to strobe
         this.typewriter = new Typewriter();
-        this.typewriter.typewrite(`Would you tell me, please, which way I out to go from here? 
-        \n ...That depends a great deal on where you want to get to
-        \n I don't much care where - 
-        \n ...Then it doesn't matter which way you go`, windowWidth - 700, windowHeight / 3);
+        this.typewriter.typewrite(`Alice: "Would you tell me, please, which way I ought to go from here?" 
+        \n Cheshire: "...That depends a great deal on where you want to get to"
+        \n Alice: "I don't much care where" 
+        \n Cheshire: "...Then it doesn't matter which way you go"`, windowWidth - 775, windowHeight / 3);
+
     }
 
     draw() {
