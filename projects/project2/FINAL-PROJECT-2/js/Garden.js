@@ -58,7 +58,7 @@ class Garden {
                 butterfly.display();
             }
         }
-        image(this.cat2, windowWidth / 8, windowHeight / 4, 100, 100);
+        image(this.cat2, windowWidth / 8, windowHeight / 4, 150, 150);
 
         if (this.mouseMoving) {
             this.mouse.display();
@@ -93,7 +93,7 @@ class Garden {
             currentState = new MouseTitle();  // Change the state to MouseTitle
         }
 
-        if (mouseX > windowWidth / 8 && mouseX < windowWidth / 8 + 100 && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + 100) {
+        if (mouseX > windowWidth / 8 && mouseX < windowWidth / 8 + 150 && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + 150) {
             currentState = new TalkingCat(); // If the user presses the cat2 image then they go back to the TalkingCat state
         }
 
