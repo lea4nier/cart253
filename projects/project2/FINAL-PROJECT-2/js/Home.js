@@ -1,5 +1,7 @@
 class Home {
     constructor() {
+        this.startTime = millis();
+        this.duration = 5555; //time limit of 10 seconds during game 
         this.aliceAsset = loadImage('assets/images/fallAl.png');
         this.alices = [];   //create an array for the apples
         this.numAlices = 1;
@@ -10,7 +12,7 @@ class Home {
         background(0, 0, 0);
         this.circles = [];
         this.typewriter = new Typewriter();
-        this.typewriter.typewrite(`the end`, windowWidth / 2.1, windowHeight / 2.2);
+        this.typewriter.typewrite(`the end`, windowWidth / 2, windowHeight / 2.2);
 
         for (let i = 0; i < this.numAlices; i++) {
             let x = windowWidth / 2;      //good apples fall at a random x and y
@@ -20,6 +22,10 @@ class Home {
         }
     }
     draw() {
+        let elapsed = millis() - this.startTime; //when the state changes to game the 10 second countdown begins 
+        if (elapsed > this.duration) {
+            currentState = new Title1();  //if 10 seconds pass the state changes to "win"
+        }
         background(0, 0, 0);
         this.typewriter.display();
         for (let i = 0; i < this.alices.length; i++) {

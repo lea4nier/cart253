@@ -1,7 +1,7 @@
 class MouseGame {
     constructor() {
         this.startTime = millis();
-        this.duration = 30000; //time limit of 10 seconds during game 
+        this.duration = 10000; //time limit of 10 seconds during game 
         this.mouseAsset = loadImage('assets/images/mouse.png');
         this.user = loadImage('assets/images/catch.png');
         this.mouse = new Mouse(random(windowWidth / 10, windowWidth / 2), random(windowHeight / 10, windowHeight / 2), this.mouseAsset);

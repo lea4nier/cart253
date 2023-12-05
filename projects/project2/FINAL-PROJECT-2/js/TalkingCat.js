@@ -48,7 +48,8 @@ class TalkingCat {
             mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + this.size) {
             this.catimage = this.cat4; //if mouse hovers over choice 3 (go home) then the cat image changes
             cursor(HAND);
-        } else {
+        }
+        else {
             this.catimage = this.catimage;  // if the mouse is anywhere else it is not clickable
             cursor(ARROW);
         }

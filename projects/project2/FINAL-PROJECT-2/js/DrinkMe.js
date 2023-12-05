@@ -12,6 +12,7 @@ class DrinkMe {
     }
     draw() {
         background(0, 0, 0);
+        cursor(ARROW);
         image(this.frames[this.currentFrame], windowWidth / 3, windowHeight / 4, 400, 400);  //displays the images in the array
         frameRate(this.fr);
         // Advance to the next frame (and loop back to 0 if you reach the end)

@@ -14,7 +14,7 @@ class Title1 {
 
         for (let i = 0; i < this.numAlices; i++) {
             let x = windowWidth / 2;      //good apples fall at a random x and y
-            let y = -400;
+            let y = -200;
             let alice = new Alice(x, y, this.aliceAsset);
             this.alices.push(alice);
         }
@@ -26,7 +26,6 @@ class Title1 {
     draw() {
         background(0, 0, 0);
         image(this.hole, windowWidth / 18, windowHeight / 120, windowWidth, windowHeight);
-        this.typewriter.display();
 
         for (let i = 0; i < this.alices.length; i++) {
 
@@ -37,6 +36,7 @@ class Title1 {
             }
 
         }
+        this.typewriter.display();
     }
 
 
