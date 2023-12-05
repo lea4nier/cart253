@@ -72,6 +72,7 @@ Credits:
  * "Alice.js", "Cup.js", "Title1.js", "Title2.js", "Title3.js", and "Home.js" were 
  created based on my "juggle-garden" exercise.  
     * Link to my exercise: https://github.com/lea4nier/cart253/tree/main/exercises/juggle-garden/js 
+    * Link to live code: https://lea4nier.github.io/cart253/exercises/juggle-garden/
     * This code was created after following the Juggling simulation activity in Week 8.
     * Link to juggle simulation code: https://github.com/pippinbarr/cart253/tree/main/activities/juggling-simulation/js
 
