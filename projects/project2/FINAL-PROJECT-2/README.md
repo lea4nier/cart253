@@ -4,23 +4,28 @@ A game by Léa Fournier
 Created Fall 2023
 
 -------------------------------------------------------------------------
-Overview
+Artists's Statement
 -------------------------------------------------------------------------
 
 This is a simulation inspired by the book "Alice in Wonderland" by Lewis Carroll.
 The player is immersed into the world of the story as Alice after falling down the rabbit hole. 
 They are met with multiple tasks and mini games to explore the whimsical world of Wonderland! 
 
-I was very inspired by the darker and creepier elements of this story that is usually told for children. 
-I took some of my favorite elements of the story such as (but not limited to) the little bottle labeled "drink me", the cheshire cat, painting white roses red, and teacups to create my own version. 
+
+I took some of my favorite elements of the story such as (but not limited to) the little bottle labeled "drink me", the cheshire cat, painting white roses red, and teacups to create my own version. I was very inspired by the darker and creepier elements of this story that is usually told for children. I tried to emphasize this with my various drawings of the Cheshire cat and the strobe effect when he appears. At the same time, I still wanted it to feel playful which is why I chose the song I did. I also found it funny to include "cry" as an option for Alice. The game should emphasize the dreaminess and imagination of the original story. 
+
+
+My goal was to use various forms of interactivity through speech recognition, mouse data, and buttons. I used animations and art to change the user's perspective (i.e. walking closer to the table with bottle and opening the door) and tried my best to keep the game from feeling stagnant through the incorporation of many different states. The player should feel as if they are going on the journey with Alice, especially when they are given the opportunity to decide where they want to go in the Cheshire Cat state. In an effort to make the game feel more exciting, I added a secret game that the user can discover.   
 
 -------------------------------------------------------------------------
 Attributions 
 -------------------------------------------------------------------------
 
 "Alice's Adventure in Wonderland" by Lewis Carroll, published 1893.
+
 I have used many quotes from the book in my game, and it was my primary source of inspiration. 
-Since “Alice’s Adventures in Wonderland” falls within this timeframe, the text itself is no longer subject to copyright restrictions. This means that anyone is free to reproduce or adapt the story without seeking permission or paying royalties.
+
+Since “Alice’s Adventures in Wonderland” was published before 1923, the text itself is no longer subject to copyright restrictions. 
 
 
 Music:
