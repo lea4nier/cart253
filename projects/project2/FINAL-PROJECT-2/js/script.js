@@ -1,33 +1,29 @@
-// A variable to store the currently active state object (starts empty)
-let currentState;
-let music;
+/*****************************
+Alice in Wonderland
+Léa Fournier
 
-// setup()
-// Create the canvas, start our program in the title state, set default text style
+Project 2
+Fall 2023 
+
+Explore Wonderland as Alice!
+*****************************/
+let currentState; // a variable to store the currently active state object 
+let music; //variable for sound that plays throughout the entire game
 
 function preload() {
-    music = loadSound(`assets/sounds/theme.mp3`);
+    music = loadSound(`assets/sounds/theme.mp3`); //preloads song that plays the entire game
 
 }
 
 function setup() {
-    createCanvas(windowWidth, windowHeight);
-
-    // We can set the current state by creating a NEW object from the class
-    // representing that state! This will call its constructor() which will work
-    // like the `setup()` for that state.
-    currentState = new Title1();
-
-
-
+    createCanvas(windowWidth, windowHeight); // set canvas to windowWidth and windowHeight
+    currentState = new Title1();  //calls opening screen of the game which is the Title1 class 
 }
 
-// draw()
-// Simply call the draw method of the current state
+
+//calls draw method of the current state
 function draw() {
-    // If the current state is Title this will call the Title class draw()
-    // If the current state is Animation this will call the Animation class draw()
-    // if the current state is Ending this will call the Ending class draw()
+    // If the current state is Title1 this will call the Title1 class draw()
     currentState.draw();
 
 }
@@ -35,8 +31,8 @@ function draw() {
 
 
 function mousePressed() {
-    currentState.mousePressed();
-    if (!music.isPlaying()) {
-        music.loop();
+    currentState.mousePressed();  //calls the mousePressed function in the current state
+    if (!music.isPlaying()) {  //once the user presses there mouse, the music begins
+        music.loop(); //the music loops throughout the entire game
     }
 }

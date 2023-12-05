@@ -1,20 +1,18 @@
 class Flower {
-
-    // The constructor() sets up a flower's properties
+    //Flower class called in Garden state 
     constructor(x, y, size, stemLength, petalColor) {
-        // Position and size information
-        this.x = x;
+        // The constructor() sets up a flower's properties
+        this.x = x; //flower position
         this.y = y;
-        this.danceSpeed = 1;
-        this.maxDance = 10;
-        this.size = size;
-        this.maxSize = 40; // NEW! To limit growth
+        this.size = size; //curent size of the flower
+        this.maxSize = 40; // max size of flower 
         this.stemLength = stemLength;
-        this.stemThickness = 10;
-        this.petalThickness = 10;
-        this.maxPetalThickness = 30; // NEW! To limit growth
-        this.minPetalThickness = 0;
-        this.minSize = 5;
+        this.stemThickness = 10; //stem thickness 
+        this.petalThickness = 10; //petal thickness 
+        this.maxPetalThickness = 30; // limit growth
+        this.minPetalThickness = 0; //minimum petal thickness 
+        this.minSize = 5; //minimum size of flower 
+
         // Color information
         this.stemColor = {
             r: 50,
@@ -26,61 +24,20 @@ class Flower {
             g: 255,
             b: 255,
         };
-        // this.centreColor = {
-        //     r: 50,
-        //     g: 0,
-        //     b: 0
-        // };
+
+        //state of the flower 
         this.alive = true;
 
     }
 
-    // shrink()
-    // // Shrinks the flower
-    // shrink() {
-    //     // Choose a random amount to shrink
-    //     // this.petalColor = {
-    //     //     r: 255,
-    //     //     g: 255,
-    //     //     b: 255,
-    //     // }
-    //     let shrinkage = random(0, 0.1);
-    //     // Reduce the petal thickness (divide by 10 to make it less rapid)
-    //     this.petalThickness = this.petalThickness - shrinkage / 10;
-    //     // Reduce the centre of the flower
-    //     this.size = this.size - shrinkage;
-
-    //     this.size = constrain(this.size, this.minSize, this.maxSize);
-
-    //     // If any of the key properties reach 0 or less, the flower is dead
-    //     // if (this.petalThickness <= 0 || this.size <= 0) {
-    //     //     this.alive = false;
-    //     // }
-    // }
-
-    // dance() {
-    //     this.x += this.danceSpeed;
-
-    //     if (this.x > this.maxDance) {
-    //         this.x = random(0, width);;
-    //     }
-
-    //     // if (this.x < this.maxDance) {
-    //     //     this.x = this.x + 1;
-    // }}
-
-
-    // NEW! pollinate() handles the flower being pollinated (it grows)
+    //called when flower is pollinated by butterfly and grows 
     pollinate() {
         // Choose a random amount to grow
         let growth = random(0, 0.5);
-        // this.petalColor = {
-        //     r: 255,
-        //     g: 255,
-        //     b: 255,
-        // }
+
         // Increase the petal thickness (divide by 10 to make it less rapid)
         this.petalThickness = this.petalThickness + growth / 10;
+
         // Increase the centre of the flower
         this.size = this.size + growth;
 
@@ -89,21 +46,6 @@ class Flower {
         this.size = constrain(this.size, this.minSize, this.maxSize);
     }
 
-    grow() {
-        if (this.petalThickness === this.minPetalThickness || this.size === this.minSize) {
-            let growth = random(0, 0.5);
-            // Increase the petal thickness (divide by 10 to make it less rapid)
-            this.petalThickness = this.petalThickness + growth / 10;
-            // Increase the centre of the flower
-            this.size = this.size + growth;
-
-            // // Constrain the elements
-            // this.petalThickness = constrain(this.petalThickness, this.minPetalThickness, this.maxPetalThickness);
-            // this.size = constrain(this.size, this.minSize, this.maxSize);
-        }
-    }
-
-    // display()
     // Displays the flower on the canvas
     display() {
         push();
@@ -117,16 +59,10 @@ class Flower {
         // fill(this.centreColor.r, this.centreColor.g, this.centreColor.b);
         stroke(this.petalColor.r, this.petalColor.g, this.petalColor.b);
         ellipse(this.x, this.y, this.size);
-        // this.petalColor = {
-        //     r: 255,
-        //     g: 255,
-        //     b: 255,
-        // }
-
-
         pop();
     }
 
+    //if the user presses a flower it turns red and grows 
     mousePressed() {
         // Calculate the distance between this flower and the mouse
         let d = dist(this.x, this.y, mouseX, mouseY);

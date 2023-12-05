@@ -1,4 +1,8 @@
 class Typewriter {
+    //*****************************
+    // This code was written by Pippin Barr. 
+    //Source: https://github.com/pippinbarr/cart253/blob/main/examples/text/typewriter-effect/js/Typewriter.js 
+    /*****************************/
 
     // constructor()
     // Sets the basic properties
