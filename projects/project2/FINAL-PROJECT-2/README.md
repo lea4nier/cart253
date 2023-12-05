@@ -20,6 +20,7 @@ Attributions
 
 "Alice's Adventure in Wonderland" by Lewis Carroll, published 1893.
 I have used many quotes from the book in my game, and it was my primary source of inspiration. 
+Since “Alice’s Adventures in Wonderland” falls within this timeframe, the text itself is no longer subject to copyright restrictions. This means that anyone is free to reproduce or adapt the story without seeking permission or paying royalties.
 
 
 Music:
