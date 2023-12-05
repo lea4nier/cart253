@@ -1,4 +1,5 @@
 class Alice {
+    //Please see more detailed attributions in README File!
     //Alice class called in Title1, Title2, Title3, and Home/Ending states
     constructor(x, y, aliceAsset) {
         //constructor for Alice properties 

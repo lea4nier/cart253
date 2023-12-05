@@ -1,4 +1,5 @@
 class Butterfly {
+    //Please see more detailed attributions in README File!
     //Butterfly class called in Garden state 
     constructor(x, y) {
         //constructor for butterfly's properties

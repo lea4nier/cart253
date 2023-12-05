@@ -1,5 +1,6 @@
 class DrinkMe {
-    //bottle drinking animation using for loop
+    //Please see more detailed attributions in README File!
+    //DrinkMe state for bottle drinking animation using for loop
     constructor() {
         // array to store frames of the animation
         this.frames = [];

@@ -1,4 +1,5 @@
 class Bottle {
+    //Please see more detailed attributions in README File!
     //bottle image and speech recognition used to check if the user says "drink me" 
 
     constructor() {

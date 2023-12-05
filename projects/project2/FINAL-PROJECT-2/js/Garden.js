@@ -1,4 +1,5 @@
 class Garden {
+    //Please see more detailed attributions in README File!
     //Garden class where user clicks on flowers to turn red...and secret game appears!!
     constructor() {
         //constructor for properties of garden 

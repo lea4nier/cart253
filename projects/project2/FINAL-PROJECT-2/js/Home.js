@@ -1,4 +1,7 @@
 class Home {
+    //This code was made by using code from "Spiral" by The Coding Train / Daniel Shiffman
+    //Link to code: https://editor.p5js.org/codingtrain/sketches/BnJ_4U4cr
+    /////////
     //Home class is the Ending state!! Alice goes into portal  
     constructor() {
         this.startTime = millis(); //set start time 
