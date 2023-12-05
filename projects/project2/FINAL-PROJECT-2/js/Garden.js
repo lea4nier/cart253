@@ -1,7 +1,5 @@
 class Garden {
     constructor() {
-        this.startTime = millis(); //set start time 
-        this.duration = 10000;  //timer of 10 seconds
         this.countFlower = 0;   //counts number of flowers the user turns red 
         this.cat2 = loadImage('assets/images/cat2.png');
         this.flowers = [];  //array for flowers 
@@ -13,6 +11,10 @@ class Garden {
             g: 0,
             b: 0
         };
+        this.mouseAsset = loadImage('assets/images/mouse.png');
+        this.mouse = new Mouse(windowWidth / 10, windowHeight / 2, this.mouseAsset); // 
+        this.mouseMoving = false; // 
+
 
         createCanvas(windowWidth, windowHeight);
 
@@ -34,10 +36,6 @@ class Garden {
     }
 
     draw() {
-        // let elapsed = millis() - this.startTime;  //countodwn starts 
-        // if (elapsed > this.duration) {
-        //     currentState = new TalkingCat();  //if 10 seconds pass the state changes to "win"
-        // }
         background(this.grassColor.r, this.grassColor.g, this.grassColor.b);
         for (let i = 0; i < this.flowers.length; i++) {
             let flower = this.flowers[i];
@@ -61,6 +59,11 @@ class Garden {
             }
         }
         image(this.cat2, windowWidth / 8, windowHeight / 4, 100, 100);
+
+        if (this.mouseMoving) {
+            this.mouse.display();
+            this.mouse.move();
+        }
     }
 
     mousePressed() {
@@ -71,14 +74,29 @@ class Garden {
         for (let i = 0; i < this.flowers.length; i++) {
             let flower = this.flowers[i];
             flower.mousePressed();   //calls mousePressed function in Flower class that turns flowers red 
-            //     if (mouseX > flower.x && mouseX < flower.x + flower.size && mouseY > flower.y && mouseY < flower.y + flower.size) {
-            //         this.countFlower = this.countFlower + 1;   //counts number of times user presses flower 
-            //     }
-            // }
-            if (mouseX > windowWidth / 8 && mouseX < windowWidth / 8 + 100 && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + 100) {
-                currentState = new TalkingCat(); // If the suer presses the cat2 image then they go back to the TalkingCat state
+            if (flower.mousePressed) {
+                this.countFlower = this.countFlower + 1;   //counts number of times user presses flower 
             }
 
         }
+
+        if (this.countFlower >= 100) {
+            this.mouseMoving = true;
+        }
+
+        if (
+            mouseX > this.mouse.x &&
+            mouseX < this.mouse.x + 300 &&
+            mouseY > this.mouse.y &&
+            mouseY < this.mouse.y + 300
+        ) {
+            currentState = new MouseTitle();  // Change the state to MouseTitle
+        }
+
+        if (mouseX > windowWidth / 8 && mouseX < windowWidth / 8 + 100 && mouseY > windowHeight / 4 && mouseY < windowHeight / 4 + 100) {
+            currentState = new TalkingCat(); // If the user presses the cat2 image then they go back to the TalkingCat state
+        }
+
     }
+
 }

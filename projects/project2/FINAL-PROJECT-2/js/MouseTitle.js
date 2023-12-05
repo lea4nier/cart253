@@ -1,7 +1,8 @@
 class MouseTitle {
     constructor() {
         this.typewriter = new Typewriter();
-        this.typewriter.typewrite(`You have 10 seconds to try and catch the mouse!
+        this.typewriter.typewrite(`Congrats! You have discovered a secret game...
+        \nYou have 10 seconds to try and catch the mouse!
         \n click to start`, windowWidth / 18, windowHeight / 2);
     }
 
