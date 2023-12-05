@@ -3,7 +3,9 @@ A game by Léa Fournier
 
 Created Fall 2023
 
-Overview:
+-------------------------------------------------------------------------
+Overview
+-------------------------------------------------------------------------
 
 This is a simulation inspired by the book "Alice in Wonderland" by Lewis Carroll.
 The player is immersed into the world of the story as Alice after falling down the rabbit hole. 
@@ -12,7 +14,9 @@ They are met with multiple tasks and mini games to explore the whimsical world o
 I was very inspired by the darker and creepier elements of this story that is usually told for children. 
 I took some of my favorite elements of the story such as (but not limited to) the little bottle labeled "drink me", the cheshire cat, painting white roses red, and teacups to create my own version. 
 
-   Attributions:
+-------------------------------------------------------------------------
+Attributions 
+-------------------------------------------------------------------------
 
 "Alice's Adventure in Wonderland" by Lewis Carroll, published 1893.
 I have used many quotes from the book in my game, and it was my primary source of inspiration. 
