@@ -6,12 +6,16 @@ Project 2
 Fall 2023 
 
 Explore Wonderland as Alice!
-*****************************/
+
+Please see more detailed attributions in README File
+*****************************************************/
+
 let currentState; // a variable to store the currently active state object 
 let music; //variable for sound that plays throughout the entire game
 
 function preload() {
-    music = loadSound(`assets/sounds/theme.mp3`); //preloads song that plays the entire game
+    //full credits for song in ReadMe 
+    music = loadSound(`assets/sounds/song.mp3`); //preloads song that plays the entire game
 
 }
 
