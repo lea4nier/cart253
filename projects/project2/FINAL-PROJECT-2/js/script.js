@@ -7,7 +7,7 @@ Fall 2023
 
 Explore Wonderland as Alice!
 
-Please see more detailed attributions in README File
+Please see more detailed attributions in README File!
 *****************************************************/
 
 let currentState; // a variable to store the currently active state object 
