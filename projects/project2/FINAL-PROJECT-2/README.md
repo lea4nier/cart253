@@ -87,6 +87,10 @@ Credits:
     * Link to repository: https://github.com/lea4nier/cart253/tree/main/exercises/make-some-noise/js 
     * Link to live code for exercise: https://lea4nier.github.io/cart253/exercises/make-some-noise/ 
 
+
+Alice.js follow() function:
+I would like to thank Sabine Rosenberg from the Concordia Computation Lab for helping me figure this out! 
+
 -------------------------------------------------------------------------
 
 All other art used in the game was drawn by me on iPad using Procreate.
